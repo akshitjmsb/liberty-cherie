@@ -16,7 +16,7 @@
   /* Neutrals */
   --color-cream: #F5E6D3; /* Warm Cream/Ivory */
   --color-warm-white: #FAF6F1;
-  --color-charcoal: #2B3A4D; /* Using navy as charcoal */
+  --color-charcoal: var(--color-navy); /* Consolidated with navy */
   --color-soft-gray: #6B7280;
 
   /* Typography */
@@ -61,6 +61,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 500;
   line-height: 1.2;
+}
+
+/* Mobile typography adjustments */
+@media (max-width: 640px) {
+  h1 { font-size: 2rem; }    /* 32px vs 48px on desktop */
+  h2 { font-size: 1.5rem; }  /* 24px vs 36px on desktop */
+  h3 { font-size: 1.25rem; } /* 20px vs 24px on desktop */
 }
 
 /* Custom Scrollbar */
@@ -228,8 +235,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-input:focus {
   outline: none;
-  border-color: var(--color-secondary);
-  box-shadow: 0 0 0 3px rgba(168, 184, 176, 0.2);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(212, 133, 138, 0.1);
 }
 
 .form-input::placeholder {
@@ -241,6 +248,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 6px;
   font-weight: 500;
   color: var(--color-charcoal);
+}
+
+/* Keyboard Focus Indicators - Accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 /* Cart Badge */

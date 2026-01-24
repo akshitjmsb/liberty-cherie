@@ -54,8 +54,8 @@ export default function ProductCard({ product }: ProductCardProps) {
             </span>
           )}
 
-          {/* Quick Actions */}
-          <div className="absolute bottom-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+          {/* Quick Actions - Visible on mobile, hover-reveal on desktop */}
+          <div className="absolute bottom-3 right-3 flex gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
             <button
               onClick={handleAddToCart}
               className="p-2 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-colors"
