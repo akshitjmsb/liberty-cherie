@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="bg8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf7f5"/>
+      <stop offset="100%" style="stop-color:#f5ebe6"/>
+    </linearGradient>
+    <pattern id="lilac" patternUnits="userSpaceOnUse" width="60" height="80">
+      <circle cx="15" cy="20" r="6" fill="#c26e7a" opacity="0.25"/>
+      <circle cx="30" cy="15" r="6" fill="#c26e7a" opacity="0.3"/>
+      <circle cx="45" cy="20" r="6" fill="#c26e7a" opacity="0.25"/>
+      <circle cx="20" cy="40" r="6" fill="#c26e7a" opacity="0.3"/>
+      <circle cx="40" cy="40" r="6" fill="#c26e7a" opacity="0.25"/>
+      <circle cx="30" cy="60" r="6" fill="#c26e7a" opacity="0.3"/>
+      <path d="M30 65 L30 80" stroke="#7a9e7e" stroke-width="2" opacity="0.4"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg8)"/>
+  <rect width="800" height="800" fill="url(#lilac)"/>
+  <ellipse cx="400" cy="200" rx="80" ry="30" fill="none" stroke="#d4a574" stroke-width="8" opacity="0.5"/>
+  <path d="M320 200 L280 480 Q270 530 320 540 L480 540 Q530 530 520 480 L480 200" fill="#c26e7a" opacity="0.3"/>
+  <path d="M340 220 L305 470 Q295 510 340 520 L460 520 Q505 510 495 470 L460 220" fill="url(#lilac)" opacity="0.9"/>
+  <ellipse cx="380" cy="370" rx="35" ry="30" fill="#7a9e7e" opacity="0.35"/>
+  <ellipse cx="420" cy="400" rx="40" ry="35" fill="#d4a574" opacity="0.3"/>
+  <text x="400" y="630" text-anchor="middle" font-family="Georgia, serif" font-size="56" fill="#c26e7a" font-weight="500">Lila</text>
+  <text x="400" y="680" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#7a9e7e" opacity="0.8">Liberty Cherie</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="bg13" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf7f5"/>
+      <stop offset="100%" style="stop-color:#f5ebe6"/>
+    </linearGradient>
+    <pattern id="custom-pattern" patternUnits="userSpaceOnUse" width="80" height="80">
+      <rect x="10" y="10" width="20" height="20" rx="5" fill="#c26e7a" opacity="0.15"/>
+      <rect x="50" y="10" width="20" height="20" rx="5" fill="#7a9e7e" opacity="0.15"/>
+      <rect x="30" y="50" width="20" height="20" rx="5" fill="#d4a574" opacity="0.2"/>
+      <circle cx="20" cy="60" r="5" fill="#c26e7a" opacity="0.2"/>
+      <circle cx="60" cy="60" r="5" fill="#7a9e7e" opacity="0.2"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg13)"/>
+  <rect width="800" height="800" fill="url(#custom-pattern)"/>
+  <path d="M300 180 L280 180 Q260 180 260 200 L260 520 Q260 550 290 550 L510 550 Q540 550 540 520 L540 200 Q540 180 520 180 L500 180" fill="#7a9e7e" opacity="0.3"/>
+  <path d="M320 200 L300 200 Q280 200 280 220 L280 500 Q280 520 300 520 L500 520 Q520 520 520 500 L520 220 Q520 200 500 200 L480 200" fill="url(#custom-pattern)" opacity="0.9"/>
+  <rect x="320" y="160" width="160" height="60" rx="10" fill="#d4a574" opacity="0.4"/>
+  <text x="400" y="300" text-anchor="middle" font-family="Georgia, serif" font-size="80" fill="#c26e7a" opacity="0.15">?</text>
+  <ellipse cx="350" cy="400" rx="45" ry="40" fill="#c26e7a" opacity="0.2"/>
+  <ellipse cx="450" cy="400" rx="45" ry="40" fill="#d4a574" opacity="0.2"/>
+  <path d="M380 450 Q400 480 420 450" fill="none" stroke="#7a9e7e" stroke-width="3" opacity="0.4"/>
+  <text x="400" y="640" text-anchor="middle" font-family="Georgia, serif" font-size="38" fill="#c26e7a" font-weight="500">Personnalisees</text>
+  <text x="400" y="685" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#7a9e7e" opacity="0.8">Custom Jacket</text>
+  <text x="400" y="720" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#d4a574" opacity="0.8">Liberty Cherie</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="bg9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf7f5"/>
+      <stop offset="100%" style="stop-color:#f5ebe6"/>
+    </linearGradient>
+    <pattern id="lily-rose" patternUnits="userSpaceOnUse" width="120" height="120">
+      <ellipse cx="60" cy="40" rx="15" ry="25" fill="#c26e7a" opacity="0.2"/>
+      <ellipse cx="40" cy="60" rx="15" ry="25" fill="#c26e7a" opacity="0.2" transform="rotate(-60 40 60)"/>
+      <ellipse cx="80" cy="60" rx="15" ry="25" fill="#c26e7a" opacity="0.2" transform="rotate(60 80 60)"/>
+      <ellipse cx="45" cy="85" rx="15" ry="25" fill="#c26e7a" opacity="0.2" transform="rotate(-30 45 85)"/>
+      <ellipse cx="75" cy="85" rx="15" ry="25" fill="#c26e7a" opacity="0.2" transform="rotate(30 75 85)"/>
+      <circle cx="60" cy="65" r="12" fill="#d4a574" opacity="0.4"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg9)"/>
+  <path d="M250 180 Q230 180 220 200 L220 200 Q200 180 180 180" fill="none" stroke="#d4a574" stroke-width="10" opacity="0.5"/>
+  <path d="M620 180 Q600 180 580 200 L580 200 Q570 180 550 180" fill="none" stroke="#d4a574" stroke-width="10" opacity="0.5"/>
+  <path d="M180 220 L180 530 Q180 570 220 570 L580 570 Q620 570 620 530 L620 220 Z" fill="#7a9e7e" opacity="0.3"/>
+  <path d="M200 240 L200 510 Q200 540 230 540 L570 540 Q600 540 600 510 L600 240 Z" fill="url(#lily-rose)"/>
+  <ellipse cx="320" cy="390" rx="60" ry="55" fill="#c26e7a" opacity="0.25"/>
+  <ellipse cx="480" cy="390" rx="60" ry="55" fill="#c26e7a" opacity="0.25"/>
+  <circle cx="400" cy="420" r="40" fill="#d4a574" opacity="0.3"/>
+  <text x="400" y="640" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#c26e7a" font-weight="500">Tote Bag Lily-Rose</text>
+  <text x="400" y="690" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#7a9e7e" opacity="0.8">Liberty Cherie</text>
+</svg>
