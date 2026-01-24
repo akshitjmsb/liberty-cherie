@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120">
+  <defs>
+    <linearGradient id="navyGradH" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2B3A4D"/>
+      <stop offset="100%" style="stop-color:#3D4F66"/>
+    </linearGradient>
+    <linearGradient id="roseGradH" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8A5A5"/>
+      <stop offset="100%" style="stop-color:#D4858A"/>
+    </linearGradient>
+    <linearGradient id="redGradH" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A84848"/>
+      <stop offset="100%" style="stop-color:#8B3A3A"/>
+    </linearGradient>
+    <linearGradient id="leafGradH" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8A9470"/>
+      <stop offset="100%" style="stop-color:#6B7355"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left floral emblem -->
+  <g transform="translate(55, 60)">
+    <!-- Navy background circle -->
+    <circle r="50" fill="url(#navyGradH)"/>
+
+    <!-- Flowers around the edge -->
+    <g transform="translate(0, -38)">
+      <circle r="8" fill="url(#roseGradH)"/>
+      <circle r="5" fill="#D4858A"/>
+    </g>
+    <g transform="translate(0, 38)">
+      <circle r="8" fill="url(#roseGradH)"/>
+      <circle r="5" fill="#D4858A"/>
+    </g>
+    <g transform="translate(-38, 0)">
+      <circle r="7" fill="url(#redGradH)"/>
+      <circle r="4" fill="#8B3A3A"/>
+    </g>
+    <g transform="translate(38, 0)">
+      <circle r="7" fill="url(#redGradH)"/>
+      <circle r="4" fill="#8B3A3A"/>
+    </g>
+    <g transform="translate(-27, -27)">
+      <circle r="5" fill="#F5E6D3"/>
+    </g>
+    <g transform="translate(27, -27)">
+      <circle r="5" fill="#F5E6D3"/>
+    </g>
+    <g transform="translate(-27, 27)">
+      <circle r="5" fill="url(#redGradH)"/>
+    </g>
+    <g transform="translate(27, 27)">
+      <circle r="5" fill="url(#redGradH)"/>
+    </g>
+
+    <!-- Leaves -->
+    <g fill="url(#leafGradH)">
+      <ellipse cx="-32" cy="-20" rx="7" ry="3" transform="rotate(-50, -32, -20)"/>
+      <ellipse cx="32" cy="-20" rx="7" ry="3" transform="rotate(50, 32, -20)"/>
+      <ellipse cx="-32" cy="20" rx="7" ry="3" transform="rotate(50, -32, 20)"/>
+      <ellipse cx="32" cy="20" rx="7" ry="3" transform="rotate(-50, 32, 20)"/>
+      <ellipse cx="-15" cy="-35" rx="6" ry="2" transform="rotate(-20, -15, -35)"/>
+      <ellipse cx="15" cy="-35" rx="6" ry="2" transform="rotate(20, 15, -35)"/>
+    </g>
+
+    <!-- Center sage badge -->
+    <polygon
+      points="-18,22 -22,15 -22,-15 -18,-22 18,-22 22,-15 22,15 18,22"
+      fill="#A8B8B0"
+      stroke="#8A9C94"
+      stroke-width="1"
+    />
+    <text y="4" font-family="Georgia, serif" font-size="12" font-weight="500" fill="#FFFFFF" text-anchor="middle">LC</text>
+  </g>
+
+  <!-- Brand name text -->
+  <text x="130" y="52" font-family="Georgia, 'Playfair Display', serif" font-size="42" font-weight="400" fill="#2B3A4D" letter-spacing="2">LIBERTY</text>
+  <text x="130" y="92" font-family="Georgia, 'Playfair Display', serif" font-size="30" font-style="italic" fill="#D4858A">chérie</text>
+
+  <!-- Right decorative flowers -->
+  <g transform="translate(380, 35)">
+    <circle r="6" fill="url(#roseGradH)"/>
+    <circle r="3" fill="#D4858A"/>
+  </g>
+  <g transform="translate(400, 60)">
+    <circle r="5" fill="url(#redGradH)"/>
+  </g>
+  <g transform="translate(385, 85)">
+    <circle r="6" fill="url(#roseGradH)"/>
+    <circle r="3" fill="#D4858A"/>
+  </g>
+  <g fill="url(#leafGradH)">
+    <ellipse cx="395" cy="45" rx="8" ry="3" transform="rotate(30, 395, 45)"/>
+    <ellipse cx="395" cy="75" rx="8" ry="3" transform="rotate(-30, 395, 75)"/>
+  </g>
+
+  <!-- Tagline -->
+  <text x="420" y="55" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">Handcrafted in</text>
+  <text x="420" y="68" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">Saint-Sauveur</text>
+</svg>
