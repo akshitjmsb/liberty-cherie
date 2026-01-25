@@ -25,6 +25,13 @@
 
   /* Spacing */
   --nav-height: 80px;
+  --bottom-nav-height: 64px;
+
+  /* Safe area insets (fallback to 0 for devices without notch) */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
 }
 
 @theme inline {
@@ -47,6 +54,10 @@
 /* Base Styles */
 html {
   scroll-behavior: smooth;
+  /* Prevent overscroll bounce on iOS for app-like feel */
+  overscroll-behavior: none;
+  /* Enable momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -54,6 +65,19 @@ body {
   background-color: var(--color-warm-white);
   color: var(--color-charcoal);
   line-height: 1.6;
+  /* Disable tap highlight on mobile */
+  -webkit-tap-highlight-color: transparent;
+  /* Prevent text selection on interactive elements */
+  -webkit-touch-callout: none;
+  /* Add padding for bottom navigation on mobile */
+  padding-bottom: calc(var(--bottom-nav-height) + var(--safe-area-inset-bottom));
+}
+
+@media (min-width: 768px) {
+  body {
+    /* Remove bottom padding on desktop (no bottom nav) */
+    padding-bottom: 0;
+  }
 }
 
 /* Typography */
@@ -109,6 +133,17 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -124,6 +159,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-slide-in {
   animation: slideIn 0.3s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.25s ease-out forwards;
 }
 
 .animate-float {
@@ -440,6 +479,45 @@ textarea:focus-visible {
 .touch-target {
   min-width: 44px;
   min-height: 44px;
+}
+
+/* Prevent text selection on buttons and interactive elements */
+button,
+a,
+[role="button"] {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection in form inputs */
+input,
+textarea,
+[contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Bottom Navigation - safe area support */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding-bottom: var(--safe-area-inset-bottom);
+  background: white;
+  border-top: 1px solid var(--color-cream);
+}
+
+/* Ensure main content doesn't overlap with bottom nav on mobile */
+@media (max-width: 767px) {
+  main {
+    padding-bottom: calc(var(--bottom-nav-height) + var(--safe-area-inset-bottom));
+  }
+
+  footer {
+    padding-bottom: calc(var(--bottom-nav-height) + var(--safe-area-inset-bottom) + 16px);
+  }
 }
 
 /* Cart Badge */

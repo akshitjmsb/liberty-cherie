@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Lock, CreditCard } from 'lucide-react';
+import { ArrowLeft, Lock, CreditCard, ChevronDown, ChevronUp, ShoppingBag } from 'lucide-react';
 import { useCartStore } from '@/store/cart';
 import { getStripe } from '@/lib/stripe';
 
@@ -25,6 +25,7 @@ export default function CheckoutPage() {
   const { items, getSubtotal, getTax, getShipping, getTotal, clearCart } = useCartStore();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [orderSummaryOpen, setOrderSummaryOpen] = useState(false);
   const [form, setForm] = useState<ShippingForm>({
     email: '',
     name: '',
@@ -137,6 +138,8 @@ export default function CheckoutPage() {
                       value={form.email}
                       onChange={handleInputChange}
                       required
+                      autoComplete="email"
+                      inputMode="email"
                       className="form-input"
                       placeholder="your@email.com"
                     />
@@ -151,6 +154,8 @@ export default function CheckoutPage() {
                       name="phone"
                       value={form.phone}
                       onChange={handleInputChange}
+                      autoComplete="tel"
+                      inputMode="tel"
                       className="form-input"
                       placeholder="(514) 555-0000"
                     />
@@ -173,6 +178,7 @@ export default function CheckoutPage() {
                       value={form.name}
                       onChange={handleInputChange}
                       required
+                      autoComplete="name"
                       className="form-input"
                     />
                   </div>
@@ -187,6 +193,7 @@ export default function CheckoutPage() {
                       value={form.address_line1}
                       onChange={handleInputChange}
                       required
+                      autoComplete="address-line1"
                       className="form-input"
                       placeholder="Street address"
                     />
@@ -201,6 +208,7 @@ export default function CheckoutPage() {
                       name="address_line2"
                       value={form.address_line2}
                       onChange={handleInputChange}
+                      autoComplete="address-line2"
                       className="form-input"
                     />
                   </div>
@@ -216,6 +224,7 @@ export default function CheckoutPage() {
                         value={form.city}
                         onChange={handleInputChange}
                         required
+                        autoComplete="address-level2"
                         className="form-input"
                       />
                     </div>
@@ -229,6 +238,7 @@ export default function CheckoutPage() {
                         value={form.state}
                         onChange={handleInputChange}
                         required
+                        autoComplete="address-level1"
                         className="form-input"
                       >
                         <option value="QC">Quebec</option>
@@ -259,6 +269,7 @@ export default function CheckoutPage() {
                         value={form.postal_code}
                         onChange={handleInputChange}
                         required
+                        autoComplete="postal-code"
                         className="form-input"
                         placeholder="A1A 1A1"
                       />
@@ -272,6 +283,7 @@ export default function CheckoutPage() {
                         name="country"
                         value={form.country}
                         onChange={handleInputChange}
+                        autoComplete="country"
                         className="form-input"
                       >
                         <option value="CA">Canada</option>
@@ -315,10 +327,34 @@ export default function CheckoutPage() {
             </form>
           </div>
 
-          {/* Order Summary */}
-          <div>
-            <div className="bg-cream rounded-2xl p-6 sticky top-24">
-              <h2 className="font-display text-xl text-charcoal mb-6">Order Summary</h2>
+          {/* Order Summary - Collapsible on Mobile */}
+          <div className="lg:order-last">
+            {/* Mobile Collapsible Header */}
+            <button
+              type="button"
+              onClick={() => setOrderSummaryOpen(!orderSummaryOpen)}
+              className="lg:hidden w-full bg-cream rounded-2xl p-4 flex items-center justify-between mb-4"
+              aria-expanded={orderSummaryOpen}
+            >
+              <div className="flex items-center gap-3">
+                <ShoppingBag className="w-5 h-5 text-primary" />
+                <span className="font-display text-lg text-charcoal">
+                  Order Summary ({items.length} {items.length === 1 ? 'item' : 'items'})
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-display text-lg text-primary">{formatPrice(getTotal())}</span>
+                {orderSummaryOpen ? (
+                  <ChevronUp className="w-5 h-5 text-soft-gray" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-soft-gray" />
+                )}
+              </div>
+            </button>
+
+            {/* Order Summary Content */}
+            <div className={`bg-cream rounded-2xl p-6 sticky top-24 ${orderSummaryOpen ? 'block' : 'hidden lg:block'}`}>
+              <h2 className="font-display text-xl text-charcoal mb-6 hidden lg:block">Order Summary</h2>
 
               {/* Items */}
               <div className="space-y-4 mb-6">

@@ -68,8 +68,22 @@
       "label": "Liberty Chérie Home"
     },
     {
-      "src": "/screenshots/products.png",
-      "sizes": "750x1334",
+      "src": "/screenshots/mobile-home.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Home - Handcrafted Accessories"
+    },
+    {
+      "src": "/screenshots/mobile-product.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Product Detail View"
+    },
+    {
+      "src": "/screenshots/mobile-shop.png",
+      "sizes": "1080x1920",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Browse Products"

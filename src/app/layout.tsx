@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from 'next/font/google';
 import { Toaster } from 'sonner';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import BottomNav from '@/components/layout/BottomNav';
 import './globals.css';
 
 const inter = Inter({
@@ -76,6 +77,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({
@@ -90,7 +92,7 @@ export default function RootLayout({
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />
         <Toaster
-          position="bottom-right"
+          position="top-center"
           toastOptions={{
             duration: 3000,
             style: {
@@ -100,6 +102,7 @@ export default function RootLayout({
             },
           }}
         />
+        <BottomNav />
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { X, Plus, Minus, ShoppingBag, Trash2 } from 'lucide-react';
@@ -8,6 +8,11 @@ import { toast } from 'sonner';
 import { useCartStore } from '@/store/cart';
 
 export default function CartDrawer() {
+  // Swipe gesture state
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchCurrent, setTouchCurrent] = useState<number | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
   const {
     items,
     isOpen,
@@ -52,6 +57,46 @@ export default function CartDrawer() {
     }
   };
 
+  // Swipe gesture handlers
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    setTouchStart(touch.clientX);
+    setTouchCurrent(touch.clientX);
+    setIsDragging(true);
+  }, []);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!isDragging) return;
+    const touch = e.touches[0];
+    setTouchCurrent(touch.clientX);
+  }, [isDragging]);
+
+  const handleTouchEnd = useCallback(() => {
+    if (touchStart !== null && touchCurrent !== null) {
+      const swipeDistance = touchCurrent - touchStart;
+      // Close if swiped right more than 100px
+      if (swipeDistance > 100) {
+        closeCart();
+      }
+    }
+    setTouchStart(null);
+    setTouchCurrent(null);
+    setIsDragging(false);
+  }, [touchStart, touchCurrent, closeCart]);
+
+  // Calculate swipe offset for visual feedback
+  const getSwipeTransform = () => {
+    if (!isDragging || touchStart === null || touchCurrent === null) return '';
+    const offset = Math.max(0, touchCurrent - touchStart);
+    return `translateX(${offset}px)`;
+  };
+
+  const getSwipeOpacity = () => {
+    if (!isDragging || touchStart === null || touchCurrent === null) return 1;
+    const offset = Math.max(0, touchCurrent - touchStart);
+    return Math.max(0.5, 1 - offset / 300);
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -60,7 +105,23 @@ export default function CartDrawer() {
       <div className="overlay" onClick={closeCart} />
 
       {/* Drawer */}
-      <div className="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl animate-slide-in flex flex-col">
+      <div
+        ref={drawerRef}
+        className="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl animate-slide-in flex flex-col"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        style={{
+          transform: getSwipeTransform(),
+          opacity: getSwipeOpacity(),
+          transition: isDragging ? 'none' : 'transform 0.3s ease-out, opacity 0.3s ease-out',
+        }}
+      >
+        {/* Swipe indicator - mobile only */}
+        <div className="md:hidden flex justify-center pt-2">
+          <div className="w-10 h-1 bg-gray-300 rounded-full" />
+        </div>
+
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b">
           <div className="flex items-center gap-2">
@@ -70,7 +131,7 @@ export default function CartDrawer() {
           </div>
           <button
             onClick={closeCart}
-            className="p-2 hover:bg-cream rounded-full transition-colors"
+            className="p-2 hover:bg-cream rounded-full transition-colors touch-target"
             aria-label="Close cart"
           >
             <X className="w-5 h-5" />
