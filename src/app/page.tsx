@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Flower2, Sparkles, Heart, Truck, Gift, Plane } from 'lucide-react';
+import { ArrowRight, Flower2, Sparkles, Heart, Truck, Gift, Plane, Star } from 'lucide-react';
 import ProductGrid from '@/components/product/ProductGrid';
 import { getFeaturedProducts, getProducts } from '@/lib/products';
 import { getProductsByPersona } from '@/lib/personas';
 import PersonaSection from '@/components/persona/PersonaSection';
 import NewsletterForm from '@/components/newsletter/NewsletterForm';
+import Testimonials, { TestimonialStats } from '@/components/product/Testimonials';
+import AnimatedSection from '@/components/ui/AnimatedSection';
 
 // Revalidate every 5 minutes
 export const revalidate = 300;
@@ -194,19 +196,21 @@ export default async function HomePage() {
         <div className="container">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div
+              <AnimatedSection
                 key={feature.title}
-                className="text-center animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                animation="fade-up"
+                delay={index * 100}
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary-light/20 text-primary mb-4">
-                  <feature.icon className="w-6 h-6" />
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary-light/20 text-primary mb-4">
+                    <feature.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-display text-lg text-charcoal mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-soft-gray text-sm">{feature.description}</p>
                 </div>
-                <h3 className="font-display text-lg text-charcoal mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-soft-gray text-sm">{feature.description}</p>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -215,24 +219,30 @@ export default async function HomePage() {
       {/* Featured Products Section */}
       <section className="py-20 bg-cream">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl lg:text-4xl text-charcoal">
-              Featured Creations
-            </h2>
-            <p className="mt-4 text-soft-gray max-w-2xl mx-auto">
-              Our most loved pieces, handpicked for you. Each item is uniquely
-              crafted with attention to detail.
-            </p>
-          </div>
+          <AnimatedSection animation="fade-up">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-3xl lg:text-4xl text-charcoal">
+                Featured Creations
+              </h2>
+              <p className="mt-4 text-soft-gray max-w-2xl mx-auto">
+                Our most loved pieces, handpicked for you. Each item is uniquely
+                crafted with attention to detail.
+              </p>
+            </div>
+          </AnimatedSection>
 
-          <ProductGrid products={featuredProducts} />
+          <AnimatedSection animation="fade-up" delay={200}>
+            <ProductGrid products={featuredProducts} />
+          </AnimatedSection>
 
-          <div className="text-center mt-12">
-            <Link href="/products" className="btn-secondary">
-              View All Products
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+          <AnimatedSection animation="fade-up" delay={400}>
+            <div className="text-center mt-12">
+              <Link href="/products" className="btn-secondary">
+                View All Products
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -291,55 +301,90 @@ export default async function HomePage() {
       {/* Shop by Lifestyle CTA */}
       <section className="py-16 bg-white">
         <div className="container">
-          <div className="bg-gradient-to-br from-cream to-accent-light rounded-2xl p-8 md:p-12 text-center">
-            <h2 className="font-display text-2xl md:text-3xl text-charcoal mb-4">
-              Shop for Your Lifestyle
-            </h2>
-            <p className="text-soft-gray max-w-2xl mx-auto mb-8">
-              Whether you&apos;re a busy mom, a stylish commuter, or an art lover, we have curated collections just for you.
-            </p>
-            <Link href="/shop-for" className="btn-primary">
-              Explore Collections
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+          <AnimatedSection animation="zoom-in">
+            <div className="bg-gradient-to-br from-cream to-accent-light rounded-2xl p-8 md:p-12 text-center">
+              <h2 className="font-display text-2xl md:text-3xl text-charcoal mb-4">
+                Shop for Your Lifestyle
+              </h2>
+              <p className="text-soft-gray max-w-2xl mx-auto mb-8">
+                Whether you&apos;re a busy mom, a stylish commuter, or an art lover, we have curated collections just for you.
+              </p>
+              <Link href="/shop-for" className="btn-primary">
+                Explore Collections
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-white">
+        <div className="container">
+          <AnimatedSection animation="fade-up">
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                ))}
+              </div>
+              <h2 className="font-display text-3xl lg:text-4xl text-charcoal mb-4">
+                What Our Customers Say
+              </h2>
+              <p className="text-soft-gray max-w-2xl mx-auto">
+                Join hundreds of happy customers who have discovered the beauty of handcrafted Liberty fabric accessories.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection animation="fade-up" delay={200}>
+            <TestimonialStats className="mb-12" />
+          </AnimatedSection>
+
+          <AnimatedSection animation="fade-up" delay={400}>
+            <Testimonials limit={3} variant="grid" />
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Newsletter Section */}
       <section className="py-20 bg-cream">
         <div className="container">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-display text-3xl lg:text-4xl text-charcoal mb-4">
-              Stay in the Loop
-            </h2>
-            <p className="text-soft-gray mb-8">
-              Subscribe to receive updates on new collections, exclusive offers, and behind-the-scenes content.
-            </p>
-            <div className="max-w-md mx-auto">
-              <NewsletterForm showInterests source="homepage" />
+          <AnimatedSection animation="fade-up">
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="font-display text-3xl lg:text-4xl text-charcoal mb-4">
+                Stay in the Loop
+              </h2>
+              <p className="text-soft-gray mb-8">
+                Subscribe to receive updates on new collections, exclusive offers, and behind-the-scenes content.
+              </p>
+              <div className="max-w-md mx-auto">
+                <NewsletterForm showInterests source="homepage" />
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Custom Orders CTA */}
       <section className="py-20 bg-gradient-to-r from-primary to-primary-dark text-white">
         <div className="container text-center">
-          <h2 className="font-display text-3xl lg:text-4xl mb-6">
-            Want Something Unique?
-          </h2>
-          <p className="text-white/80 max-w-2xl mx-auto mb-8">
-            Transform your favorite jacket with our custom floral appliqué service,
-            or request a completely custom piece designed just for you.
-          </p>
-          <Link
-            href="/custom-order"
-            className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-lg font-medium hover:bg-cream transition-colors"
-          >
-            Request Custom Order
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <AnimatedSection animation="fade-up">
+            <h2 className="font-display text-3xl lg:text-4xl mb-6">
+              Want Something Unique?
+            </h2>
+            <p className="text-white/80 max-w-2xl mx-auto mb-8">
+              Transform your favorite jacket with our custom floral appliqué service,
+              or request a completely custom piece designed just for you.
+            </p>
+            <Link
+              href="/custom-order"
+              className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-lg font-medium hover:bg-cream transition-colors"
+            >
+              Request Custom Order
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
 

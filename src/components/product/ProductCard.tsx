@@ -1,8 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ShoppingBag, Heart } from 'lucide-react';
+import { toast } from 'sonner';
 import { Product } from '@/types';
 import { useCartStore } from '@/store/cart';
 import { categoryLabels } from '@/lib/products';
@@ -12,6 +14,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const { addItem, openCart } = useCartStore();
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -19,6 +22,13 @@ export default function ProductCard({ product }: ProductCardProps) {
     e.stopPropagation();
     addItem(product);
     openCart();
+    toast.success(`${product.name} added to cart`, {
+      description: 'Click to view your cart',
+      action: {
+        label: 'View Cart',
+        onClick: () => openCart(),
+      },
+    });
   };
 
   const formatPrice = (price: number) => {
@@ -34,13 +44,22 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Image Container */}
         <div className="product-image-container relative">
           {product.images?.[0] ? (
-            <Image
-              src={product.images[0]}
-              alt={product.name}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
+            <>
+              {/* Loading skeleton */}
+              {!imageLoaded && (
+                <div className="absolute inset-0 skeleton" />
+              )}
+              <Image
+                src={product.images[0]}
+                alt={product.name}
+                fill
+                className={`object-cover transition-all duration-500 ${
+                  imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                }`}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                onLoad={() => setImageLoaded(true)}
+              />
+            </>
           ) : (
             <div className="w-full h-full bg-cream flex items-center justify-center">
               <span className="text-soft-gray">No image</span>

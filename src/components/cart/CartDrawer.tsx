@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { X, Plus, Minus, ShoppingBag, Trash2 } from 'lucide-react';
+import { toast } from 'sonner';
 import { useCartStore } from '@/store/cart';
 
 export default function CartDrawer() {
@@ -36,6 +37,19 @@ export default function CartDrawer() {
       style: 'currency',
       currency: 'CAD',
     }).format(price);
+  };
+
+  const handleRemoveItem = (productId: string, productName: string) => {
+    removeItem(productId);
+    toast.success(`${productName} removed from cart`);
+  };
+
+  const handleUpdateQuantity = (productId: string, productName: string, newQuantity: number) => {
+    if (newQuantity <= 0) {
+      handleRemoveItem(productId, productName);
+    } else {
+      updateQuantity(productId, newQuantity);
+    }
   };
 
   if (!isOpen) return null;
@@ -107,7 +121,7 @@ export default function CartDrawer() {
                     <div className="flex items-center gap-2 mt-2">
                       <button
                         onClick={() =>
-                          updateQuantity(item.product.id, item.quantity - 1)
+                          handleUpdateQuantity(item.product.id, item.product.name, item.quantity - 1)
                         }
                         className="p-1 hover:bg-white rounded transition-colors"
                         aria-label="Decrease quantity"
@@ -119,7 +133,7 @@ export default function CartDrawer() {
                       </span>
                       <button
                         onClick={() =>
-                          updateQuantity(item.product.id, item.quantity + 1)
+                          handleUpdateQuantity(item.product.id, item.product.name, item.quantity + 1)
                         }
                         className="p-1 hover:bg-white rounded transition-colors"
                         aria-label="Increase quantity"
@@ -127,7 +141,7 @@ export default function CartDrawer() {
                         <Plus className="w-4 h-4" />
                       </button>
                       <button
-                        onClick={() => removeItem(item.product.id)}
+                        onClick={() => handleRemoveItem(item.product.id, item.product.name)}
                         className="ml-auto p-1 text-red-400 hover:text-red-600 transition-colors"
                         aria-label="Remove item"
                       >

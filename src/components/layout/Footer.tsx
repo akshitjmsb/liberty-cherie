@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Instagram, Mail, MapPin } from 'lucide-react';
 import NewsletterFooter from '@/components/newsletter/NewsletterFooter';
+import TrustBadges from '@/components/ui/TrustBadges';
 
 const footerLinks = {
   shop: [
@@ -174,8 +175,17 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Trust Badges */}
+        <div className="mt-12 pt-8 border-t border-gray-700">
+          <TrustBadges
+            variant="compact"
+            showPaymentIcons={true}
+            className="justify-center text-gray-400 [&_svg]:text-gray-400 [&_.text-soft-gray]:text-gray-400"
+          />
+        </div>
+
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="mt-8 pt-6 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm">
             © {currentYear} Liberty Chérie Creation. All rights reserved.
           </p>
