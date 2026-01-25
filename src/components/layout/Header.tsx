@@ -3,9 +3,10 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ShoppingBag, Search, ChevronDown, Users } from 'lucide-react';
+import { Menu, X, ShoppingBag, ChevronDown, Users } from 'lucide-react';
 import { useCartStore } from '@/store/cart';
 import CartDrawer from '@/components/cart/CartDrawer';
+import SearchBar from '@/components/search/SearchBar';
 
 const navigation = [
   { name: 'Shop', href: '/products' },
@@ -138,22 +139,16 @@ export default function Header() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-4">
-            <Link
-              href="/products"
-              className="p-2 text-charcoal hover:text-primary transition-colors"
-              aria-label="Search"
-            >
-              <Search className="w-5 h-5" />
-            </Link>
+            <SearchBar />
 
             <button
               onClick={openCart}
               className="p-2 text-charcoal hover:text-primary transition-colors relative"
-              aria-label="Shopping cart"
+              aria-label={`Shopping cart${itemCount > 0 ? `, ${itemCount} item${itemCount !== 1 ? 's' : ''}` : ''}`}
             >
               <ShoppingBag className="w-5 h-5" />
               {itemCount > 0 && (
-                <span className="cart-badge">{itemCount}</span>
+                <span className="cart-badge" aria-hidden="true">{itemCount}</span>
               )}
             </button>
 

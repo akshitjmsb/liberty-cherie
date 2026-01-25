@@ -3,11 +3,12 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShoppingBag, Heart } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 import { toast } from 'sonner';
 import { Product } from '@/types';
 import { useCartStore } from '@/store/cart';
 import { categoryLabels } from '@/lib/products';
+import WishlistButton from './WishlistButton';
 
 interface ProductCardProps {
   product: Product;
@@ -82,12 +83,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             >
               <ShoppingBag className="w-5 h-5" />
             </button>
-            <button
-              className="p-2 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-colors"
-              aria-label="Add to wishlist"
-            >
-              <Heart className="w-5 h-5" />
-            </button>
+            <WishlistButton product={product} size="md" />
           </div>
         </div>
 

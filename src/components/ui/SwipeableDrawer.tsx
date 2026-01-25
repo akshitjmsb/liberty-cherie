@@ -9,6 +9,7 @@ interface SwipeableDrawerProps {
   direction?: 'left' | 'right' | 'down';
   threshold?: number;
   className?: string;
+  ariaLabel?: string;
 }
 
 export default function SwipeableDrawer({
@@ -18,6 +19,7 @@ export default function SwipeableDrawer({
   direction = 'right',
   threshold = 100,
   className = '',
+  ariaLabel,
 }: SwipeableDrawerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
@@ -80,11 +82,28 @@ export default function SwipeableDrawer({
     return Math.max(0.5, 1 - (distance / (threshold * 2)));
   }, [getSwipeDistance, isDragging, threshold]);
 
+  // Handle keyboard navigation
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
     <div
       ref={containerRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label={ariaLabel}
       className={className}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}

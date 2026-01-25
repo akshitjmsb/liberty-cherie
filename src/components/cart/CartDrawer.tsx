@@ -25,10 +25,14 @@ export default function CartDrawer() {
     getTotal,
   } = useCartStore();
 
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   // Prevent body scroll when cart is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      // Focus the close button when cart opens
+      setTimeout(() => closeButtonRef.current?.focus(), 100);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -36,6 +40,17 @@ export default function CartDrawer() {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        closeCart();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, closeCart]);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-CA', {
@@ -107,6 +122,9 @@ export default function CartDrawer() {
       {/* Drawer */}
       <div
         ref={drawerRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Shopping cart"
         className="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl animate-slide-in flex flex-col"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
@@ -130,6 +148,7 @@ export default function CartDrawer() {
             <span className="text-soft-gray">({items.length} items)</span>
           </div>
           <button
+            ref={closeButtonRef}
             onClick={closeCart}
             className="p-2 hover:bg-cream rounded-full transition-colors touch-target"
             aria-label="Close cart"

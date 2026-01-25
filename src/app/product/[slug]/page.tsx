@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft, Truck, Shield, RefreshCw } from 'lucide-react';
 import { getProductBySlug } from '@/lib/products';
 import AddToCartButton from './AddToCartButton';
+import ProductSchema from '@/components/product/ProductSchema';
+import ReviewSection from '@/components/product/ReviewSection';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -65,8 +67,12 @@ export default async function ProductPage({ params }: Props) {
     }).format(price);
   };
 
+  const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://libertycherie.ca';
+  const productUrl = `${BASE_URL}/product/${product.slug}`;
+
   return (
     <div className="animate-fade-in">
+      <ProductSchema product={product} url={productUrl} />
       <div className="container py-8">
         {/* Breadcrumb */}
         <Link
@@ -195,6 +201,9 @@ export default async function ProductPage({ params }: Props) {
             </div>
           </div>
         </div>
+
+        {/* Reviews Section */}
+        <ReviewSection productId={product.id} productName={product.name} />
       </div>
     </div>
   );

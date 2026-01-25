@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ShoppingBag, Minus, Plus, Check } from 'lucide-react';
 import { Product } from '@/types';
 import { useCartStore } from '@/store/cart';
+import WishlistButton from '@/components/product/WishlistButton';
 
 interface AddToCartButtonProps {
   product: Product;
@@ -77,27 +78,30 @@ export default function AddToCartButton({ product }: AddToCartButtonProps) {
       </div>
 
       {/* Add to Cart Button */}
-      <button
-        onClick={handleAddToCart}
-        disabled={added}
-        className={`w-full py-4 px-6 rounded-lg font-medium flex items-center justify-center gap-2 transition-all ${
-          added
-            ? 'bg-secondary text-white'
-            : 'bg-primary text-white hover:bg-primary-dark hover:shadow-lg'
-        }`}
-      >
-        {added ? (
-          <>
-            <Check className="w-5 h-5" />
-            Added to Cart!
-          </>
-        ) : (
-          <>
-            <ShoppingBag className="w-5 h-5" />
-            Add to Cart
-          </>
-        )}
-      </button>
+      <div className="flex gap-3">
+        <button
+          onClick={handleAddToCart}
+          disabled={added}
+          className={`flex-1 py-4 px-6 rounded-lg font-medium flex items-center justify-center gap-2 transition-all ${
+            added
+              ? 'bg-secondary text-white'
+              : 'bg-primary text-white hover:bg-primary-dark hover:shadow-lg'
+          }`}
+        >
+          {added ? (
+            <>
+              <Check className="w-5 h-5" />
+              Added to Cart!
+            </>
+          ) : (
+            <>
+              <ShoppingBag className="w-5 h-5" />
+              Add to Cart
+            </>
+          )}
+        </button>
+        <WishlistButton product={product} variant="button" size="lg" />
+      </div>
     </div>
   );
 }

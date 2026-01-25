@@ -102,6 +102,13 @@ export default function RootLayout({
             },
           }}
         />
+        {/* Aria-live region for screen reader announcements */}
+        <div
+          id="announcements"
+          aria-live="polite"
+          aria-atomic="true"
+          className="sr-only"
+        />
         <BottomNav />
       </body>
     </html>
