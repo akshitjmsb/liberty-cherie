@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Flower2, Sparkles, Heart, Truck } from 'lucide-react';
+import { ArrowRight, Flower2, Sparkles, Heart, Truck, Gift, Plane } from 'lucide-react';
 import ProductGrid from '@/components/product/ProductGrid';
-import { getFeaturedProducts } from '@/lib/products';
+import { getFeaturedProducts, getProducts } from '@/lib/products';
+import { getProductsByPersona } from '@/lib/personas';
+import PersonaSection from '@/components/persona/PersonaSection';
+import NewsletterForm from '@/components/newsletter/NewsletterForm';
 
 // Revalidate every 5 minutes
 export const revalidate = 300;
@@ -60,6 +63,23 @@ const mockFeaturedProducts = [
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   },
+  {
+    id: '4',
+    name: 'Liberty Crossbody Bag',
+    name_fr: 'Sac Bandoulière Liberty',
+    slug: 'liberty-crossbody-bag',
+    description: 'Perfect for hands-free convenience while traveling or at festivals.',
+    description_fr: 'Parfait pour une commodité mains libres en voyage ou aux festivals.',
+    price: 75.00,
+    currency: 'CAD',
+    images: ['/images/products/placeholder-4.jpg'],
+    category: 'bags' as const,
+    tags: ['crossbody', 'travel'],
+    in_stock: true,
+    featured: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
 ];
 
 const features = [
@@ -95,6 +115,28 @@ export default async function HomePage() {
     }
   } catch {
     featuredProducts = mockFeaturedProducts;
+  }
+
+  // Fetch products for persona sections
+  let giftProducts;
+  let travelProducts;
+  try {
+    giftProducts = await getProductsByPersona('gift-professional', 4);
+    travelProducts = await getProductsByPersona('stylish-traveler', 4);
+
+    // Fallback to all products if no persona-specific products
+    if (giftProducts.length === 0 || travelProducts.length === 0) {
+      const allProducts = await getProducts();
+      if (giftProducts.length === 0) {
+        giftProducts = allProducts.length > 0 ? allProducts.slice(0, 4) : mockFeaturedProducts.slice(0, 4);
+      }
+      if (travelProducts.length === 0) {
+        travelProducts = allProducts.length > 0 ? allProducts.slice(0, 4) : mockFeaturedProducts.slice(0, 4);
+      }
+    }
+  } catch {
+    giftProducts = mockFeaturedProducts.slice(0, 4);
+    travelProducts = mockFeaturedProducts.slice(0, 4);
   }
 
   return (
@@ -190,6 +232,93 @@ export default async function HomePage() {
               View All Products
               <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Perfect for Gifting Section */}
+      <section className="bg-white">
+        <div className="container py-16">
+          <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <Gift className="w-8 h-8 text-primary" />
+            </div>
+            <div>
+              <h2 className="font-display text-2xl md:text-3xl text-charcoal">
+                Perfect for Gifting
+              </h2>
+              <p className="text-soft-gray mt-2">
+                Looking for a thoughtful gift? Our handcrafted pieces make memorable presents for any occasion.
+              </p>
+            </div>
+          </div>
+          <PersonaSection
+            title=""
+            products={giftProducts}
+            personaSlug="gift-professional"
+            ctaText="Shop Gift Ideas"
+            className="!py-0"
+          />
+        </div>
+      </section>
+
+      {/* Travel Essentials Section */}
+      <section className="bg-cream">
+        <div className="container py-16">
+          <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <Plane className="w-8 h-8 text-primary" />
+            </div>
+            <div>
+              <h2 className="font-display text-2xl md:text-3xl text-charcoal">
+                Travel Essentials
+              </h2>
+              <p className="text-soft-gray mt-2">
+                Compact, stylish accessories perfect for your next adventure, festival, or market visit.
+              </p>
+            </div>
+          </div>
+          <PersonaSection
+            title=""
+            products={travelProducts}
+            personaSlug="stylish-traveler"
+            ctaText="Shop Travel Accessories"
+            className="!py-0"
+          />
+        </div>
+      </section>
+
+      {/* Shop by Lifestyle CTA */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <div className="bg-gradient-to-br from-cream to-accent-light rounded-2xl p-8 md:p-12 text-center">
+            <h2 className="font-display text-2xl md:text-3xl text-charcoal mb-4">
+              Shop for Your Lifestyle
+            </h2>
+            <p className="text-soft-gray max-w-2xl mx-auto mb-8">
+              Whether you&apos;re a busy mom, a stylish commuter, or an art lover, we have curated collections just for you.
+            </p>
+            <Link href="/shop-for" className="btn-primary">
+              Explore Collections
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-20 bg-cream">
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="font-display text-3xl lg:text-4xl text-charcoal mb-4">
+              Stay in the Loop
+            </h2>
+            <p className="text-soft-gray mb-8">
+              Subscribe to receive updates on new collections, exclusive offers, and behind-the-scenes content.
+            </p>
+            <div className="max-w-md mx-auto">
+              <NewsletterForm showInterests source="homepage" />
+            </div>
           </div>
         </div>
       </section>

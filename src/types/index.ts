@@ -133,3 +133,67 @@ export interface FilterOptions {
   inStockOnly?: boolean;
   sortBy?: 'featured' | 'price-asc' | 'price-desc' | 'newest' | 'name';
 }
+
+// Persona Types
+export type PersonaSlug =
+  | 'chic-commuter'
+  | 'busy-mom'
+  | 'ethical-minimalist'
+  | 'gift-professional'
+  | 'stylish-traveler'
+  | 'arts-culture'
+  | 'casual-dad'
+  | 'market-explorer'
+  | 'young-creative'
+  | 'sport-wellness';
+
+export interface Persona {
+  id: string;
+  slug: PersonaSlug;
+  name: string;
+  name_fr: string;
+  description: string;
+  description_fr: string;
+  headline: string;
+  headline_fr: string;
+  icon?: string;
+  hero_image?: string;
+  seo_title?: string;
+  seo_title_fr?: string;
+  seo_description?: string;
+  seo_description_fr?: string;
+  display_order: number;
+  is_active: boolean;
+  created_at: string;
+  updated_at?: string;
+}
+
+export interface ProductPersona {
+  id: string;
+  product_id: string;
+  persona_id: string;
+  relevance_score: number;
+  created_at: string;
+}
+
+// Newsletter Types
+export interface NewsletterSubscriber {
+  id: string;
+  email: string;
+  first_name?: string;
+  language: 'en' | 'fr';
+  interests: PersonaSlug[];
+  source?: string;
+  is_verified: boolean;
+  is_active: boolean;
+  created_at: string;
+  updated_at?: string;
+}
+
+export interface NewsletterSubscribeRequest {
+  email: string;
+  first_name?: string;
+  language?: 'en' | 'fr';
+  interests?: PersonaSlug[];
+  source?: string;
+}
