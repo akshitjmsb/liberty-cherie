@@ -1,21 +1,24 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Montserrat, Cormorant_Garamond } from 'next/font/google';
 import { Toaster } from 'sonner';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import BottomNav from '@/components/layout/BottomNav';
 import './globals.css';
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-montserrat',
   display: 'swap',
+  weight: ['300', '400', '500', '600'],
 });
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--font-cormorant',
   display: 'swap',
+  weight: ['400', '600'],
+  style: ['normal', 'italic'],
 });
 
 export const metadata: Metadata = {
@@ -73,7 +76,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#c26e7a',
+  themeColor: '#1A2744',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -86,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${cormorant.variable}`}>
       <body className="antialiased min-h-screen flex flex-col">
         <Header />
         <main id="main-content" className="flex-1">{children}</main>
@@ -98,7 +101,7 @@ export default function RootLayout({
             style: {
               background: '#FAF6F1',
               border: '1px solid #E8A5A5',
-              color: '#2B3A4D',
+              color: '#1A2744',
             },
           }}
         />

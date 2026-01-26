@@ -1,17 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  /* Liberty Chérie Brand Colors - Navy & Sage Floral */
-  --color-primary: #D4858A; /* Dusty Rose Pink */
-  --color-primary-dark: #8B3A3A; /* Deep Red */
+  /* Liberty Chérie Brand Colors - From Official Branding Kit */
+  --color-primary: #D4728C; /* Rose Pink */
+  --color-primary-dark: #B36B7A; /* Dusty Rose */
   --color-primary-light: #E8A5A5; /* Soft Pink */
-  --color-secondary: #A8B8B0; /* Sage/Duck Egg Blue */
-  --color-secondary-dark: #8A9C94; /* Darker Sage */
+  --color-secondary: #8FA5A4; /* Sage Blue */
+  --color-secondary-dark: #7A8F8E; /* Darker Sage */
   --color-secondary-light: #C5D1CB; /* Light Sage */
-  --color-accent: #6B7355; /* Olive Green */
+  --color-accent: #5A6B4A; /* Olive Green */
   --color-accent-light: #8A9470; /* Light Olive */
-  --color-navy: #2B3A4D; /* Deep Navy - Main Background */
-  --color-navy-light: #3D4F66; /* Lighter Navy */
+  --color-navy: #1A2744; /* Deep Navy - Main Background */
+  --color-navy-light: #2B3A4D; /* Lighter Navy */
+
+  /* Accent Colors from Branding Kit */
+  --color-coral: #C64B4B; /* Coral Red */
+  --color-warm-brown: #8B5A3C; /* Warm Brown */
+  --color-wild-green: #4A6741; /* Wild Green */
+  --color-lavender: #9B8AA6; /* Soft Lavender */
 
   /* Neutrals */
   --color-cream: #F5E6D3; /* Warm Cream/Ivory */
@@ -20,8 +26,8 @@
   --color-soft-gray: #6B7280;
 
   /* Typography */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Montserrat', system-ui, sans-serif;
 
   /* Spacing */
   --nav-height: 80px;
@@ -49,6 +55,10 @@
   --color-warm-white: var(--color-warm-white);
   --color-charcoal: var(--color-charcoal);
   --color-soft-gray: var(--color-soft-gray);
+  --color-coral: var(--color-coral);
+  --color-warm-brown: var(--color-warm-brown);
+  --color-wild-green: var(--color-wild-green);
+  --color-lavender: var(--color-lavender);
 }
 
 /* Base Styles */
@@ -333,7 +343,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary:hover {
   background-color: var(--color-primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(212, 133, 138, 0.3);
+  box-shadow: 0 4px 12px rgba(212, 114, 140, 0.3);
 }
 
 .btn-secondary {
