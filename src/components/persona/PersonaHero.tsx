@@ -57,7 +57,7 @@ export default function PersonaHero({ persona }: PersonaHeroProps) {
 
           {/* Content */}
           <div className="text-center md:text-left flex-1">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-charcoal">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-navy">
               {persona.name}
             </h1>
             <p className="text-xl md:text-2xl text-primary mt-4 font-display">

@@ -16,6 +16,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [selectedColor, setSelectedColor] = useState(product.colors?.[0]?.name);
   const { addItem, openCart } = useCartStore();
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -39,14 +40,34 @@ export default function ProductCard({ product }: ProductCardProps) {
     }).format(price);
   };
 
+  // Auto-detect badge
+  const badgeType = product.badge
+    || (product.featured ? 'new' as const : undefined)
+    || (!product.in_stock ? 'soldout' as const : undefined);
+
+  const badgeLabel = badgeType === 'new'
+    ? 'New'
+    : badgeType === 'sale'
+      ? product.original_price
+        ? `-${Math.round((1 - product.price / product.original_price) * 100)}%`
+        : 'Sale'
+      : badgeType === 'soldout'
+        ? 'Sold Out'
+        : null;
+
+  const isSoldOut = badgeType === 'soldout' || !product.in_stock;
+
   return (
     <Link href={`/product/${product.slug || product.id}`} className="group">
-      <article className="card">
-        {/* Image Container */}
-        <div className="product-image-container relative">
+      <article className="product-card">
+        {/* Floral corner decorations */}
+        <div className="pc-floral-tl" />
+        <div className="pc-floral-br" />
+
+        {/* Image Container - 3:4 aspect ratio */}
+        <div className={`product-image-container relative ${isSoldOut ? 'opacity-70' : ''}`}>
           {product.images?.[0] ? (
             <>
-              {/* Loading skeleton */}
               {!imageLoaded && (
                 <div className="absolute inset-0 skeleton" />
               )}
@@ -67,50 +88,74 @@ export default function ProductCard({ product }: ProductCardProps) {
             </div>
           )}
 
-          {/* Featured Badge */}
-          {product.featured && (
-            <span className="absolute top-3 left-3 bg-primary text-white text-xs px-3 py-1 rounded-full font-medium">
-              Featured
-            </span>
+          {/* Badge */}
+          {badgeLabel && (
+            <div className="product-badge">
+              <span className={`badge badge-${badgeType}`}>
+                {badgeLabel}
+              </span>
+            </div>
           )}
 
-          {/* Quick Actions - Visible on mobile, hover-reveal on desktop */}
-          <div className="absolute bottom-3 right-3 flex gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
-            <button
-              onClick={handleAddToCart}
-              className="p-2 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-colors"
-              aria-label="Add to cart"
-            >
-              <ShoppingBag className="w-5 h-5" />
-            </button>
+          {/* Wishlist Button */}
+          <div className="wishlist-btn">
             <WishlistButton product={product} size="md" />
           </div>
+
+          {/* Quick Add - slides up on hover */}
+          {!isSoldOut && (
+            <div className="quick-add">
+              <button
+                onClick={handleAddToCart}
+                className="w-full py-3 bg-navy text-white text-[11px] font-medium tracking-[2px] uppercase rounded-sm hover:bg-secondary transition-colors flex items-center justify-center gap-2"
+              >
+                <ShoppingBag className="w-4 h-4" />
+                Quick Add
+              </button>
+            </div>
+          )}
         </div>
 
-        {/* Product Info */}
-        <div className="p-4">
+        {/* Product Info - centered text */}
+        <div className="product-info">
           {/* Category */}
-          <span className="category-tag mb-2">
+          <div className="product-category">
             {categoryLabels[product.category]?.en || product.category}
-          </span>
+          </div>
 
           {/* Name */}
-          <h3 className="font-display text-lg text-charcoal mt-2 group-hover:text-primary transition-colors line-clamp-1">
+          <h3 className="product-name line-clamp-1">
             {product.name}
           </h3>
 
-          {/* Description */}
-          <p className="text-soft-gray text-sm mt-1 line-clamp-2">
-            {product.description}
-          </p>
-
-          {/* Price & Stock */}
-          <div className="flex items-center justify-between mt-3">
+          {/* Price */}
+          <div className="flex items-center justify-center gap-2">
             <span className="price">{formatPrice(product.price)}</span>
-            {!product.in_stock && (
-              <span className="text-xs text-red-500 font-medium">Out of Stock</span>
+            {product.original_price && product.original_price > product.price && (
+              <span className="price-strikethrough">
+                {formatPrice(product.original_price)}
+              </span>
             )}
           </div>
+
+          {/* Color dots */}
+          {product.colors && product.colors.length > 0 && (
+            <div className="color-dots">
+              {product.colors.map((color) => (
+                <button
+                  key={color.name}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setSelectedColor(color.name);
+                  }}
+                  className={`color-dot ${selectedColor === color.name ? 'active' : ''}`}
+                  style={{ backgroundColor: color.hex }}
+                  aria-label={`Select ${color.name} color`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </article>
     </Link>

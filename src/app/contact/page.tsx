@@ -40,7 +40,7 @@ export default function ContactPage() {
       <section className="bg-gradient-to-br from-cream via-white to-secondary-light/20 py-20">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="font-display text-4xl lg:text-5xl text-charcoal mb-6">
+            <h1 className="font-display text-4xl lg:text-5xl text-navy mb-6">
               Get in <span className="text-primary">Touch</span>
             </h1>
             <p className="text-lg text-soft-gray">
@@ -57,7 +57,7 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Info */}
             <div>
-              <h2 className="font-display text-2xl text-charcoal mb-8">
+              <h2 className="font-display text-2xl text-navy mb-8">
                 Contact Information
               </h2>
 
@@ -67,7 +67,7 @@ export default function ContactPage() {
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-charcoal mb-1">Email</h3>
+                    <h3 className="font-medium text-navy mb-1">Email</h3>
                     <a
                       href="mailto:contact@libertycherie.ca"
                       className="text-soft-gray hover:text-primary transition-colors"
@@ -82,7 +82,7 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 text-secondary" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-charcoal mb-1">Location</h3>
+                    <h3 className="font-medium text-navy mb-1">Location</h3>
                     <p className="text-soft-gray">
                       Saint-Sauveur, QC<br />
                       J0R 1K0, Canada
@@ -95,7 +95,7 @@ export default function ContactPage() {
                     <Instagram className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-charcoal mb-1">Instagram</h3>
+                    <h3 className="font-medium text-navy mb-1">Instagram</h3>
                     <a
                       href="https://instagram.com/libertycheriecreation"
                       target="_blank"
@@ -110,7 +110,7 @@ export default function ContactPage() {
 
               {/* Response Time */}
               <div className="mt-12 p-6 bg-cream rounded-2xl">
-                <h3 className="font-display text-lg text-charcoal mb-2">
+                <h3 className="font-display text-lg text-navy mb-2">
                   Response Time
                 </h3>
                 <p className="text-soft-gray text-sm">
@@ -122,14 +122,14 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div>
-              <h2 className="font-display text-2xl text-charcoal mb-8">
+              <h2 className="font-display text-2xl text-navy mb-8">
                 Send a Message
               </h2>
 
               {status === 'success' ? (
                 <div className="bg-secondary-light/20 rounded-2xl p-8 text-center">
                   <CheckCircle className="w-12 h-12 text-secondary mx-auto mb-4" />
-                  <h3 className="font-display text-xl text-charcoal mb-2">
+                  <h3 className="font-display text-xl text-navy mb-2">
                     Message Sent!
                   </h3>
                   <p className="text-soft-gray">
@@ -199,7 +199,7 @@ export default function ContactPage() {
                   </div>
 
                   {status === 'error' && (
-                    <p className="text-red-500 text-sm">
+                    <p className="text-[var(--error)] text-sm">
                       Something went wrong. Please try again or email us directly.
                     </p>
                   )}

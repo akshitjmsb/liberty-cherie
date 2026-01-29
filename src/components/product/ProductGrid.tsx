@@ -14,7 +14,7 @@ export default function ProductGrid({ products, loading }: ProductGridProps) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {[...Array(8)].map((_, i) => (
           <div key={i} className="card">
-            <div className="aspect-square skeleton" />
+            <div className="aspect-[3/4] skeleton" />
             <div className="p-4 space-y-3">
               <div className="h-4 w-20 skeleton rounded" />
               <div className="h-6 w-3/4 skeleton rounded" />

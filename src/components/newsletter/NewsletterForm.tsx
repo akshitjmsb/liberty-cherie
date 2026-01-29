@@ -72,10 +72,10 @@ export default function NewsletterForm({
   if (status === 'success') {
     return (
       <div className={`text-center ${className}`}>
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
-          <CheckCircle className="w-8 h-8 text-green-600" />
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[rgba(74,103,65,0.1)] mb-4">
+          <CheckCircle className="w-8 h-8 text-[var(--success)]" />
         </div>
-        <p className="text-lg font-medium text-charcoal">{message}</p>
+        <p className="text-lg font-medium text-navy">{message}</p>
         <button
           onClick={() => setStatus('idle')}
           className="text-primary hover:text-primary-dark mt-4 text-sm underline"
@@ -97,7 +97,7 @@ export default function NewsletterForm({
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+              className="form-input pl-10"
               disabled={status === 'loading'}
             />
           </div>
@@ -114,7 +114,7 @@ export default function NewsletterForm({
           </button>
         </div>
         {status === 'error' && (
-          <div className="flex items-center gap-2 text-red-600 text-sm mt-2">
+          <div className="flex items-center gap-2 text-[var(--error)] text-sm mt-2">
             <AlertCircle className="w-4 h-4" />
             {message}
           </div>
@@ -128,7 +128,7 @@ export default function NewsletterForm({
       <div className="space-y-4">
         {/* Name Field */}
         <div>
-          <label htmlFor="newsletter-name" className="block text-sm font-medium text-charcoal mb-1">
+          <label htmlFor="newsletter-name" className="form-label">
             First Name (optional)
           </label>
           <input
@@ -137,15 +137,15 @@ export default function NewsletterForm({
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             placeholder="Your first name"
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+            className="form-input"
             disabled={status === 'loading'}
           />
         </div>
 
         {/* Email Field */}
         <div>
-          <label htmlFor="newsletter-email" className="block text-sm font-medium text-charcoal mb-1">
-            Email Address <span className="text-red-500">*</span>
+          <label htmlFor="newsletter-email" className="form-label">
+            Email Address <span className="text-[var(--error)]">*</span>
           </label>
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-soft-gray" />
@@ -156,7 +156,7 @@ export default function NewsletterForm({
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
               required
-              className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+              className="form-input pl-10"
               disabled={status === 'loading'}
             />
           </div>
@@ -173,7 +173,7 @@ export default function NewsletterForm({
 
         {/* Error Message */}
         {status === 'error' && (
-          <div className="flex items-center gap-2 text-red-600 text-sm bg-red-50 p-3 rounded-lg">
+          <div className="flex items-center gap-2 text-[var(--error)] text-sm bg-[var(--error)]/10 p-3 rounded-lg">
             <AlertCircle className="w-4 h-4 flex-shrink-0" />
             {message}
           </div>

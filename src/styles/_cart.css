@@ -1,0 +1,144 @@
+/* ============================================================
+   Cart - Branding Kit Section 11
+   Cart items, quantity selector, cart summary with florals
+   ============================================================ */
+
+/* Cart item */
+.cart-item {
+  display: flex;
+  gap: var(--space-md);
+  background: white;
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+}
+
+.cart-item-image {
+  position: relative;
+  width: 100px;
+  height: 120px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-cream);
+}
+
+.cart-item-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-item-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-navy);
+}
+
+.cart-item-variant {
+  font-size: 13px;
+  color: var(--color-secondary);
+  margin-top: 2px;
+}
+
+.cart-item-price {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--color-primary);
+  margin-top: var(--space-xs);
+}
+
+/* Quantity selector - bordered, 36px buttons */
+.quantity-selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-cream);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-top: var(--space-sm);
+}
+
+.quantity-selector button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  color: var(--color-navy);
+}
+
+.quantity-selector button:hover {
+  background: var(--color-cream);
+}
+
+.quantity-selector .quantity-value {
+  width: 40px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  border-left: 1px solid var(--color-cream);
+  border-right: 1px solid var(--color-cream);
+  line-height: 36px;
+}
+
+/* Remove link */
+.cart-item-remove {
+  font-size: 12px;
+  color: var(--color-soft-gray);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: var(--space-sm);
+}
+
+.cart-item-remove:hover {
+  color: var(--error);
+}
+
+/* Cart summary */
+.cart-summary {
+  position: relative;
+  background: var(--color-cream);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.cart-summary-floral-tl {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 80px;
+  height: 80px;
+  background-image: var(--floral-peony);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.cart-summary-floral-br {
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  width: 70px;
+  height: 70px;
+  background-image: var(--floral-wildflowers);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  pointer-events: none;
+  transform: rotate(180deg);
+}
+
+/* Cart item enter animation */
+.cart-item-enter {
+  animation: cartItemAdd 0.3s ease-out forwards;
+}

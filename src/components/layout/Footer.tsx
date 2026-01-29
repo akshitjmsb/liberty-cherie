@@ -18,11 +18,8 @@ const footerLinks = {
     { name: 'Gift Ideas', href: '/shop-for/gift-professional' },
     { name: 'All Collections', href: '/shop-for' },
   ],
-  services: [
-    { name: 'Custom Orders', href: '/custom-order' },
-    { name: 'Jacket Customization', href: '/custom-order?type=jacket-customization' },
-  ],
   info: [
+    { name: 'Custom Orders', href: '/custom-order' },
     { name: 'About Us', href: '/about' },
     { name: 'Contact', href: '/contact' },
     { name: 'Shipping & Returns', href: '/shipping' },
@@ -33,13 +30,21 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-charcoal text-white mt-20">
+    <footer className="footer">
+      {/* Floral decorations */}
+      <div className="ft-f1" />
+      <div className="ft-f2" />
+      <div className="ft-f3" />
+      <div className="ft-f4" />
+      <div className="ft-f5" />
+      <div className="ft-f6" />
+
       {/* Newsletter Section */}
-      <div className="bg-primary py-8">
+      <div className="bg-primary py-8 relative z-10">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <h3 className="font-display text-xl text-white">Join Our Newsletter</h3>
+              <h4 className="font-display text-xl text-white">Join Our Newsletter</h4>
               <p className="text-white/80 text-sm mt-1">
                 Get updates on new arrivals and exclusive offers
               </p>
@@ -52,12 +57,11 @@ export default function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="container py-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
+      <div className="container py-16 relative z-10">
+        <div className="footer-grid">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-3 lg:col-span-1">
-            <Link href="/" className="flex flex-col items-start mb-4">
-              {/* Text-based logo for dark background - as per branding kit */}
+          <div className="col-span-2 md:col-span-1">
+            <Link href="/" className="footer-logo">
               <span className="font-display text-[32px] tracking-[8px] text-white">
                 LIBERTY
               </span>
@@ -65,7 +69,7 @@ export default function Footer() {
                 chérie
               </span>
             </Link>
-            <p className="text-gray-400 text-sm mb-4 italic font-display">
+            <p className="text-white/60 text-sm mb-4 italic font-display">
               Handcrafted bags, pouches, and accessories made with love in Saint-Sauveur, Quebec.
             </p>
             <div className="flex items-center gap-3">
@@ -73,14 +77,14 @@ export default function Footer() {
                 href="https://instagram.com/libertycheriecreation"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-primary transition-colors"
+                className="text-white/60 hover:text-primary transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="mailto:contact@libertycherie.ca"
-                className="text-gray-400 hover:text-primary transition-colors"
+                className="text-white/60 hover:text-primary transition-colors"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
@@ -90,7 +94,7 @@ export default function Footer() {
 
           {/* Shop Links */}
           <div>
-            <h3 className="font-body text-[11px] font-medium tracking-[2px] uppercase text-secondary mb-6">Shop</h3>
+            <h4>Shop</h4>
             <ul className="space-y-2">
               {footerLinks.shop.map((link) => (
                 <li key={link.name}>
@@ -107,7 +111,7 @@ export default function Footer() {
 
           {/* Shop For Links */}
           <div>
-            <h3 className="font-body text-[11px] font-medium tracking-[2px] uppercase text-secondary mb-6">Shop For</h3>
+            <h4>Shop For</h4>
             <ul className="space-y-2">
               {footerLinks.shopFor.map((link) => (
                 <li key={link.name}>
@@ -122,20 +126,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services Links */}
+          {/* Info & Contact */}
           <div>
-            <h3 className="font-body text-[11px] font-medium tracking-[2px] uppercase text-secondary mb-6">Services</h3>
+            <h4>Info & Contact</h4>
             <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-white/70 hover:text-primary transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
               {footerLinks.info.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -147,12 +141,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="font-body text-[11px] font-medium tracking-[2px] uppercase text-secondary mb-6">Contact</h3>
-            <div className="space-y-3 text-sm text-white/70">
+            <div className="mt-4 space-y-3 text-sm text-white/70">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                 <span>Saint-Sauveur, QC<br />J0R 1K0, Canada</span>
@@ -171,11 +160,11 @@ export default function Footer() {
         </div>
 
         {/* Trust Badges */}
-        <div className="mt-12 pt-8 border-t border-gray-700">
+        <div className="mt-12 pt-8 border-t border-white/10">
           <TrustBadges
             variant="compact"
             showPaymentIcons={true}
-            className="justify-center text-gray-400 [&_svg]:text-gray-400 [&_.text-soft-gray]:text-gray-400"
+            className="justify-center text-white/60 [&_svg]:text-white/60 [&_.text-soft-gray]:text-white/60"
           />
         </div>
 

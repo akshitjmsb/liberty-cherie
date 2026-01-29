@@ -1,4 +1,9 @@
 // Product Types
+export interface ProductColor {
+  name: string;
+  hex: string;
+}
+
 export interface Product {
   id: string;
   slug: string;
@@ -7,6 +12,7 @@ export interface Product {
   description: string;
   description_fr?: string;
   price: number;
+  original_price?: number;
   currency: string;
   images: string[];
   category: ProductCategory;
@@ -14,6 +20,8 @@ export interface Product {
   in_stock: boolean;
   stock_quantity?: number;
   featured: boolean;
+  colors?: ProductColor[];
+  badge?: 'new' | 'sale' | 'soldout';
   created_at: string;
   updated_at: string;
 }

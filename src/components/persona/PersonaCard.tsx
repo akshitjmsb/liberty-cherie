@@ -47,7 +47,7 @@ export default function PersonaCard({ persona, compact = false }: PersonaCardPro
           <Icon className="w-5 h-5 text-primary" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="font-medium text-charcoal group-hover:text-primary transition-colors truncate">
+          <p className="font-medium text-navy group-hover:text-primary transition-colors truncate">
             {persona.name}
           </p>
         </div>
@@ -67,7 +67,7 @@ export default function PersonaCard({ persona, compact = false }: PersonaCardPro
 
         {/* Content */}
         <div className="p-5">
-          <h3 className="font-display text-lg text-charcoal group-hover:text-primary transition-colors">
+          <h3 className="font-display text-lg text-navy group-hover:text-primary transition-colors">
             {persona.name}
           </h3>
           <p className="text-soft-gray text-sm mt-2 line-clamp-3">

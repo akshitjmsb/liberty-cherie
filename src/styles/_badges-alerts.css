@@ -1,0 +1,86 @@
+/* ============================================================
+   Badges & Alerts - Branding Kit Section 07
+   Badge variants + Alert variants
+   ============================================================ */
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+}
+
+.badge-primary {
+  background: var(--color-navy);
+  color: white;
+}
+
+.badge-secondary {
+  background: var(--color-secondary);
+  color: white;
+}
+
+.badge-accent {
+  background: var(--color-primary);
+  color: white;
+}
+
+.badge-outline {
+  background: transparent;
+  border: 1px solid var(--color-navy);
+  color: var(--color-navy);
+}
+
+.badge-new {
+  background: var(--color-secondary);
+  color: white;
+}
+
+.badge-sale {
+  background: var(--color-primary);
+  color: white;
+}
+
+.badge-soldout {
+  background: var(--dark-gray);
+  color: white;
+}
+
+/* Alerts */
+.alert {
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.alert-success {
+  background: rgba(74, 103, 65, 0.1);
+  color: var(--success);
+  border-left: 4px solid var(--success);
+}
+
+.alert-error {
+  background: rgba(198, 75, 75, 0.1);
+  color: var(--error);
+  border-left: 4px solid var(--error);
+}
+
+.alert-warning {
+  background: rgba(212, 114, 140, 0.1);
+  color: var(--warning);
+  border-left: 4px solid var(--warning);
+}
+
+.alert-info {
+  background: rgba(143, 165, 164, 0.1);
+  color: var(--info);
+  border-left: 4px solid var(--info);
+}

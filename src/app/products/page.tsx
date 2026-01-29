@@ -130,7 +130,7 @@ function ProductsContent() {
       {/* Header */}
       <section className="bg-cream py-12">
         <div className="container">
-          <h1 className="font-display text-4xl text-charcoal text-center">
+          <h1 className="font-display text-4xl text-navy text-center">
             {filters.category
               ? categoryLabels[filters.category]?.en || 'Products'
               : 'All Products'}
@@ -148,7 +148,7 @@ function ProductsContent() {
             {/* Mobile Filter Toggle */}
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="md:hidden flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg"
+              className="md:hidden flex items-center gap-2 px-4 py-2 border border-cream rounded-lg"
             >
               <Filter className="w-4 h-4" />
               Filters
@@ -161,7 +161,7 @@ function ProductsContent() {
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   !filters.category
                     ? 'bg-primary text-white'
-                    : 'bg-cream text-charcoal hover:bg-gray-200'
+                    : 'bg-cream text-navy hover:bg-cream'
                 }`}
               >
                 All
@@ -173,7 +173,7 @@ function ProductsContent() {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                     filters.category === cat
                       ? 'bg-primary text-white'
-                      : 'bg-cream text-charcoal hover:bg-gray-200'
+                      : 'bg-cream text-navy hover:bg-cream'
                   }`}
                 >
                   {categoryLabels[cat]?.en}

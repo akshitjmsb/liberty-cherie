@@ -1,0 +1,130 @@
+/* ============================================================
+   Footer - Branding Kit Section 15
+   Footer layout (4-col grid), footer logo, footer florals
+   ============================================================ */
+
+.footer {
+  position: relative;
+  background: var(--color-navy);
+  color: white;
+  margin-top: 80px;
+  overflow: hidden;
+}
+
+/* Footer floral decorations (ft-f1 through ft-f6) */
+.footer .ft-f1 {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 160px;
+  height: 160px;
+  background-image: var(--floral-roses);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.08;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+.footer .ft-f2 {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 140px;
+  height: 140px;
+  background-image: var(--floral-wildflowers);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.08;
+  transform: rotate(20deg);
+  pointer-events: none;
+}
+
+.footer .ft-f3 {
+  position: absolute;
+  bottom: 60px;
+  left: 5%;
+  width: 100px;
+  height: 160px;
+  background-image: var(--floral-fern);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.06;
+  transform: rotate(10deg);
+  pointer-events: none;
+}
+
+.footer .ft-f4 {
+  position: absolute;
+  bottom: 80px;
+  right: 5%;
+  width: 100px;
+  height: 160px;
+  background-image: var(--floral-fern);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.06;
+  transform: rotate(-10deg) scaleX(-1);
+  pointer-events: none;
+}
+
+.footer .ft-f5 {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  width: 80px;
+  height: 80px;
+  background-image: var(--floral-peony);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.footer .ft-f6 {
+  position: absolute;
+  top: 40%;
+  right: 25%;
+  width: 90px;
+  height: 90px;
+  background-image: var(--floral-garden);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  transform: translateY(-50%) rotate(15deg);
+  pointer-events: none;
+}
+
+/* Footer logo */
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: var(--space-md);
+}
+
+/* Footer grid - 4 columns at desktop */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-2xl);
+  }
+}
+
+/* Footer column headings */
+.footer h4 {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-lg);
+}

@@ -136,7 +136,7 @@ export default function BottomNav() {
                   <div className="relative">
                     <Icon
                       className={`w-6 h-6 ${
-                        active ? 'text-primary' : 'text-charcoal'
+                        active ? 'text-primary' : 'text-navy'
                       }`}
                     />
                     {itemCount > 0 && (
@@ -168,7 +168,7 @@ export default function BottomNav() {
                   {menuOpen ? (
                     <X className="w-6 h-6 text-primary" />
                   ) : (
-                    <Icon className="w-6 h-6 text-charcoal" />
+                    <Icon className="w-6 h-6 text-navy" />
                   )}
                   <span
                     className={`text-xs mt-1 ${
@@ -190,7 +190,7 @@ export default function BottomNav() {
               >
                 <Icon
                   className={`w-6 h-6 ${
-                    active ? 'text-primary' : 'text-charcoal'
+                    active ? 'text-primary' : 'text-navy'
                   }`}
                 />
                 <span

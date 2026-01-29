@@ -12,7 +12,7 @@ export default function PrivacyPage() {
       <section className="bg-gradient-to-br from-cream via-white to-primary-light/10 py-16">
         <div className="container">
           <div className="max-w-3xl mx-auto">
-            <h1 className="font-display text-4xl text-charcoal mb-4">Privacy Policy</h1>
+            <h1 className="font-display text-4xl text-navy mb-4">Privacy Policy</h1>
             <p className="text-soft-gray">Last updated: {lastUpdated}</p>
           </div>
         </div>
@@ -24,7 +24,7 @@ export default function PrivacyPage() {
           <div className="max-w-3xl mx-auto prose prose-gray">
             <div className="space-y-8 text-soft-gray">
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">Introduction</h2>
+                <h2 className="font-display text-xl text-navy mb-4">Introduction</h2>
                 <p>
                   Liberty Chérie Creation (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) respects your privacy and is
                   committed to protecting your personal information. This Privacy Policy explains
@@ -34,7 +34,7 @@ export default function PrivacyPage() {
               </div>
 
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">Information We Collect</h2>
+                <h2 className="font-display text-xl text-navy mb-4">Information We Collect</h2>
                 <p className="mb-4">We may collect the following types of information:</p>
                 <ul className="list-disc list-inside space-y-2">
                   <li><strong>Personal Information:</strong> Name, email address, shipping address, phone number</li>
@@ -46,7 +46,7 @@ export default function PrivacyPage() {
               </div>
 
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">How We Use Your Information</h2>
+                <h2 className="font-display text-xl text-navy mb-4">How We Use Your Information</h2>
                 <ul className="list-disc list-inside space-y-2">
                   <li>Process and fulfill your orders</li>
                   <li>Communicate with you about your orders and inquiries</li>
@@ -58,7 +58,7 @@ export default function PrivacyPage() {
               </div>
 
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">Information Sharing</h2>
+                <h2 className="font-display text-xl text-navy mb-4">Information Sharing</h2>
                 <p className="mb-4">We may share your information with:</p>
                 <ul className="list-disc list-inside space-y-2">
                   <li><strong>Payment Processors:</strong> Stripe, for secure payment processing</li>
@@ -72,7 +72,7 @@ export default function PrivacyPage() {
               </div>
 
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">Data Security</h2>
+                <h2 className="font-display text-xl text-navy mb-4">Data Security</h2>
                 <p>
                   We implement appropriate security measures to protect your personal information.
                   All payment transactions are encrypted using SSL technology and processed through
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
               </div>
 
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">Cookies</h2>
+                <h2 className="font-display text-xl text-navy mb-4">Cookies</h2>
                 <p>
                   We use cookies and similar technologies to enhance your browsing experience,
                   remember your preferences, and analyze website traffic. You can control cookies
@@ -91,7 +91,7 @@ export default function PrivacyPage() {
               </div>
 
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">Your Rights</h2>
+                <h2 className="font-display text-xl text-navy mb-4">Your Rights</h2>
                 <p className="mb-4">Under Canadian privacy law, you have the right to:</p>
                 <ul className="list-disc list-inside space-y-2">
                   <li>Access your personal information</li>
@@ -105,7 +105,7 @@ export default function PrivacyPage() {
               </div>
 
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">Data Retention</h2>
+                <h2 className="font-display text-xl text-navy mb-4">Data Retention</h2>
                 <p>
                   We retain your personal information for as long as necessary to fulfill the
                   purposes outlined in this policy, comply with legal obligations, and resolve
@@ -115,7 +115,7 @@ export default function PrivacyPage() {
               </div>
 
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">Children&apos;s Privacy</h2>
+                <h2 className="font-display text-xl text-navy mb-4">Children&apos;s Privacy</h2>
                 <p>
                   Our website is not intended for children under 13. We do not knowingly collect
                   personal information from children under 13.
@@ -123,7 +123,7 @@ export default function PrivacyPage() {
               </div>
 
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">Changes to This Policy</h2>
+                <h2 className="font-display text-xl text-navy mb-4">Changes to This Policy</h2>
                 <p>
                   We may update this Privacy Policy from time to time. The updated policy will
                   be posted on this page with a new &quot;Last updated&quot; date.
@@ -131,7 +131,7 @@ export default function PrivacyPage() {
               </div>
 
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">Contact Us</h2>
+                <h2 className="font-display text-xl text-navy mb-4">Contact Us</h2>
                 <p>
                   If you have questions about this Privacy Policy or our privacy practices,
                   please contact us at:

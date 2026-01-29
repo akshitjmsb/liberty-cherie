@@ -37,7 +37,7 @@ export default function WishlistPage() {
       <div className="container py-16">
         <div className="text-center max-w-md mx-auto">
           <Heart className="w-16 h-16 text-soft-gray mx-auto mb-6" />
-          <h1 className="font-display text-3xl text-charcoal mb-4">
+          <h1 className="font-display text-3xl text-navy mb-4">
             Your Wishlist is Empty
           </h1>
           <p className="text-soft-gray mb-8">
@@ -64,7 +64,7 @@ export default function WishlistPage() {
             <ArrowLeft className="w-4 h-4" />
             Continue Shopping
           </Link>
-          <h1 className="font-display text-3xl text-charcoal">
+          <h1 className="font-display text-3xl text-navy">
             My Wishlist
           </h1>
           <p className="text-soft-gray mt-1">
@@ -106,7 +106,7 @@ export default function WishlistPage() {
                 {/* Remove Button */}
                 <button
                   onClick={() => handleRemove(product)}
-                  className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:bg-red-500 hover:text-white transition-colors"
+                  className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:bg-[var(--error)] hover:text-white transition-colors"
                   aria-label="Remove from wishlist"
                 >
                   <Trash2 className="w-4 h-4" />
@@ -130,7 +130,7 @@ export default function WishlistPage() {
               </span>
 
               <Link href={`/product/${product.slug || product.id}`}>
-                <h3 className="font-display text-lg text-charcoal mt-2 hover:text-primary transition-colors line-clamp-1">
+                <h3 className="font-display text-lg text-navy mt-2 hover:text-primary transition-colors line-clamp-1">
                   {product.name}
                 </h3>
               </Link>
@@ -150,7 +150,7 @@ export default function WishlistPage() {
                   className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     product.in_stock
                       ? 'bg-primary text-white hover:bg-primary-dark'
-                      : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                      : 'bg-[var(--light-gray)] text-[var(--medium-gray)] cursor-not-allowed'
                   }`}
                   aria-label="Add to cart"
                 >

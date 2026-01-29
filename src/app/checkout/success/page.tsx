@@ -26,7 +26,7 @@ function SuccessContent() {
           </div>
 
           {/* Heading */}
-          <h1 className="font-display text-3xl lg:text-4xl text-charcoal mb-4">
+          <h1 className="font-display text-3xl lg:text-4xl text-navy mb-4">
             Thank You for Your Order!
           </h1>
 
@@ -39,14 +39,14 @@ function SuccessContent() {
           <div className="grid sm:grid-cols-2 gap-4 mb-8">
             <div className="bg-cream rounded-xl p-6 text-left">
               <Mail className="w-6 h-6 text-primary mb-3" />
-              <h3 className="font-medium text-charcoal mb-1">Confirmation Email</h3>
+              <h3 className="font-medium text-navy mb-1">Confirmation Email</h3>
               <p className="text-soft-gray text-sm">
                 You&apos;ll receive an email confirmation with your order details shortly.
               </p>
             </div>
             <div className="bg-cream rounded-xl p-6 text-left">
               <Package className="w-6 h-6 text-primary mb-3" />
-              <h3 className="font-medium text-charcoal mb-1">Shipping Updates</h3>
+              <h3 className="font-medium text-navy mb-1">Shipping Updates</h3>
               <p className="text-soft-gray text-sm">
                 We&apos;ll send you tracking information once your order ships.
               </p>
@@ -55,9 +55,9 @@ function SuccessContent() {
 
           {/* Order Reference */}
           {sessionId && (
-            <div className="bg-white border border-gray-200 rounded-lg p-4 mb-8">
+            <div className="bg-white border border-cream rounded-lg p-4 mb-8">
               <p className="text-sm text-soft-gray">Order Reference</p>
-              <p className="font-mono text-charcoal text-sm truncate">{sessionId}</p>
+              <p className="font-mono text-navy text-sm truncate">{sessionId}</p>
             </div>
           )}
 

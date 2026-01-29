@@ -1,0 +1,70 @@
+/* ============================================================
+   Checkout - Branding Kit Section 12
+   Checkout steps, step numbers, step dividers
+   ============================================================ */
+
+.checkout-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xl); /* 48px - kit spec */
+}
+
+.checkout-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Step number states */
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all var(--transition-base);
+}
+
+.step-number-completed {
+  background: var(--color-wild-green);
+  color: white;
+}
+
+.step-number-active {
+  background: var(--color-secondary);
+  color: white;
+}
+
+.step-number-pending {
+  background: var(--light-gray);
+  color: var(--color-soft-gray);
+}
+
+.step-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+
+.step-label-pending {
+  color: var(--color-soft-gray);
+}
+
+/* Step divider - 60px width, kit spec */
+.step-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--light-gray);
+  flex-shrink: 0;
+}
+
+.step-divider-completed {
+  background: var(--color-wild-green);
+}

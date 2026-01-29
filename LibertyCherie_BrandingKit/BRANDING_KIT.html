@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liberty Chérie - Premium Branding Kit | Flourishing</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Liberty Chérie - Complete Branding & Design Kit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* ============================================
+           LIBERTY CHÉRIE - E-STORE DESIGN SYSTEM
+           Botanical Rich • Elegant • French-Inspired
+           ============================================ */
+
+        /* ============ DESIGN TOKENS ============ */
         :root {
+            /* Primary Colors */
             --deep-navy: #1A2744;
             --sage-blue: #8FA5A4;
             --rose-pink: #D4728C;
+
+            /* Secondary Colors */
             --coral-red: #C64B4B;
             --dusty-rose: #B36B7A;
             --cream: #F5E6D3;
@@ -17,6 +26,61 @@
             --warm-brown: #8B5A3C;
             --wild-green: #4A6741;
             --soft-lavender: #9B8AA6;
+
+            /* Neutrals */
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --light-gray: #F0F0F0;
+            --medium-gray: #CCCCCC;
+            --dark-gray: #666666;
+            --black: #1A1A1A;
+
+            /* State Colors */
+            --success: #4A6741;
+            --error: #C64B4B;
+            --warning: #D4728C;
+            --info: #8FA5A4;
+
+            /* Typography */
+            --font-primary: 'Cormorant Garamond', Georgia, serif;
+            --font-secondary: 'Montserrat', 'Helvetica Neue', sans-serif;
+
+            /* Spacing Scale */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+            --space-4xl: 96px;
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(26, 39, 68, 0.08);
+            --shadow-md: 0 4px 16px rgba(26, 39, 68, 0.1);
+            --shadow-lg: 0 8px 32px rgba(26, 39, 68, 0.12);
+            --shadow-xl: 0 16px 48px rgba(26, 39, 68, 0.15);
+
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+            --transition-slow: 400ms ease;
+
+            /* Floral Assets */
+            --floral-roses: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
+            --floral-wildflowers: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
+            --floral-garden: url('https://cdn.pixabay.com/photo/2021/02/28/10/29/vintage-6056811_1280.png');
+            --floral-deep-roses: url('https://cdn.pixabay.com/photo/2019/07/18/13/58/vintage-4346556_1280.png');
+            --floral-peony: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
+            --floral-fern: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
+            --floral-collage: url('https://cdn.pixabay.com/photo/2016/10/25/22/22/roses-1770165_1280.png');
         }
 
         * {
@@ -26,14 +90,99 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: #FAFAFA;
+            font-family: var(--font-secondary);
+            background: var(--off-white);
             color: var(--deep-navy);
             line-height: 1.6;
         }
 
-        /* ============ HERO SECTION - FLOURISHING ============ */
-        .hero {
+        /* ============ DESIGN SYSTEM LAYOUT ============ */
+        .design-system {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+        }
+
+        .section {
+            margin-bottom: var(--space-4xl);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            padding: var(--space-2xl) 0;
+            position: relative;
+        }
+
+        .section-number {
+            font-family: var(--font-primary);
+            font-size: 14px;
+            color: var(--sage-blue);
+            letter-spacing: 3px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-title {
+            font-family: var(--font-primary);
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--deep-navy);
+            letter-spacing: 3px;
+            margin-bottom: var(--space-md);
+        }
+
+        .section-subtitle {
+            font-family: var(--font-secondary);
+            font-size: 14px;
+            color: var(--dark-gray);
+            letter-spacing: 1px;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--rose-pink), var(--dusty-rose));
+            margin: var(--space-lg) auto 0;
+        }
+
+        .subsection {
+            margin-bottom: var(--space-3xl);
+        }
+
+        .subsection-title {
+            font-family: var(--font-primary);
+            font-size: 24px;
+            color: var(--deep-navy);
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--cream);
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .component-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .component-label {
+            font-family: var(--font-secondary);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage-blue);
+            margin-bottom: var(--space-md);
+        }
+
+        /* ============ HERO COVER ============ */
+        .hero-cover {
             background: var(--deep-navy);
             min-height: 100vh;
             display: flex;
@@ -43,931 +192,327 @@
             overflow: hidden;
         }
 
-        /* TOP LEFT - Wildflower cascade */
-        .hero-floral-1 {
+        .hero-floral {
             position: absolute;
-            top: -100px;
-            left: -80px;
-            width: 450px;
-            height: 450px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
             background-size: contain;
             background-repeat: no-repeat;
-            opacity: 0.4;
-            transform: rotate(-30deg);
         }
 
-        /* TOP LEFT - Pink roses layer */
-        .hero-floral-1b {
-            position: absolute;
-            top: 60px;
-            left: 80px;
-            width: 200px;
-            height: 200px;
-            background-image: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.35;
-            transform: rotate(15deg);
-        }
+        .hero-f1 { top: -80px; left: -60px; width: 350px; height: 350px; background-image: var(--floral-wildflowers); opacity: 0.35; transform: rotate(-25deg); }
+        .hero-f2 { top: -40px; right: -40px; width: 280px; height: 280px; background-image: var(--floral-roses); opacity: 0.38; transform: rotate(15deg); }
+        .hero-f3 { bottom: -60px; left: -40px; width: 300px; height: 300px; background-image: var(--floral-deep-roses); opacity: 0.35; transform: rotate(20deg); }
+        .hero-f4 { bottom: -50px; right: -50px; width: 320px; height: 320px; background-image: var(--floral-garden); opacity: 0.32; transform: rotate(-15deg); }
+        .hero-f5 { top: 40%; left: -30px; width: 150px; height: 150px; background-image: var(--floral-peony); opacity: 0.4; }
+        .hero-f6 { top: 35%; right: -25px; width: 140px; height: 140px; background-image: var(--floral-peony); opacity: 0.38; transform: rotate(10deg); }
+        .hero-f7 { bottom: 30%; left: 5%; width: 100px; height: 160px; background-image: var(--floral-fern); opacity: 0.3; transform: rotate(15deg); }
+        .hero-f8 { bottom: 25%; right: 5%; width: 90px; height: 150px; background-image: var(--floral-fern); opacity: 0.28; transform: rotate(-20deg) scaleX(-1); }
 
-        /* TOP CENTER - Fern */
-        .hero-floral-1c {
-            position: absolute;
-            top: -40px;
-            left: 30%;
-            width: 120px;
-            height: 200px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.3;
-            transform: rotate(20deg);
-        }
-
-        /* TOP RIGHT - Pink roses cluster */
-        .hero-floral-2 {
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 320px;
-            height: 320px;
-            background-image: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.42;
-            transform: rotate(20deg);
-        }
-
-        /* TOP RIGHT - Garden variety layer */
-        .hero-floral-2b {
-            position: absolute;
-            top: 100px;
-            right: 60px;
-            width: 180px;
-            height: 180px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/02/28/10/29/vintage-6056811_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.35;
-            transform: rotate(-10deg);
-        }
-
-        /* MID RIGHT - Peony cluster */
-        .hero-floral-3 {
-            position: absolute;
-            top: 35%;
-            right: -60px;
-            width: 220px;
-            height: 220px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.45;
-            transform: rotate(-15deg);
-        }
-
-        /* MID RIGHT - Rose collage layer */
-        .hero-floral-3b {
-            position: absolute;
-            top: 50%;
-            right: 40px;
-            width: 150px;
-            height: 150px;
-            background-image: url('https://cdn.pixabay.com/photo/2016/10/25/22/22/roses-1770165_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.3;
-            transform: rotate(10deg);
-        }
-
-        /* BOTTOM RIGHT - Deep roses */
-        .hero-floral-4 {
-            position: absolute;
-            bottom: -80px;
-            right: -30px;
-            width: 350px;
-            height: 350px;
-            background-image: url('https://cdn.pixabay.com/photo/2019/07/18/13/58/vintage-4346556_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.4;
-            transform: rotate(25deg);
-        }
-
-        /* BOTTOM RIGHT - Wildflower layer */
-        .hero-floral-4b {
-            position: absolute;
-            bottom: 80px;
-            right: 120px;
-            width: 200px;
-            height: 200px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.3;
-            transform: rotate(-5deg);
-        }
-
-        /* BOTTOM CENTER - Fern */
-        .hero-floral-4c {
-            position: absolute;
-            bottom: -50px;
-            left: 45%;
-            width: 140px;
-            height: 220px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.28;
-            transform: rotate(-15deg);
-        }
-
-        /* BOTTOM LEFT - Fern cascade */
-        .hero-floral-5 {
-            position: absolute;
-            bottom: -30px;
-            left: -50px;
-            width: 280px;
-            height: 400px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.32;
-            transform: rotate(25deg);
-        }
-
-        /* BOTTOM LEFT - Peony layer */
-        .hero-floral-5b {
-            position: absolute;
-            bottom: 100px;
-            left: 80px;
-            width: 160px;
-            height: 160px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.35;
-            transform: rotate(-20deg);
-        }
-
-        /* MID LEFT - Garden variety */
-        .hero-floral-6 {
-            position: absolute;
-            top: 30%;
-            left: -50px;
-            width: 240px;
-            height: 240px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/02/28/10/29/vintage-6056811_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.38;
-            transform: rotate(-25deg);
-        }
-
-        /* MID LEFT - Rose collage layer */
-        .hero-floral-6b {
-            position: absolute;
-            top: 45%;
-            left: 60px;
-            width: 140px;
-            height: 140px;
-            background-image: url('https://cdn.pixabay.com/photo/2016/10/25/22/22/roses-1770165_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.28;
-            transform: rotate(15deg);
-        }
-
-        /* ============ SAGE BLUE CARD ============ */
         .hero-card {
             background: var(--sage-blue);
             border-radius: 30px;
-            padding: 140px 100px 120px;
+            padding: 100px 80px;
             position: relative;
             z-index: 10;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-            overflow: hidden;
-            max-width: 700px;
-            width: 90%;
-        }
-
-        /* Card florals - top */
-        .card-floral-top {
-            position: absolute;
-            top: -70px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 240px;
-            height: 240px;
-            background-image: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            z-index: 15;
-        }
-
-        .card-floral-top-left {
-            position: absolute;
-            top: -40px;
-            left: -40px;
-            width: 160px;
-            height: 160px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.9;
-            transform: rotate(-15deg);
-            z-index: 14;
-        }
-
-        .card-floral-top-right {
-            position: absolute;
-            top: -30px;
-            right: -30px;
-            width: 140px;
-            height: 140px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/02/28/10/29/vintage-6056811_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.9;
-            transform: rotate(15deg);
-            z-index: 14;
-        }
-
-        .card-floral-top-right-peony {
-            position: absolute;
-            top: 50px;
-            right: -20px;
-            width: 100px;
-            height: 100px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.85;
-            z-index: 15;
-        }
-
-        .card-floral-left-fern {
-            position: absolute;
-            top: 40%;
-            left: -25px;
-            width: 80px;
-            height: 130px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.7;
-            transform: rotate(25deg);
-            z-index: 14;
-        }
-
-        .card-floral-right-fern {
-            position: absolute;
-            top: 45%;
-            right: -20px;
-            width: 70px;
-            height: 120px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.65;
-            transform: rotate(-30deg) scaleX(-1);
-            z-index: 14;
-        }
-
-        /* Card florals - bottom */
-        .card-floral-bottom-left {
-            position: absolute;
-            bottom: -50px;
-            left: -50px;
-            width: 180px;
-            height: 180px;
-            background-image: url('https://cdn.pixabay.com/photo/2019/07/18/13/58/vintage-4346556_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.9;
-            transform: rotate(10deg);
-            z-index: 14;
-        }
-
-        .card-floral-bottom-right {
-            position: absolute;
-            bottom: -45px;
-            right: -45px;
-            width: 170px;
-            height: 170px;
-            background-image: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.9;
-            transform: rotate(-15deg);
-            z-index: 14;
-        }
-
-        .card-floral-bottom-center {
-            position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 140px;
-            height: 140px;
-            background-image: url('https://cdn.pixabay.com/photo/2016/10/25/22/22/roses-1770165_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.85;
-            z-index: 15;
-        }
-
-        .card-floral-bottom-left-wild {
-            position: absolute;
-            bottom: 20px;
-            left: 30px;
-            width: 100px;
-            height: 100px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.7;
-            transform: rotate(-10deg);
-            z-index: 13;
-        }
-
-        .hero-content {
+            box-shadow: var(--shadow-xl);
             text-align: center;
-            position: relative;
-            z-index: 20;
-            padding-top: 60px;
+            max-width: 750px;
+            overflow: visible;
         }
 
-        .brand-name {
-            font-family: 'Cormorant Garamond', serif;
+        .hero-card-floral {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .hc-f1 { top: -60px; left: 50%; transform: translateX(-50%); width: 180px; height: 180px; background-image: var(--floral-roses); z-index: 15; }
+        .hc-f2 { top: -30px; left: -30px; width: 120px; height: 120px; background-image: var(--floral-wildflowers); opacity: 0.9; transform: rotate(-10deg); }
+        .hc-f3 { top: -25px; right: -25px; width: 110px; height: 110px; background-image: var(--floral-garden); opacity: 0.9; transform: rotate(12deg); }
+        .hc-f4 { bottom: -35px; left: -30px; width: 115px; height: 115px; background-image: var(--floral-deep-roses); opacity: 0.9; transform: rotate(8deg); }
+        .hc-f5 { bottom: -30px; right: -30px; width: 110px; height: 110px; background-image: var(--floral-roses); opacity: 0.9; transform: rotate(-10deg); }
+        .hc-f6 { bottom: -25px; left: 50%; transform: translateX(-50%); width: 100px; height: 100px; background-image: var(--floral-collage); opacity: 0.85; }
+
+        .hero-brand {
+            font-family: var(--font-primary);
             font-size: 72px;
             font-weight: 400;
-            letter-spacing: 18px;
-            color: white;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            letter-spacing: 16px;
+            color: var(--white);
+            margin-top: 40px;
         }
 
-        .brand-tagline {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 36px;
+        .hero-tagline {
+            font-family: var(--font-primary);
+            font-size: 32px;
             font-style: italic;
             color: var(--deep-navy);
             margin-top: 8px;
-            letter-spacing: 3px;
         }
 
-        .divider-line {
+        .hero-divider {
             width: 60px;
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--rose-pink), transparent);
-            margin: 40px auto;
+            background: var(--rose-pink);
+            margin: 35px auto;
         }
 
-        .brand-subtitle {
-            font-family: 'Montserrat', sans-serif;
+        .hero-subtitle {
+            font-family: var(--font-secondary);
             font-size: 12px;
-            letter-spacing: 8px;
+            letter-spacing: 6px;
             color: var(--rose-pink);
             text-transform: uppercase;
         }
 
-        .brand-essence {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 15px;
-            font-style: italic;
-            color: var(--deep-navy);
-            margin-top: 25px;
-            letter-spacing: 2px;
-            opacity: 0.7;
-        }
-
-        /* ============ SECTIONS ============ */
-        .section {
-            padding: 100px 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 70px;
-        }
-
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 40px;
-            font-weight: 400;
-            color: var(--deep-navy);
-            letter-spacing: 4px;
-        }
-
-        .section-line {
-            width: 45px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--rose-pink), var(--dusty-rose));
-            margin: 24px auto 0;
-        }
-
-        /* ============ LOGO SECTION - FLOURISHING ============ */
+        /* ============ LOGO CARDS ============ */
         .logo-section {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo-section-bg-1 {
-            position: absolute;
-            top: -50px;
-            left: -80px;
-            width: 250px;
-            height: 250px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.08;
-            transform: rotate(-15deg);
-        }
-
-        .logo-section-bg-2 {
-            position: absolute;
-            bottom: -60px;
-            right: -60px;
-            width: 220px;
-            height: 220px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.08;
-            transform: rotate(20deg);
-        }
-
-        .logo-showcase {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            position: relative;
-            z-index: 5;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
         }
 
         .logo-card {
-            padding: 65px 55px;
-            border-radius: 8px;
-            text-align: center;
-            position: relative;
-            overflow: visible;
-        }
-
-        .logo-card.light {
-            background: white;
-            box-shadow: 0 6px 40px rgba(0,0,0,0.07);
-        }
-
-        .logo-card.dark {
-            background: var(--deep-navy);
-            padding: 70px 60px;
-            overflow: visible;
-        }
-
-        .logo-card-label {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 9px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--sage-blue);
-            margin-bottom: 38px;
-        }
-
-        .logo-card.dark .logo-card-label {
-            color: rgba(255,255,255,0.4);
-        }
-
-        .logo-main {
+            padding: var(--space-3xl);
+            border-radius: var(--radius-lg);
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            min-height: 350px;
             position: relative;
+            overflow: visible;
         }
 
-        /* Light card florals - abundant */
-        .logo-floral-l1 {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.55;
-            top: -30px;
-            right: 10px;
-            transform: rotate(8deg);
+        .logo-card-light {
+            background: var(--white);
+            box-shadow: var(--shadow-md);
         }
 
-        .logo-floral-l2 {
-            position: absolute;
-            width: 60px;
-            height: 100px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.45;
-            bottom: -20px;
-            left: 15px;
-            transform: rotate(-25deg);
+        .logo-card-dark {
+            background: var(--deep-navy);
         }
 
-        .logo-floral-l3 {
-            position: absolute;
-            width: 55px;
-            height: 55px;
-            background-image: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.5;
-            top: -15px;
-            left: 25px;
-            transform: rotate(-10deg);
+        .logo-card-sage {
+            background: var(--sage-blue);
         }
 
-        .logo-floral-l4 {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.5;
-            bottom: -12px;
-            right: 20px;
-            transform: rotate(15deg);
+        .logo-card-cream {
+            background: var(--cream);
         }
 
-        /* Dark card florals - ONLY in corners, never covering text */
-        /* Top left corner - Pink roses */
-        .logo-floral-d-top {
-            position: absolute;
-            width: 110px;
-            height: 110px;
-            background-image: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.9;
-            top: -45px;
-            left: -45px;
-            transform: rotate(-15deg);
-        }
-
-        /* Top right corner - Garden variety */
-        .logo-floral-d1 {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/02/28/10/29/vintage-6056811_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.9;
-            top: -40px;
-            right: -40px;
-            transform: rotate(15deg);
-        }
-
-        /* Bottom left corner - Deep roses */
-        .logo-floral-d2 {
-            position: absolute;
-            width: 105px;
-            height: 105px;
-            background-image: url('https://cdn.pixabay.com/photo/2019/07/18/13/58/vintage-4346556_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.9;
-            bottom: -45px;
-            left: -40px;
-            transform: rotate(10deg);
-        }
-
-        /* Bottom right corner - Pink roses */
-        .logo-floral-d3 {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-image: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.9;
-            bottom: -40px;
-            right: -40px;
-            transform: rotate(-12deg);
-        }
-
-        /* Hide unused dark card florals */
-        .logo-floral-d4,
-        .logo-floral-d5,
-        .logo-floral-d6,
-        .logo-floral-d7 {
-            display: none;
-        }
-
-        .logo-text-main {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 44px;
+        .logo-main {
+            font-family: var(--font-primary);
+            font-size: 52px;
             font-weight: 400;
-            letter-spacing: 11px;
-            color: var(--deep-navy);
+            letter-spacing: 12px;
         }
 
-        .logo-card.dark .logo-text-main {
-            color: white;
-        }
-
-        .logo-text-sub {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
+        .logo-sub {
+            font-family: var(--font-primary);
+            font-size: 28px;
             font-style: italic;
-            color: var(--rose-pink);
             margin-top: 4px;
         }
 
-        .logo-card.dark .logo-text-sub {
-            color: var(--sage-blue);
+        .logo-card-light .logo-main { color: var(--deep-navy); }
+        .logo-card-light .logo-sub { color: var(--rose-pink); }
+
+        .logo-card-dark .logo-main { color: var(--white); }
+        .logo-card-dark .logo-sub { color: var(--sage-blue); }
+
+        .logo-card-sage .logo-main { color: var(--white); }
+        .logo-card-sage .logo-sub { color: var(--deep-navy); }
+
+        .logo-card-cream .logo-main { color: var(--deep-navy); }
+        .logo-card-cream .logo-sub { color: var(--dusty-rose); }
+
+        /* Dark card florals - ONLY in corners, never covering text */
+        .logo-floral {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
         }
 
-        /* ============ BRAND ESSENCE - FLOURISHING ============ */
-        .essence-section {
-            background: linear-gradient(135deg, var(--cream) 0%, #FDF8F3 100%);
+        .logo-f-tl { top: -45px; left: -45px; width: 110px; height: 110px; background-image: var(--floral-roses); opacity: 0.9; transform: rotate(-15deg); }
+        .logo-f-tr { top: -40px; right: -40px; width: 100px; height: 100px; background-image: var(--floral-garden); opacity: 0.85; transform: rotate(12deg); }
+        .logo-f-bl { bottom: -45px; left: -40px; width: 105px; height: 105px; background-image: var(--floral-wildflowers); opacity: 0.9; transform: rotate(10deg); }
+        .logo-f-br { bottom: -40px; right: -45px; width: 100px; height: 100px; background-image: var(--floral-deep-roses); opacity: 0.85; transform: rotate(-10deg); }
+
+        /* Light card florals */
+        .logo-f-light-tl { top: -35px; left: -35px; width: 90px; height: 90px; background-image: var(--floral-roses); opacity: 0.75; transform: rotate(-10deg); }
+        .logo-f-light-br { bottom: -35px; right: -35px; width: 85px; height: 85px; background-image: var(--floral-garden); opacity: 0.7; transform: rotate(10deg); }
+
+        /* ============ SOCIAL MEDIA TEMPLATES ============ */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .social-template {
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
         }
 
-        .essence-floral-1 {
-            position: absolute;
-            left: -100px;
-            top: -80px;
-            width: 380px;
-            height: 380px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.18;
-            transform: rotate(-15deg);
-        }
-
-        .essence-floral-2 {
-            position: absolute;
-            right: -80px;
-            bottom: -60px;
-            width: 300px;
-            height: 300px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.2;
-            transform: rotate(25deg);
-        }
-
-        .essence-floral-3 {
-            position: absolute;
-            left: 50%;
-            top: -60px;
-            width: 180px;
-            height: 280px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.12;
-            transform: translateX(-50%) rotate(10deg);
-        }
-
-        .essence-floral-4 {
-            position: absolute;
-            right: 10%;
-            top: 20%;
-            width: 150px;
-            height: 150px;
-            background-image: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.15;
-            transform: rotate(-20deg);
-        }
-
-        .essence-floral-5 {
-            position: absolute;
-            left: 8%;
-            bottom: 15%;
-            width: 140px;
-            height: 140px;
-            background-image: url('https://cdn.pixabay.com/photo/2019/07/18/13/58/vintage-4346556_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.15;
-            transform: rotate(15deg);
-        }
-
-        .essence-content {
-            text-align: center;
-            position: relative;
-            z-index: 5;
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        .essence-quote {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 34px;
-            font-style: italic;
-            color: var(--deep-navy);
-            line-height: 1.6;
-            margin-bottom: 35px;
-        }
-
-        .essence-values {
+        .social-instagram-post {
+            aspect-ratio: 1;
+            background: var(--deep-navy);
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            gap: 60px;
-            margin-top: 45px;
+            padding: var(--space-xl);
         }
 
-        .essence-value {
+        .social-instagram-story {
+            aspect-ratio: 9/16;
+            background: linear-gradient(180deg, var(--sage-blue) 0%, var(--deep-navy) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+            max-height: 450px;
+        }
+
+        .social-facebook-cover {
+            aspect-ratio: 2.7;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+        }
+
+        .social-floral {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .sf-1 { top: -25px; left: -25px; width: 80px; height: 80px; background-image: var(--floral-wildflowers); opacity: 0.8; transform: rotate(-15deg); }
+        .sf-2 { top: -20px; right: -20px; width: 70px; height: 70px; background-image: var(--floral-roses); opacity: 0.75; transform: rotate(12deg); }
+        .sf-3 { bottom: -25px; left: -20px; width: 75px; height: 75px; background-image: var(--floral-garden); opacity: 0.8; transform: rotate(8deg); }
+        .sf-4 { bottom: -20px; right: -25px; width: 70px; height: 70px; background-image: var(--floral-deep-roses); opacity: 0.75; transform: rotate(-10deg); }
+
+        .social-brand {
+            font-family: var(--font-primary);
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 8px;
+            color: var(--white);
             text-align: center;
         }
 
-        .essence-value-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
-            color: var(--deep-navy);
-            margin-bottom: 10px;
-        }
-
-        .essence-value-desc {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 10px;
-            letter-spacing: 1px;
+        .social-brand-sub {
+            font-family: var(--font-primary);
+            font-size: 18px;
+            font-style: italic;
             color: var(--sage-blue);
+            margin-top: 4px;
+        }
+
+        .social-tagline {
+            font-family: var(--font-secondary);
+            font-size: 11px;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            color: var(--rose-pink);
+            margin-top: var(--space-lg);
         }
 
-        /* ============ COLOR PALETTE - FLOURISHING ============ */
-        .color-section {
-            background: white;
-            position: relative;
-            overflow: hidden;
+        .social-cta {
+            font-family: var(--font-secondary);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--white);
+            background: var(--rose-pink);
+            padding: 10px 24px;
+            border-radius: var(--radius-sm);
+            margin-top: var(--space-lg);
         }
 
-        .color-bg-1 {
-            position: absolute;
-            right: -120px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 450px;
-            height: 450px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.06;
+        .social-label {
+            font-family: var(--font-secondary);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage-blue);
+            margin-top: var(--space-md);
+            text-align: center;
         }
 
-        .color-bg-2 {
-            position: absolute;
-            left: -80px;
-            top: 20%;
-            width: 250px;
-            height: 250px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.05;
-            transform: rotate(-20deg);
+        /* Facebook cover specific */
+        .social-facebook-cover .social-brand {
+            color: var(--deep-navy);
+            font-size: 36px;
         }
 
-        .color-bg-3 {
-            position: absolute;
-            left: 30%;
-            bottom: -60px;
-            width: 200px;
-            height: 200px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.05;
-            transform: rotate(15deg);
+        .social-facebook-cover .social-brand-sub {
+            color: var(--dusty-rose);
         }
 
+        .social-facebook-cover .social-tagline {
+            color: var(--sage-blue);
+        }
+
+        /* ============ 1. COLOR SYSTEM ============ */
         .color-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 28px;
-            position: relative;
-            z-index: 5;
+            gap: var(--space-lg);
         }
 
-        .color-item {
+        .color-card {
             text-align: center;
         }
 
         .color-swatch {
             width: 100%;
             aspect-ratio: 1;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-md);
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition-base);
         }
 
         .color-swatch:hover {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
 
-        .color-label {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 10px;
+        .color-name {
+            font-family: var(--font-secondary);
+            font-size: 11px;
             font-weight: 500;
             letter-spacing: 1px;
             text-transform: uppercase;
             color: var(--deep-navy);
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
-        .color-code {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 9px;
+        .color-hex {
+            font-family: var(--font-secondary);
+            font-size: 10px;
             color: var(--sage-blue);
             letter-spacing: 1px;
         }
 
-        /* ============ TYPOGRAPHY - FLOURISHING ============ */
-        .typography-section {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .type-bg-1 {
-            position: absolute;
-            left: -60px;
-            top: -40px;
-            width: 200px;
-            height: 200px;
-            background-image: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.06;
-            transform: rotate(-15deg);
-        }
-
-        .type-bg-2 {
-            position: absolute;
-            right: -50px;
-            bottom: -50px;
-            width: 180px;
-            height: 280px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.06;
-            transform: rotate(20deg);
-        }
-
-        .typography-showcase {
-            background: white;
-            padding: 65px;
-            border-radius: 8px;
-            box-shadow: 0 6px 40px rgba(0,0,0,0.07);
-            position: relative;
-            overflow: hidden;
-            z-index: 5;
-        }
-
-        .type-inner-1 {
-            position: absolute;
-            right: -50px;
-            bottom: -50px;
-            width: 200px;
-            height: 200px;
-            background-image: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.1;
-            transform: rotate(18deg);
-        }
-
-        .type-inner-2 {
-            position: absolute;
-            left: -30px;
-            top: -30px;
-            width: 120px;
-            height: 120px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/02/28/10/29/vintage-6056811_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.08;
-            transform: rotate(-10deg);
+        /* ============ 2. TYPOGRAPHY ============ */
+        .type-showcase {
+            background: var(--white);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
         }
 
         .type-row {
-            padding: 40px 0;
+            padding: var(--space-xl) 0;
             border-bottom: 1px solid var(--cream);
-            position: relative;
-            z-index: 5;
         }
 
         .type-row:last-child {
@@ -975,1003 +520,1802 @@
             padding-bottom: 0;
         }
 
-        .type-row:first-child {
-            padding-top: 0;
-        }
-
         .type-label {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 9px;
+            font-size: 10px;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--sage-blue);
-            margin-bottom: 20px;
+            margin-bottom: var(--space-md);
         }
 
-        .type-display-primary {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 48px;
-            color: var(--deep-navy);
-            letter-spacing: 4px;
-        }
+        .type-h1 { font-family: var(--font-primary); font-size: 56px; color: var(--deep-navy); letter-spacing: 2px; }
+        .type-h2 { font-family: var(--font-primary); font-size: 42px; color: var(--deep-navy); letter-spacing: 2px; }
+        .type-h3 { font-family: var(--font-primary); font-size: 32px; color: var(--deep-navy); }
+        .type-h4 { font-family: var(--font-primary); font-size: 24px; color: var(--deep-navy); }
+        .type-body { font-family: var(--font-secondary); font-size: 16px; color: var(--deep-navy); line-height: 1.7; }
+        .type-small { font-family: var(--font-secondary); font-size: 14px; color: var(--dark-gray); }
+        .type-caption { font-family: var(--font-secondary); font-size: 12px; color: var(--sage-blue); letter-spacing: 1px; }
 
-        .type-display-secondary {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 19px;
-            font-weight: 300;
-            color: var(--deep-navy);
-            letter-spacing: 3px;
-        }
-
-        /* ============ SOCIAL MEDIA - FLOURISHING ============ */
-        .social-section {
-            background: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-bg-1 {
-            position: absolute;
-            left: -80px;
-            bottom: -60px;
-            width: 280px;
-            height: 280px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.06;
-            transform: rotate(-10deg);
-        }
-
-        .social-bg-2 {
-            position: absolute;
-            right: -60px;
-            top: -40px;
-            width: 220px;
-            height: 220px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.06;
-            transform: rotate(15deg);
-        }
-
-        .social-showcase {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 55px;
-            align-items: start;
-            position: relative;
-            z-index: 5;
-        }
-
-        .social-item {
-            background: #FAFAFA;
-            padding: 45px;
-            border-radius: 8px;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.05);
-        }
-
-        .social-label {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 9px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--sage-blue);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        /* Instagram Post - Flourishing */
-        .ig-post {
-            aspect-ratio: 1;
-            background: var(--deep-navy);
-            border-radius: 8px;
-            position: relative;
+        /* ============ 3. BUTTONS ============ */
+        .button-row {
             display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .btn {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-        }
-
-        .ig-f1 {
-            position: absolute;
-            top: -30px;
-            left: -30px;
-            width: 160px;
-            height: 160px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.5;
-            transform: rotate(-25deg);
-        }
-
-        .ig-f2 {
-            position: absolute;
-            top: 20px;
-            left: 60px;
-            width: 70px;
-            height: 70px;
-            background-image: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.4;
-            transform: rotate(15deg);
-        }
-
-        .ig-f3 {
-            position: absolute;
-            top: 25%;
-            right: -20px;
-            width: 80px;
-            height: 130px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.4;
-            transform: rotate(-35deg);
-        }
-
-        .ig-f4 {
-            position: absolute;
-            bottom: -25px;
-            right: -25px;
-            width: 140px;
-            height: 140px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.5;
-            transform: rotate(175deg);
-        }
-
-        .ig-f5 {
-            position: absolute;
-            bottom: 30px;
-            right: 60px;
-            width: 65px;
-            height: 65px;
-            background-image: url('https://cdn.pixabay.com/photo/2019/07/18/13/58/vintage-4346556_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.35;
-            transform: rotate(-10deg);
-        }
-
-        .ig-f6 {
-            position: absolute;
-            bottom: 20%;
-            left: -15px;
-            width: 70px;
-            height: 110px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.35;
-            transform: rotate(30deg);
-        }
-
-        .ig-f7 {
-            position: absolute;
-            top: -15px;
-            right: 30%;
-            width: 60px;
-            height: 60px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/02/28/10/29/vintage-6056811_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.4;
-            transform: rotate(20deg);
-        }
-
-        .ig-content {
-            text-align: center;
-            padding: 45px;
-            z-index: 5;
-            background: radial-gradient(ellipse at center, rgba(26,39,68,0.85) 0%, transparent 70%);
-        }
-
-        .ig-content .ig-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 18px;
-            color: white;
-            font-style: italic;
-            margin-bottom: 24px;
-            line-height: 1.5;
-        }
-
-        .ig-content .ig-brand {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
-            letter-spacing: 6px;
-            color: white;
-        }
-
-        .ig-content .ig-brand-sub {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 14px;
-            font-style: italic;
-            color: var(--sage-blue);
-        }
-
-        /* Profile Picture - Flourishing */
-        .profile-preview {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .profile-circle {
-            width: 190px;
-            height: 190px;
-            border-radius: 50%;
-            background: var(--deep-navy);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-floral-bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
-            background-size: 300%;
-            background-position: center;
-            opacity: 0.18;
-            border-radius: 50%;
-        }
-
-        .profile-floral-layer {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
-            background-size: 200%;
-            background-position: 30% 70%;
-            opacity: 0.12;
-            border-radius: 50%;
-        }
-
-        .profile-inner {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background: var(--sage-blue);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 5;
-            border: 2px solid rgba(255,255,255,0.35);
-        }
-
-        .profile-inner span:first-child {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 16px;
-            letter-spacing: 4px;
-            color: white;
-        }
-
-        .profile-inner span:last-child {
-            font-family: 'Cormorant Garamond', serif;
+            gap: var(--space-sm);
+            padding: 14px 32px;
+            font-family: var(--font-secondary);
             font-size: 12px;
-            font-style: italic;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 2px solid transparent;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        /* Primary Button */
+        .btn-primary {
+            background: var(--deep-navy);
+            color: var(--white);
+            border-color: var(--deep-navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--sage-blue);
+            border-color: var(--sage-blue);
+        }
+
+        /* Secondary Button */
+        .btn-secondary {
+            background: var(--rose-pink);
+            color: var(--white);
+            border-color: var(--rose-pink);
+        }
+
+        .btn-secondary:hover {
+            background: var(--dusty-rose);
+            border-color: var(--dusty-rose);
+        }
+
+        /* Outline Button */
+        .btn-outline {
+            background: transparent;
             color: var(--deep-navy);
+            border-color: var(--deep-navy);
         }
 
-        .profile-note {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 9px;
-            color: var(--sage-blue);
-            margin-top: 28px;
-            letter-spacing: 1px;
+        .btn-outline:hover {
+            background: var(--deep-navy);
+            color: var(--white);
         }
 
-        /* ============ BUSINESS CARDS - FLOURISHING ============ */
-        .cards-section {
-            position: relative;
-            overflow: hidden;
+        /* Ghost Button */
+        .btn-ghost {
+            background: transparent;
+            color: var(--deep-navy);
+            border-color: transparent;
         }
 
-        .cards-bg-1 {
-            position: absolute;
-            left: -60px;
-            top: -40px;
-            width: 200px;
-            height: 200px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.06;
-            transform: rotate(-10deg);
-        }
-
-        .cards-bg-2 {
-            position: absolute;
-            right: -50px;
-            bottom: -50px;
-            width: 180px;
-            height: 280px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.06;
-            transform: rotate(15deg);
-        }
-
-        .cards-showcase {
-            display: flex;
-            gap: 45px;
-            justify-content: center;
-            position: relative;
-            z-index: 5;
-        }
-
-        .biz-card {
-            width: 350px;
-            height: 200px;
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 12px 50px rgba(0,0,0,0.12);
-        }
-
-        .biz-card.front {
+        .btn-ghost:hover {
             background: var(--cream);
         }
 
-        .biz-card.back {
+        /* Sage Button */
+        .btn-sage {
+            background: var(--sage-blue);
+            color: var(--white);
+            border-color: var(--sage-blue);
+        }
+
+        .btn-sage:hover {
             background: var(--deep-navy);
+            border-color: var(--deep-navy);
         }
 
-        /* Front card florals - abundant */
-        .biz-f1 {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
+        /* Button Sizes */
+        .btn-sm {
+            padding: 10px 20px;
+            font-size: 10px;
+        }
+
+        .btn-lg {
+            padding: 18px 42px;
+            font-size: 13px;
+        }
+
+        /* Button with Icon */
+        .btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Disabled State */
+        .btn:disabled, .btn-disabled {
             opacity: 0.5;
-            top: -22px;
-            right: -22px;
-            transform: rotate(12deg);
+            cursor: not-allowed;
         }
 
-        .biz-f2 {
-            position: absolute;
-            width: 55px;
-            height: 90px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
+        /* ============ 4. FORM ELEMENTS ============ */
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            font-family: var(--font-secondary);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--deep-navy);
+            margin-bottom: var(--space-sm);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            font-family: var(--font-secondary);
+            font-size: 14px;
+            color: var(--deep-navy);
+            background: var(--white);
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--sage-blue);
+            box-shadow: 0 0 0 3px rgba(143, 165, 164, 0.2);
+        }
+
+        .form-input::placeholder {
+            color: var(--medium-gray);
+        }
+
+        .form-input-error {
+            border-color: var(--error);
+        }
+
+        .form-error {
+            font-size: 12px;
+            color: var(--error);
+            margin-top: var(--space-xs);
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231A2744' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            opacity: 0.4;
-            bottom: -15px;
-            left: -10px;
-            transform: rotate(-20deg);
+            background-position: right 16px center;
+            padding-right: 40px;
         }
 
-        .biz-f3 {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-image: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.45;
-            top: -10px;
-            left: -10px;
-            transform: rotate(-15deg);
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
         }
 
-        .biz-f4 {
-            position: absolute;
-            width: 45px;
-            height: 45px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.45;
-            bottom: -8px;
-            right: 30px;
-            transform: rotate(10deg);
+        /* Checkbox & Radio */
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            cursor: pointer;
         }
 
-        /* Back card florals - abundant */
-        .biz-b1 {
-            position: absolute;
-            width: 90px;
-            height: 90px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.5;
-            top: -20px;
-            right: -18px;
+        .form-check-input {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--sage-blue);
         }
 
-        .biz-b2 {
-            position: absolute;
-            width: 75px;
-            height: 75px;
-            background-image: url('https://cdn.pixabay.com/photo/2019/07/18/13/58/vintage-4346556_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.45;
-            bottom: -15px;
-            left: -15px;
-            transform: rotate(-12deg);
-        }
-
-        .biz-b3 {
-            position: absolute;
-            width: 50px;
-            height: 80px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.35;
-            top: 50%;
-            left: -12px;
-            transform: translateY(-50%) rotate(25deg);
-        }
-
-        .biz-b4 {
-            position: absolute;
-            width: 55px;
-            height: 55px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/02/28/10/29/vintage-6056811_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.4;
-            top: -10px;
-            left: 25px;
-            transform: rotate(8deg);
-        }
-
-        .biz-b5 {
-            position: absolute;
-            width: 45px;
-            height: 45px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.35;
-            bottom: -5px;
-            right: 40px;
-            transform: rotate(-5deg);
-        }
-
-        .biz-card-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 5;
-        }
-
-        .biz-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 28px;
-            letter-spacing: 7px;
+        .form-check-label {
+            font-size: 14px;
             color: var(--deep-navy);
         }
 
-        .biz-card.back .biz-name {
-            color: white;
+        /* ============ 5. CARDS ============ */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
         }
 
-        .biz-tagline {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 15px;
-            font-style: italic;
-            color: var(--rose-pink);
-            margin-top: 4px;
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
         }
 
-        .biz-card.back .biz-tagline {
-            color: var(--sage-blue);
+        .card-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            background: var(--cream);
         }
 
-        .biz-info {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 8px;
+        .card-body {
+            padding: var(--space-lg);
+        }
+
+        .card-title {
+            font-family: var(--font-primary);
+            font-size: 20px;
+            color: var(--deep-navy);
+            margin-bottom: var(--space-sm);
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        /* ============ 6. PRODUCT CARDS ============ */
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: visible;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+            position: relative;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-6px);
+        }
+
+        .product-card-floral {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .pc-f1 { top: -20px; right: -20px; width: 70px; height: 70px; background-image: var(--floral-roses); opacity: 0.8; transform: rotate(10deg); }
+        .pc-f2 { bottom: -15px; left: -15px; width: 60px; height: 60px; background-image: var(--floral-garden); opacity: 0.75; transform: rotate(-10deg); }
+
+        .product-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            background: var(--cream);
+            transition: transform var(--transition-slow);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: var(--space-md);
+            left: var(--space-md);
+            padding: 6px 12px;
+            font-family: var(--font-secondary);
+            font-size: 10px;
+            font-weight: 500;
             letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: var(--radius-sm);
+        }
+
+        .badge-new {
+            background: var(--sage-blue);
+            color: var(--white);
+        }
+
+        .badge-sale {
+            background: var(--rose-pink);
+            color: var(--white);
+        }
+
+        .badge-soldout {
+            background: var(--dark-gray);
+            color: var(--white);
+        }
+
+        .product-wishlist {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .product-wishlist:hover {
+            background: var(--rose-pink);
+            color: var(--white);
+        }
+
+        .product-wishlist svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .product-body {
+            padding: var(--space-lg);
+            text-align: center;
+        }
+
+        .product-category {
+            font-family: var(--font-secondary);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             color: var(--sage-blue);
-            margin-top: 22px;
-            line-height: 2.3;
+            margin-bottom: var(--space-xs);
         }
 
-        .biz-card.back .biz-info {
-            color: rgba(255,255,255,0.55);
+        .product-name {
+            font-family: var(--font-primary);
+            font-size: 20px;
+            color: var(--deep-navy);
+            margin-bottom: var(--space-sm);
         }
 
-        /* ============ FOOTER - FLOURISHING ============ */
+        .product-price {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+
+        .price-current {
+            font-family: var(--font-secondary);
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--deep-navy);
+        }
+
+        .price-original {
+            font-family: var(--font-secondary);
+            font-size: 14px;
+            color: var(--medium-gray);
+            text-decoration: line-through;
+        }
+
+        .product-colors {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        .color-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid var(--white);
+            box-shadow: 0 0 0 1px var(--medium-gray);
+            cursor: pointer;
+            transition: transform var(--transition-fast);
+        }
+
+        .color-dot:hover {
+            transform: scale(1.2);
+        }
+
+        .color-dot.active {
+            box-shadow: 0 0 0 2px var(--deep-navy);
+        }
+
+        /* Quick Add Button */
+        .product-quick-add {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--space-md);
+            background: var(--deep-navy);
+            color: var(--white);
+            font-family: var(--font-secondary);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all var(--transition-base);
+        }
+
+        .product-card:hover .product-quick-add {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-quick-add:hover {
+            background: var(--sage-blue);
+        }
+
+        /* ============ 7. NAVIGATION ============ */
+        .navbar {
+            background: var(--white);
+            padding: var(--space-md) var(--space-xl);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .navbar-floral {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .nav-f1 { top: -15px; left: -15px; width: 80px; height: 80px; background-image: var(--floral-roses); opacity: 0.6; transform: rotate(-15deg); }
+        .nav-f2 { top: -12px; right: -12px; width: 70px; height: 70px; background-image: var(--floral-garden); opacity: 0.55; transform: rotate(12deg); }
+
+        .navbar-brand {
+            font-family: var(--font-primary);
+            font-size: 28px;
+            letter-spacing: 6px;
+            color: var(--deep-navy);
+            text-decoration: none;
+        }
+
+        .navbar-brand span {
+            font-style: italic;
+            font-size: 16px;
+            color: var(--rose-pink);
+            letter-spacing: 1px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xl);
+            list-style: none;
+        }
+
+        .nav-link {
+            font-family: var(--font-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--deep-navy);
+            text-decoration: none;
+            position: relative;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--rose-pink);
+            transition: width var(--transition-base);
+        }
+
+        .nav-link:hover {
+            color: var(--rose-pink);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-icons {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .nav-icon {
+            position: relative;
+            color: var(--deep-navy);
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-icon:hover {
+            color: var(--rose-pink);
+        }
+
+        .nav-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 18px;
+            height: 18px;
+            background: var(--rose-pink);
+            color: var(--white);
+            font-size: 10px;
+            font-weight: 600;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ============ 8. FOOTER ============ */
         .footer {
             background: var(--deep-navy);
-            padding: 90px 60px;
+            padding: var(--space-4xl) var(--space-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-floral {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .ft-f1 { top: -40px; left: -40px; width: 200px; height: 200px; background-image: var(--floral-wildflowers); opacity: 0.2; transform: rotate(-15deg); }
+        .ft-f2 { top: -30px; right: -30px; width: 180px; height: 180px; background-image: var(--floral-roses); opacity: 0.2; transform: rotate(15deg); }
+        .ft-f3 { bottom: -50px; left: 20%; width: 150px; height: 230px; background-image: var(--floral-fern); opacity: 0.15; transform: rotate(20deg); }
+        .ft-f4 { bottom: -40px; right: 15%; width: 140px; height: 220px; background-image: var(--floral-fern); opacity: 0.15; transform: rotate(-15deg) scaleX(-1); }
+        .ft-f5 { bottom: -30px; left: -20px; width: 160px; height: 160px; background-image: var(--floral-deep-roses); opacity: 0.18; transform: rotate(10deg); }
+        .ft-f6 { bottom: -25px; right: -25px; width: 150px; height: 150px; background-image: var(--floral-garden); opacity: 0.18; transform: rotate(-12deg); }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-3xl);
+            position: relative;
+            z-index: 5;
+        }
+
+        .footer-brand-section {
+            text-align: left;
+        }
+
+        .footer-logo {
+            font-family: var(--font-primary);
+            font-size: 32px;
+            letter-spacing: 8px;
+            color: var(--white);
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-logo span {
+            display: block;
+            font-size: 18px;
+            font-style: italic;
+            color: var(--sage-blue);
+            letter-spacing: 2px;
+        }
+
+        .footer-tagline {
+            font-family: var(--font-primary);
+            font-size: 14px;
+            font-style: italic;
+            color: rgba(255,255,255,0.5);
+            margin-top: var(--space-md);
+            line-height: 1.6;
+        }
+
+        .footer-column h4 {
+            font-family: var(--font-secondary);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sage-blue);
+            margin-bottom: var(--space-lg);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links a {
+            font-family: var(--font-secondary);
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--rose-pink);
+        }
+
+        .footer-bottom {
+            margin-top: var(--space-3xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .footer-social a {
+            color: rgba(255,255,255,0.5);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-social a:hover {
+            color: var(--rose-pink);
+        }
+
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ============ 9. CART COMPONENTS ============ */
+        .cart-item {
+            display: flex;
+            gap: var(--space-lg);
+            padding: var(--space-lg);
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cart-item-image {
+            width: 100px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            background: var(--cream);
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-family: var(--font-primary);
+            font-size: 18px;
+            color: var(--deep-navy);
+            margin-bottom: var(--space-xs);
+        }
+
+        .cart-item-variant {
+            font-size: 13px;
+            color: var(--sage-blue);
+            margin-bottom: var(--space-sm);
+        }
+
+        .cart-item-price {
+            font-weight: 500;
+            color: var(--deep-navy);
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-sm);
+        }
+
+        .qty-btn {
+            width: 36px;
+            height: 36px;
+            background: transparent;
+            border: none;
+            font-size: 18px;
+            color: var(--deep-navy);
+            cursor: pointer;
+            transition: background var(--transition-fast);
+        }
+
+        .qty-btn:hover {
+            background: var(--cream);
+        }
+
+        .qty-value {
+            width: 40px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            border-left: 1px solid var(--medium-gray);
+            border-right: 1px solid var(--medium-gray);
+            padding: var(--space-sm) 0;
+        }
+
+        .cart-item-remove {
+            font-size: 12px;
+            color: var(--dark-gray);
+            text-decoration: underline;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color var(--transition-fast);
+        }
+
+        .cart-item-remove:hover {
+            color: var(--error);
+        }
+
+        /* Cart Summary */
+        .cart-summary {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: visible;
+        }
+
+        .cart-summary-floral {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .cs-f1 { top: -25px; right: -25px; width: 80px; height: 80px; background-image: var(--floral-roses); opacity: 0.7; transform: rotate(10deg); }
+        .cs-f2 { bottom: -20px; left: -20px; width: 70px; height: 70px; background-image: var(--floral-garden); opacity: 0.65; transform: rotate(-10deg); }
+
+        .cart-summary h3 {
+            font-family: var(--font-primary);
+            font-size: 24px;
+            color: var(--deep-navy);
+            margin-bottom: var(--space-lg);
+        }
+
+        .cart-summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-sm) 0;
+            font-size: 14px;
+        }
+
+        .cart-summary-row.total {
+            border-top: 1px solid var(--cream);
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        /* ============ 10. CHECKOUT COMPONENTS ============ */
+        .checkout-steps {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .checkout-step {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            color: var(--dark-gray);
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-number.active {
+            background: var(--sage-blue);
+            color: var(--white);
+        }
+
+        .step-number.completed {
+            background: var(--wild-green);
+            color: var(--white);
+        }
+
+        .step-label {
+            font-size: 13px;
+            color: var(--dark-gray);
+        }
+
+        .step-label.active {
+            color: var(--deep-navy);
+            font-weight: 500;
+        }
+
+        .step-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--medium-gray);
+        }
+
+        /* ============ 11. BADGES & TAGS ============ */
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            font-family: var(--font-secondary);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: var(--radius-full);
+        }
+
+        .badge-primary { background: var(--deep-navy); color: var(--white); }
+        .badge-secondary { background: var(--sage-blue); color: var(--white); }
+        .badge-accent { background: var(--rose-pink); color: var(--white); }
+        .badge-outline { background: transparent; border: 1px solid var(--deep-navy); color: var(--deep-navy); }
+
+        /* ============ 12. ALERTS ============ */
+        .alert {
+            padding: var(--space-md) var(--space-lg);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .alert-success { background: rgba(74, 103, 65, 0.1); color: var(--success); border-left: 4px solid var(--success); }
+        .alert-error { background: rgba(198, 75, 75, 0.1); color: var(--error); border-left: 4px solid var(--error); }
+        .alert-warning { background: rgba(212, 114, 140, 0.1); color: var(--warning); border-left: 4px solid var(--warning); }
+        .alert-info { background: rgba(143, 165, 164, 0.1); color: var(--info); border-left: 4px solid var(--info); }
+
+        /* ============ 13. DIVIDERS ============ */
+        .divider {
+            height: 1px;
+            background: var(--cream);
+            margin: var(--space-xl) 0;
+        }
+
+        .divider-floral {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            margin: var(--space-2xl) 0;
+        }
+
+        .divider-floral::before,
+        .divider-floral::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--cream), transparent);
+        }
+
+        .divider-floral-icon {
+            width: 60px;
+            height: 60px;
+            background-image: var(--floral-roses);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.6;
+        }
+
+        /* ============ 14. PAGE SECTIONS ============ */
+        .page-hero {
+            background: var(--deep-navy);
+            padding: var(--space-4xl) var(--space-xl);
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .footer-f1 {
+        .page-hero-floral {
             position: absolute;
-            left: -70px;
-            top: -50px;
-            width: 250px;
-            height: 250px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/09/30/17/45/flowers-6670649_1280.png');
             background-size: contain;
             background-repeat: no-repeat;
-            opacity: 0.22;
-            transform: rotate(-20deg);
         }
 
-        .footer-f2 {
-            position: absolute;
-            right: -60px;
-            top: -40px;
-            width: 200px;
-            height: 200px;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/18/07/12/flower-1989044_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.22;
-            transform: rotate(15deg);
-        }
+        .ph-f1 { top: -40px; left: -40px; width: 200px; height: 200px; background-image: var(--floral-wildflowers); opacity: 0.25; transform: rotate(-20deg); }
+        .ph-f2 { top: -30px; right: -30px; width: 180px; height: 180px; background-image: var(--floral-roses); opacity: 0.25; transform: rotate(15deg); }
+        .ph-f3 { bottom: -30px; left: 10%; width: 120px; height: 190px; background-image: var(--floral-fern); opacity: 0.2; transform: rotate(15deg); }
+        .ph-f4 { bottom: -25px; right: 10%; width: 110px; height: 180px; background-image: var(--floral-fern); opacity: 0.2; transform: rotate(-20deg) scaleX(-1); }
 
-        .footer-f3 {
-            position: absolute;
-            left: 15%;
-            bottom: -40px;
-            width: 150px;
-            height: 240px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.18;
-            transform: rotate(25deg);
-        }
-
-        .footer-f4 {
-            position: absolute;
-            right: 18%;
-            bottom: -30px;
-            width: 130px;
-            height: 200px;
-            background-image: url('https://cdn.pixabay.com/photo/2024/03/05/02/31/fern-8613535_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.15;
-            transform: rotate(-20deg) scaleX(-1);
-        }
-
-        .footer-f5 {
-            position: absolute;
-            left: -30px;
-            bottom: 20px;
-            width: 180px;
-            height: 180px;
-            background-image: url('https://cdn.pixabay.com/photo/2019/07/18/13/58/vintage-4346556_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.2;
-            transform: rotate(10deg);
-        }
-
-        .footer-f6 {
-            position: absolute;
-            right: -40px;
-            bottom: 30px;
-            width: 160px;
-            height: 160px;
-            background-image: url('https://cdn.pixabay.com/photo/2020/04/15/16/13/vintage-5047308_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.2;
-            transform: rotate(-15deg);
-        }
-
-        .footer-f7 {
-            position: absolute;
-            left: 40%;
-            top: -30px;
-            width: 100px;
-            height: 100px;
-            background-image: url('https://cdn.pixabay.com/photo/2021/02/28/10/29/vintage-6056811_1280.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.18;
-            transform: rotate(5deg);
-        }
-
-        .footer-brand {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            letter-spacing: 10px;
-            color: white;
+        .page-hero-content {
             position: relative;
             z-index: 5;
         }
 
-        .footer-brand-sub {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 17px;
+        .page-title {
+            font-family: var(--font-primary);
+            font-size: 48px;
+            color: var(--white);
+            letter-spacing: 4px;
+            margin-bottom: var(--space-md);
+        }
+
+        .page-subtitle {
+            font-family: var(--font-primary);
+            font-size: 18px;
             font-style: italic;
             color: var(--sage-blue);
-            margin-top: 6px;
-            position: relative;
-            z-index: 5;
         }
 
-        .footer-line {
-            width: 50px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--rose-pink), transparent);
-            margin: 32px auto;
-            position: relative;
-            z-index: 5;
+        /* Breadcrumbs */
+        .breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 12px;
+            color: var(--dark-gray);
+            margin-bottom: var(--space-lg);
         }
 
-        .footer-text {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 9px;
-            letter-spacing: 5px;
-            color: rgba(255,255,255,0.35);
-            text-transform: uppercase;
-            position: relative;
-            z-index: 5;
+        .breadcrumbs a {
+            color: var(--sage-blue);
+            text-decoration: none;
         }
 
-        .footer-essence {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 14px;
-            font-style: italic;
-            color: rgba(255,255,255,0.28);
-            margin-top: 22px;
-            position: relative;
-            z-index: 5;
+        .breadcrumbs a:hover {
+            color: var(--rose-pink);
+        }
+
+        .breadcrumbs span {
+            color: var(--medium-gray);
         }
 
         /* ============ RESPONSIVE ============ */
-        @media (max-width: 900px) {
-            .logo-showcase,
-            .social-showcase {
-                grid-template-columns: 1fr;
+        @media (max-width: 1024px) {
+            .color-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-brand {
+                font-size: 48px;
+                letter-spacing: 10px;
+            }
+
+            .hero-card {
+                padding: 80px 40px;
             }
 
             .color-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .cards-showcase {
-                flex-direction: column;
-                align-items: center;
+            .navbar-nav {
+                display: none;
             }
 
-            .brand-name {
-                font-size: 52px;
-                letter-spacing: 14px;
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
 
-            .section {
-                padding: 60px 25px;
-            }
-
-            .essence-values {
-                flex-direction: column;
-                gap: 28px;
-            }
-
-            .hero-floral-1, .hero-floral-1b, .hero-floral-1c,
-            .hero-floral-2, .hero-floral-2b,
-            .hero-floral-3, .hero-floral-3b,
-            .hero-floral-4, .hero-floral-4b, .hero-floral-4c,
-            .hero-floral-5, .hero-floral-5b,
-            .hero-floral-6, .hero-floral-6b {
-                opacity: 0.2;
+            .footer-brand-section {
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section - Flourishing with Sage Blue Card -->
-    <section class="hero">
-        <!-- Background florals on navy -->
-        <div class="hero-floral-1"></div>
-        <div class="hero-floral-1b"></div>
-        <div class="hero-floral-1c"></div>
-        <div class="hero-floral-2"></div>
-        <div class="hero-floral-2b"></div>
-        <div class="hero-floral-6"></div>
-        <div class="hero-floral-6b"></div>
-        <div class="hero-floral-3"></div>
-        <div class="hero-floral-3b"></div>
-        <div class="hero-floral-4"></div>
-        <div class="hero-floral-4b"></div>
-        <div class="hero-floral-4c"></div>
-        <div class="hero-floral-5"></div>
-        <div class="hero-floral-5b"></div>
+    <!-- ============ HERO COVER ============ -->
+    <section class="hero-cover">
+        <div class="hero-floral hero-f1"></div>
+        <div class="hero-floral hero-f2"></div>
+        <div class="hero-floral hero-f3"></div>
+        <div class="hero-floral hero-f4"></div>
+        <div class="hero-floral hero-f5"></div>
+        <div class="hero-floral hero-f6"></div>
+        <div class="hero-floral hero-f7"></div>
+        <div class="hero-floral hero-f8"></div>
 
-        <!-- Sage Blue Card -->
         <div class="hero-card">
-            <!-- Card florals -->
-            <div class="card-floral-top"></div>
-            <div class="card-floral-top-left"></div>
-            <div class="card-floral-top-right"></div>
-            <div class="card-floral-top-right-peony"></div>
-            <div class="card-floral-left-fern"></div>
-            <div class="card-floral-right-fern"></div>
-            <div class="card-floral-bottom-left"></div>
-            <div class="card-floral-bottom-right"></div>
-            <div class="card-floral-bottom-center"></div>
-            <div class="card-floral-bottom-left-wild"></div>
+            <div class="hero-card-floral hc-f1"></div>
+            <div class="hero-card-floral hc-f2"></div>
+            <div class="hero-card-floral hc-f3"></div>
+            <div class="hero-card-floral hc-f4"></div>
+            <div class="hero-card-floral hc-f5"></div>
+            <div class="hero-card-floral hc-f6"></div>
 
-            <!-- Content -->
-            <div class="hero-content">
-                <div class="brand-name">LIBERTY</div>
-                <div class="brand-tagline">chérie</div>
-                <div class="divider-line"></div>
-                <div class="brand-subtitle">Premium Branding Kit</div>
-                <div class="brand-essence">Freedom • Wild • Elegant • Beautiful Soul</div>
-            </div>
+            <div class="hero-brand">LIBERTY</div>
+            <div class="hero-tagline">chérie</div>
+            <div class="hero-divider"></div>
+            <div class="hero-subtitle">Complete Branding & Design Kit</div>
         </div>
     </section>
 
-    <!-- Logo Variations -->
-    <section class="section logo-section">
-        <div class="logo-section-bg-1"></div>
-        <div class="logo-section-bg-2"></div>
-        <div class="section-header">
-            <h2 class="section-title">Logo Variations</h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="logo-showcase">
-            <div class="logo-card light">
-                <div class="logo-card-label">Light Background</div>
-                <div class="logo-main">
-                    <div class="logo-floral-l1"></div>
-                    <div class="logo-floral-l2"></div>
-                    <div class="logo-floral-l3"></div>
-                    <div class="logo-floral-l4"></div>
-                    <div class="logo-text-main">LIBERTY</div>
-                    <div class="logo-text-sub">chérie</div>
-                </div>
-            </div>
-            <div class="logo-card dark">
-                <div class="logo-card-label">Dark Background</div>
-                <div class="logo-main">
-                    <!-- Top center rose bouquet -->
-                    <div class="logo-floral-d-top"></div>
-                    <!-- Corner & side florals -->
-                    <div class="logo-floral-d1"></div>
-                    <div class="logo-floral-d2"></div>
-                    <div class="logo-floral-d3"></div>
-                    <div class="logo-floral-d4"></div>
-                    <div class="logo-floral-d5"></div>
-                    <div class="logo-floral-d6"></div>
-                    <div class="logo-floral-d7"></div>
-                    <!-- Text -->
-                    <div class="logo-text-main">LIBERTY</div>
-                    <div class="logo-text-sub">chérie</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="design-system">
 
-    <!-- Brand Essence -->
-    <section class="section essence-section">
-        <div class="essence-floral-1"></div>
-        <div class="essence-floral-2"></div>
-        <div class="essence-floral-3"></div>
-        <div class="essence-floral-4"></div>
-        <div class="essence-floral-5"></div>
-        <div class="essence-content">
-            <div class="essence-quote">"A beautiful soul deserves the freedom to bloom wild, yet remain elegantly herself."</div>
-            <div class="section-line"></div>
-            <div class="essence-values">
-                <div class="essence-value">
-                    <div class="essence-value-title">Freedom</div>
-                    <div class="essence-value-desc">Unbounded Spirit</div>
-                </div>
-                <div class="essence-value">
-                    <div class="essence-value-title">Wild</div>
-                    <div class="essence-value-desc">Natural Beauty</div>
-                </div>
-                <div class="essence-value">
-                    <div class="essence-value-title">Elegant</div>
-                    <div class="essence-value-desc">Timeless Grace</div>
-                </div>
+        <!-- ============ 1. BRAND LOGOS ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">01</div>
+                <h2 class="section-title">Brand Logos</h2>
+                <p class="section-subtitle">Primary and alternate logo variations</p>
+                <div class="section-divider"></div>
             </div>
-        </div>
-    </section>
 
-    <!-- Color Palette -->
-    <section class="section color-section">
-        <div class="color-bg-1"></div>
-        <div class="color-bg-2"></div>
-        <div class="color-bg-3"></div>
-        <div class="section-header">
-            <h2 class="section-title">Color Palette</h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="color-grid">
-            <div class="color-item">
-                <div class="color-swatch" style="background: var(--deep-navy);"></div>
-                <div class="color-label">Deep Navy</div>
-                <div class="color-code">#1A2744</div>
-            </div>
-            <div class="color-item">
-                <div class="color-swatch" style="background: var(--sage-blue);"></div>
-                <div class="color-label">Sage Blue</div>
-                <div class="color-code">#8FA5A4</div>
-            </div>
-            <div class="color-item">
-                <div class="color-swatch" style="background: var(--rose-pink);"></div>
-                <div class="color-label">Rose Pink</div>
-                <div class="color-code">#D4728C</div>
-            </div>
-            <div class="color-item">
-                <div class="color-swatch" style="background: var(--dusty-rose);"></div>
-                <div class="color-label">Dusty Rose</div>
-                <div class="color-code">#B36B7A</div>
-            </div>
-            <div class="color-item">
-                <div class="color-swatch" style="background: var(--cream);"></div>
-                <div class="color-label">Cream</div>
-                <div class="color-code">#F5E6D3</div>
-            </div>
-            <div class="color-item">
-                <div class="color-swatch" style="background: var(--wild-green);"></div>
-                <div class="color-label">Wild Green</div>
-                <div class="color-code">#4A6741</div>
-            </div>
-            <div class="color-item">
-                <div class="color-swatch" style="background: var(--olive-green);"></div>
-                <div class="color-label">Olive Green</div>
-                <div class="color-code">#5A6B4A</div>
-            </div>
-            <div class="color-item">
-                <div class="color-swatch" style="background: var(--coral-red);"></div>
-                <div class="color-label">Coral Red</div>
-                <div class="color-code">#C64B4B</div>
-            </div>
-            <div class="color-item">
-                <div class="color-swatch" style="background: var(--soft-lavender);"></div>
-                <div class="color-label">Soft Lavender</div>
-                <div class="color-code">#9B8AA6</div>
-            </div>
-            <div class="color-item">
-                <div class="color-swatch" style="background: var(--warm-brown);"></div>
-                <div class="color-label">Warm Brown</div>
-                <div class="color-code">#8B5A3C</div>
-            </div>
-        </div>
-    </section>
+            <div class="logo-section">
+                <!-- Light Background Logo -->
+                <div class="logo-card logo-card-light">
+                    <div class="logo-floral logo-f-light-tl"></div>
+                    <div class="logo-floral logo-f-light-br"></div>
+                    <div class="logo-main">LIBERTY</div>
+                    <div class="logo-sub">chérie</div>
+                </div>
 
-    <!-- Typography -->
-    <section class="section typography-section">
-        <div class="type-bg-1"></div>
-        <div class="type-bg-2"></div>
-        <div class="section-header">
-            <h2 class="section-title">Typography</h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="typography-showcase">
-            <div class="type-inner-1"></div>
-            <div class="type-inner-2"></div>
-            <div class="type-row">
-                <div class="type-label">Primary — Cormorant Garamond</div>
-                <div class="type-display-primary">LIBERTY chérie</div>
-                <div class="type-display-primary" style="font-style: italic; font-size: 32px; margin-top: 14px;">Wild, Free & Beautifully Elegant</div>
-            </div>
-            <div class="type-row">
-                <div class="type-label">Secondary — Montserrat</div>
-                <div class="type-display-secondary">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
-                <div class="type-display-secondary" style="font-size: 15px; margin-top: 16px;">abcdefghijklmnopqrstuvwxyz 0123456789</div>
-            </div>
-        </div>
-    </section>
+                <!-- Dark Background Logo -->
+                <div class="logo-card logo-card-dark">
+                    <div class="logo-floral logo-f-tl"></div>
+                    <div class="logo-floral logo-f-tr"></div>
+                    <div class="logo-floral logo-f-bl"></div>
+                    <div class="logo-floral logo-f-br"></div>
+                    <div class="logo-main">LIBERTY</div>
+                    <div class="logo-sub">chérie</div>
+                </div>
 
-    <!-- Social Media -->
-    <section class="section social-section">
-        <div class="social-bg-1"></div>
-        <div class="social-bg-2"></div>
-        <div class="section-header">
-            <h2 class="section-title">Social Media</h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="social-showcase">
-            <div class="social-item">
-                <div class="social-label">Instagram Post</div>
-                <div class="ig-post">
-                    <div class="ig-f1"></div>
-                    <div class="ig-f2"></div>
-                    <div class="ig-f3"></div>
-                    <div class="ig-f6"></div>
-                    <div class="ig-f7"></div>
-                    <div class="ig-content">
-                        <div class="ig-text">"Bloom wild, stay elegant"</div>
-                        <div class="ig-brand">LIBERTY</div>
-                        <div class="ig-brand-sub">chérie</div>
+                <!-- Sage Background Logo -->
+                <div class="logo-card logo-card-sage">
+                    <div class="logo-floral logo-f-light-tl"></div>
+                    <div class="logo-floral logo-f-light-br"></div>
+                    <div class="logo-main">LIBERTY</div>
+                    <div class="logo-sub">chérie</div>
+                </div>
+
+                <!-- Cream Background Logo -->
+                <div class="logo-card logo-card-cream">
+                    <div class="logo-floral logo-f-light-tl"></div>
+                    <div class="logo-floral logo-f-light-br"></div>
+                    <div class="logo-main">LIBERTY</div>
+                    <div class="logo-sub">chérie</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 2. SOCIAL MEDIA TEMPLATES ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">02</div>
+                <h2 class="section-title">Social Media Templates</h2>
+                <p class="section-subtitle">Consistent branding across platforms</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="social-grid">
+                <!-- Instagram Post -->
+                <div>
+                    <div class="social-template social-instagram-post">
+                        <div class="social-floral sf-1"></div>
+                        <div class="social-floral sf-2"></div>
+                        <div class="social-floral sf-3"></div>
+                        <div class="social-floral sf-4"></div>
+                        <div class="social-brand">LIBERTY</div>
+                        <div class="social-brand-sub">chérie</div>
+                        <div class="social-tagline">New Collection</div>
+                        <div class="social-cta">Shop Now</div>
                     </div>
-                    <div class="ig-f4"></div>
-                    <div class="ig-f5"></div>
+                    <div class="social-label">Instagram Post (1:1)</div>
                 </div>
-            </div>
-            <div class="social-item">
-                <div class="social-label">Profile Picture</div>
-                <div class="profile-preview">
-                    <div class="profile-circle">
-                        <div class="profile-floral-bg"></div>
-                        <div class="profile-floral-layer"></div>
-                        <div class="profile-inner">
-                            <span>LIBERTY</span>
-                            <span>chérie</span>
+
+                <!-- Instagram Story -->
+                <div>
+                    <div class="social-template social-instagram-story">
+                        <div class="social-floral sf-1"></div>
+                        <div class="social-floral sf-2"></div>
+                        <div class="social-floral sf-3"></div>
+                        <div class="social-floral sf-4"></div>
+                        <div class="social-brand">LIBERTY</div>
+                        <div class="social-brand-sub">chérie</div>
+                        <div class="social-tagline">Swipe Up</div>
+                    </div>
+                    <div class="social-label">Instagram Story (9:16)</div>
+                </div>
+
+                <!-- Facebook Cover -->
+                <div>
+                    <div class="social-template social-facebook-cover">
+                        <div class="social-floral sf-1"></div>
+                        <div class="social-floral sf-2"></div>
+                        <div class="social-floral sf-3"></div>
+                        <div class="social-floral sf-4"></div>
+                        <div style="text-align: center;">
+                            <div class="social-brand">LIBERTY</div>
+                            <div class="social-brand-sub">chérie</div>
+                            <div class="social-tagline">French-Inspired Fashion</div>
                         </div>
                     </div>
-                    <div class="profile-note">Optimized for all platforms</div>
+                    <div class="social-label">Facebook Cover</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Business Cards -->
-    <section class="section cards-section">
-        <div class="cards-bg-1"></div>
-        <div class="cards-bg-2"></div>
-        <div class="section-header">
-            <h2 class="section-title">Business Cards</h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="cards-showcase">
-            <div class="biz-card front">
-                <div class="biz-f1"></div>
-                <div class="biz-f2"></div>
-                <div class="biz-f3"></div>
-                <div class="biz-f4"></div>
-                <div class="biz-card-content">
-                    <div class="biz-name">LIBERTY</div>
-                    <div class="biz-tagline">chérie</div>
-                </div>
+        <!-- ============ 3. COLOR SYSTEM ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">03</div>
+                <h2 class="section-title">Color System</h2>
+                <p class="section-subtitle">A romantic palette inspired by French gardens</p>
+                <div class="section-divider"></div>
             </div>
-            <div class="biz-card back">
-                <div class="biz-b1"></div>
-                <div class="biz-b2"></div>
-                <div class="biz-b3"></div>
-                <div class="biz-b4"></div>
-                <div class="biz-b5"></div>
-                <div class="biz-card-content">
-                    <div class="biz-name">LIBERTY</div>
-                    <div class="biz-tagline">chérie</div>
-                    <div class="biz-info">
-                        www.libertycherie.com<br>
-                        hello@libertycherie.com<br>
-                        @libertycherie
+
+            <div class="subsection">
+                <h3 class="subsection-title">Primary Colors</h3>
+                <div class="color-grid">
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: var(--deep-navy);"></div>
+                        <div class="color-name">Deep Navy</div>
+                        <div class="color-hex">#1A2744</div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: var(--sage-blue);"></div>
+                        <div class="color-name">Sage Blue</div>
+                        <div class="color-hex">#8FA5A4</div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: var(--rose-pink);"></div>
+                        <div class="color-name">Rose Pink</div>
+                        <div class="color-hex">#D4728C</div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: var(--cream);"></div>
+                        <div class="color-name">Cream</div>
+                        <div class="color-hex">#F5E6D3</div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: var(--dusty-rose);"></div>
+                        <div class="color-name">Dusty Rose</div>
+                        <div class="color-hex">#B36B7A</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-f1"></div>
-        <div class="footer-f2"></div>
-        <div class="footer-f3"></div>
-        <div class="footer-f4"></div>
-        <div class="footer-f5"></div>
-        <div class="footer-f6"></div>
-        <div class="footer-f7"></div>
-        <div class="footer-brand">LIBERTY</div>
-        <div class="footer-brand-sub">chérie</div>
-        <div class="footer-line"></div>
-        <div class="footer-text">French-Inspired Fashion</div>
-        <div class="footer-essence">Freedom • Wild • Elegant • Beautiful Soul</div>
-    </footer>
+            <div class="subsection">
+                <h3 class="subsection-title">Secondary Colors</h3>
+                <div class="color-grid">
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: var(--wild-green);"></div>
+                        <div class="color-name">Wild Green</div>
+                        <div class="color-hex">#4A6741</div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: var(--olive-green);"></div>
+                        <div class="color-name">Olive Green</div>
+                        <div class="color-hex">#5A6B4A</div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: var(--coral-red);"></div>
+                        <div class="color-name">Coral Red</div>
+                        <div class="color-hex">#C64B4B</div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: var(--soft-lavender);"></div>
+                        <div class="color-name">Soft Lavender</div>
+                        <div class="color-hex">#9B8AA6</div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: var(--warm-brown);"></div>
+                        <div class="color-name">Warm Brown</div>
+                        <div class="color-hex">#8B5A3C</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 2. TYPOGRAPHY ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">04</div>
+                <h2 class="section-title">Typography</h2>
+                <p class="section-subtitle">Elegant serif meets modern sans-serif</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="type-showcase">
+                <div class="type-row">
+                    <div class="type-label">H1 — Cormorant Garamond</div>
+                    <div class="type-h1">LIBERTY chérie</div>
+                </div>
+                <div class="type-row">
+                    <div class="type-label">H2 — Cormorant Garamond</div>
+                    <div class="type-h2">New Collection Arrival</div>
+                </div>
+                <div class="type-row">
+                    <div class="type-label">H3 — Cormorant Garamond</div>
+                    <div class="type-h3">French-Inspired Elegance</div>
+                </div>
+                <div class="type-row">
+                    <div class="type-label">H4 — Cormorant Garamond</div>
+                    <div class="type-h4">Product Details</div>
+                </div>
+                <div class="type-row">
+                    <div class="type-label">Body — Montserrat</div>
+                    <div class="type-body">Liberty Chérie celebrates the art of French fashion with pieces that embody freedom, wild beauty, and timeless elegance. Each garment is crafted for the woman who embraces her beautiful soul.</div>
+                </div>
+                <div class="type-row">
+                    <div class="type-label">Small Text — Montserrat</div>
+                    <div class="type-small">Free shipping on orders over $150. Returns accepted within 30 days.</div>
+                </div>
+                <div class="type-row">
+                    <div class="type-label">Caption — Montserrat</div>
+                    <div class="type-caption">HANDCRAFTED IN FRANCE • LIMITED EDITION</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 3. BUTTONS ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">05</div>
+                <h2 class="section-title">Buttons</h2>
+                <p class="section-subtitle">Actions styled with botanical elegance</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Button Styles</h3>
+                <div class="button-row">
+                    <button class="btn btn-primary">Add to Cart</button>
+                    <button class="btn btn-secondary">Shop Now</button>
+                    <button class="btn btn-sage">View Collection</button>
+                    <button class="btn btn-outline">Learn More</button>
+                    <button class="btn btn-ghost">Cancel</button>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Button Sizes</h3>
+                <div class="button-row">
+                    <button class="btn btn-primary btn-sm">Small Button</button>
+                    <button class="btn btn-primary">Default Button</button>
+                    <button class="btn btn-primary btn-lg">Large Button</button>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Button States</h3>
+                <div class="button-row">
+                    <button class="btn btn-primary">Normal</button>
+                    <button class="btn btn-primary btn-disabled" disabled>Disabled</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 4. FORM ELEMENTS ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">06</div>
+                <h2 class="section-title">Form Elements</h2>
+                <p class="section-subtitle">Clean inputs with subtle refinement</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="component-grid">
+                <div class="component-card">
+                    <div class="component-label">Text Input</div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" placeholder="Enter your email">
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-label">Input with Error</div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-input form-input-error" value="123">
+                        <div class="form-error">Password must be at least 8 characters</div>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-label">Select Dropdown</div>
+                    <div class="form-group">
+                        <label class="form-label">Size</label>
+                        <select class="form-input form-select">
+                            <option>Select size</option>
+                            <option>XS</option>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-label">Textarea</div>
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-input form-textarea" placeholder="Write your message..."></textarea>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-label">Checkbox</div>
+                    <label class="form-check">
+                        <input type="checkbox" class="form-check-input" checked>
+                        <span class="form-check-label">Subscribe to newsletter</span>
+                    </label>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-label">Radio Buttons</div>
+                    <label class="form-check">
+                        <input type="radio" name="shipping" class="form-check-input" checked>
+                        <span class="form-check-label">Standard Shipping</span>
+                    </label>
+                    <label class="form-check" style="margin-top: 8px;">
+                        <input type="radio" name="shipping" class="form-check-input">
+                        <span class="form-check-label">Express Shipping</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 5. BADGES & ALERTS ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">07</div>
+                <h2 class="section-title">Badges & Alerts</h2>
+                <p class="section-subtitle">Status indicators with botanical flair</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Badges</h3>
+                <div class="button-row">
+                    <span class="badge badge-primary">New Arrival</span>
+                    <span class="badge badge-secondary">Bestseller</span>
+                    <span class="badge badge-accent">Sale</span>
+                    <span class="badge badge-outline">Limited Edition</span>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Alerts</h3>
+                <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                    <div class="alert alert-success">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Your order has been placed successfully!
+                    </div>
+                    <div class="alert alert-error">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                        Payment failed. Please try again.
+                    </div>
+                    <div class="alert alert-warning">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        Only 3 items left in stock!
+                    </div>
+                    <div class="alert alert-info">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                        Free shipping on orders over $150.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 6. PRODUCT CARDS ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">08</div>
+                <h2 class="section-title">Product Cards</h2>
+                <p class="section-subtitle">Showcase products with botanical elegance</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="component-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-card-floral pc-f1"></div>
+                    <div class="product-card-floral pc-f2"></div>
+                    <div class="product-image-wrapper">
+                        <div class="product-image" style="background: linear-gradient(135deg, var(--cream) 0%, #E8DDD0 100%);"></div>
+                        <span class="product-badge badge-new">New</span>
+                        <button class="product-wishlist">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                        <button class="product-quick-add">Quick Add</button>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-category">Dresses</div>
+                        <div class="product-name">Floral Midi Dress</div>
+                        <div class="product-price">
+                            <span class="price-current">$189.00</span>
+                        </div>
+                        <div class="product-colors">
+                            <span class="color-dot active" style="background: var(--cream);"></span>
+                            <span class="color-dot" style="background: var(--sage-blue);"></span>
+                            <span class="color-dot" style="background: var(--rose-pink);"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 - Sale -->
+                <div class="product-card">
+                    <div class="product-card-floral pc-f1"></div>
+                    <div class="product-card-floral pc-f2"></div>
+                    <div class="product-image-wrapper">
+                        <div class="product-image" style="background: linear-gradient(135deg, #E8E4E0 0%, #D9D5D1 100%);"></div>
+                        <span class="product-badge badge-sale">-30%</span>
+                        <button class="product-wishlist">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                        <button class="product-quick-add">Quick Add</button>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-category">Blouses</div>
+                        <div class="product-name">Silk Bow Blouse</div>
+                        <div class="product-price">
+                            <span class="price-current">$119.00</span>
+                            <span class="price-original">$169.00</span>
+                        </div>
+                        <div class="product-colors">
+                            <span class="color-dot active" style="background: var(--white); border: 1px solid var(--medium-gray);"></span>
+                            <span class="color-dot" style="background: var(--deep-navy);"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 - Sold Out -->
+                <div class="product-card">
+                    <div class="product-card-floral pc-f1"></div>
+                    <div class="product-card-floral pc-f2"></div>
+                    <div class="product-image-wrapper">
+                        <div class="product-image" style="background: linear-gradient(135deg, var(--sage-blue) 0%, #7A9190 100%); opacity: 0.7;"></div>
+                        <span class="product-badge badge-soldout">Sold Out</span>
+                        <button class="product-wishlist">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-category">Accessories</div>
+                        <div class="product-name">Garden Scarf</div>
+                        <div class="product-price">
+                            <span class="price-current">$79.00</span>
+                        </div>
+                        <div class="product-colors">
+                            <span class="color-dot active" style="background: var(--dusty-rose);"></span>
+                            <span class="color-dot" style="background: var(--olive-green);"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 7. NAVIGATION ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">09</div>
+                <h2 class="section-title">Navigation</h2>
+                <p class="section-subtitle">Header with botanical accents</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div style="border-radius: var(--radius-lg); overflow: visible; box-shadow: var(--shadow-md);">
+                <nav class="navbar">
+                    <div class="navbar-floral nav-f1"></div>
+                    <div class="navbar-floral nav-f2"></div>
+
+                    <a href="#" class="navbar-brand">LIBERTY <span>chérie</span></a>
+
+                    <ul class="navbar-nav">
+                        <li><a href="#" class="nav-link">New Arrivals</a></li>
+                        <li><a href="#" class="nav-link">Collections</a></li>
+                        <li><a href="#" class="nav-link">Dresses</a></li>
+                        <li><a href="#" class="nav-link">Accessories</a></li>
+                        <li><a href="#" class="nav-link">Sale</a></li>
+                    </ul>
+
+                    <div class="navbar-icons">
+                        <div class="nav-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        </div>
+                        <div class="nav-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="nav-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </div>
+                        <div class="nav-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                            <span class="cart-count">3</span>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- ============ 8. CART COMPONENTS ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h2 class="section-title">Cart Components</h2>
+                <p class="section-subtitle">Shopping cart with refined details</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-xl);">
+                <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                    <div class="cart-item">
+                        <div class="cart-item-image"></div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">Floral Midi Dress</div>
+                            <div class="cart-item-variant">Size: M • Color: Cream</div>
+                            <div class="cart-item-price">$189.00</div>
+                            <div class="cart-item-actions">
+                                <div class="quantity-selector">
+                                    <button class="qty-btn">−</button>
+                                    <span class="qty-value">1</span>
+                                    <button class="qty-btn">+</button>
+                                </div>
+                                <button class="cart-item-remove">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-item">
+                        <div class="cart-item-image"></div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">Silk Bow Blouse</div>
+                            <div class="cart-item-variant">Size: S • Color: White</div>
+                            <div class="cart-item-price">$119.00</div>
+                            <div class="cart-item-actions">
+                                <div class="quantity-selector">
+                                    <button class="qty-btn">−</button>
+                                    <span class="qty-value">2</span>
+                                    <button class="qty-btn">+</button>
+                                </div>
+                                <button class="cart-item-remove">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart-summary">
+                    <div class="cart-summary-floral cs-f1"></div>
+                    <div class="cart-summary-floral cs-f2"></div>
+                    <h3>Order Summary</h3>
+                    <div class="cart-summary-row">
+                        <span>Subtotal</span>
+                        <span>$427.00</span>
+                    </div>
+                    <div class="cart-summary-row">
+                        <span>Shipping</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="cart-summary-row">
+                        <span>Tax</span>
+                        <span>$34.16</span>
+                    </div>
+                    <div class="cart-summary-row total">
+                        <span>Total</span>
+                        <span>$461.16</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: var(--space-lg);">Proceed to Checkout</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 9. CHECKOUT STEPS ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <h2 class="section-title">Checkout Flow</h2>
+                <p class="section-subtitle">Guided steps with clear progress</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="checkout-steps">
+                <div class="checkout-step">
+                    <span class="step-number completed">✓</span>
+                    <span class="step-label">Cart</span>
+                </div>
+                <div class="step-divider"></div>
+                <div class="checkout-step">
+                    <span class="step-number active">2</span>
+                    <span class="step-label active">Shipping</span>
+                </div>
+                <div class="step-divider"></div>
+                <div class="checkout-step">
+                    <span class="step-number">3</span>
+                    <span class="step-label">Payment</span>
+                </div>
+                <div class="step-divider"></div>
+                <div class="checkout-step">
+                    <span class="step-number">4</span>
+                    <span class="step-label">Confirmation</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 10. DIVIDERS ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">12</div>
+                <h2 class="section-title">Dividers</h2>
+                <p class="section-subtitle">Elegant section separators</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="component-card">
+                <div class="component-label">Simple Divider</div>
+                <div class="divider"></div>
+                <div class="component-label" style="margin-top: var(--space-xl);">Floral Divider</div>
+                <div class="divider-floral">
+                    <div class="divider-floral-icon"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 11. PAGE HERO ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">13</div>
+                <h2 class="section-title">Page Hero</h2>
+                <p class="section-subtitle">Collection & category headers</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div style="border-radius: var(--radius-lg); overflow: hidden;">
+                <div class="page-hero">
+                    <div class="page-hero-floral ph-f1"></div>
+                    <div class="page-hero-floral ph-f2"></div>
+                    <div class="page-hero-floral ph-f3"></div>
+                    <div class="page-hero-floral ph-f4"></div>
+                    <div class="page-hero-content">
+                        <h1 class="page-title">New Arrivals</h1>
+                        <p class="page-subtitle">Discover our latest collection of French-inspired pieces</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: var(--space-xl);">
+                <div class="breadcrumbs">
+                    <a href="#">Home</a>
+                    <span>/</span>
+                    <a href="#">Collections</a>
+                    <span>/</span>
+                    <span style="color: var(--deep-navy);">New Arrivals</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 12. FOOTER ============ -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">14</div>
+                <h2 class="section-title">Footer</h2>
+                <p class="section-subtitle">Complete footer with botanical flourishes</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div style="border-radius: var(--radius-lg); overflow: hidden;">
+                <footer class="footer">
+                    <div class="footer-floral ft-f1"></div>
+                    <div class="footer-floral ft-f2"></div>
+                    <div class="footer-floral ft-f3"></div>
+                    <div class="footer-floral ft-f4"></div>
+                    <div class="footer-floral ft-f5"></div>
+                    <div class="footer-floral ft-f6"></div>
+
+                    <div class="footer-content">
+                        <div class="footer-brand-section">
+                            <div class="footer-logo">
+                                LIBERTY
+                                <span>chérie</span>
+                            </div>
+                            <p class="footer-tagline">"A beautiful soul deserves the freedom to bloom wild, yet remain elegantly herself."</p>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4>Shop</h4>
+                            <ul class="footer-links">
+                                <li><a href="#">New Arrivals</a></li>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Accessories</a></li>
+                                <li><a href="#">Sale</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4>Help</h4>
+                            <ul class="footer-links">
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Shipping</a></li>
+                                <li><a href="#">Returns</a></li>
+                                <li><a href="#">Size Guide</a></li>
+                                <li><a href="#">FAQ</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4>About</h4>
+                            <ul class="footer-links">
+                                <li><a href="#">Our Story</a></li>
+                                <li><a href="#">Sustainability</a></li>
+                                <li><a href="#">Careers</a></li>
+                                <li><a href="#">Press</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <div class="footer-copyright">
+                            © 2026 Liberty Chérie. All rights reserved.
+                        </div>
+                        <div class="footer-social">
+                            <a href="#">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </a>
+                            <a href="#">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </a>
+                            <a href="#">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                            </a>
+                            <a href="#">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </section>
+
+    </div>
 </body>
 </html>

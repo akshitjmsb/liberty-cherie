@@ -24,7 +24,7 @@ export default async function ShopForPage() {
       <section className="bg-gradient-to-b from-cream via-white to-accent-light py-16">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="font-display text-4xl md:text-5xl text-charcoal animate-fade-in">
+            <h1 className="font-display text-4xl md:text-5xl text-navy animate-fade-in">
               Shop For Your Lifestyle
             </h1>
             <p className="text-lg text-soft-gray mt-4 animate-fade-in" style={{ animationDelay: '100ms' }}>
@@ -56,7 +56,7 @@ export default async function ShopForPage() {
       <section className="py-16 bg-cream">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-display text-2xl md:text-3xl text-charcoal">
+            <h2 className="font-display text-2xl md:text-3xl text-navy">
               Not Sure What You&apos;re Looking For?
             </h2>
             <p className="text-soft-gray mt-4">

@@ -69,7 +69,7 @@ export default function ReviewSection({ productId, productName }: ReviewSectionP
           <Star
             key={star}
             className={`${sizeClasses} ${
-              star <= rating ? 'fill-primary text-primary' : 'text-gray-300'
+              star <= rating ? 'fill-primary text-primary' : 'text-[var(--medium-gray)]'
             }`}
           />
         ))}
@@ -79,15 +79,15 @@ export default function ReviewSection({ productId, productName }: ReviewSectionP
 
   if (loading) {
     return (
-      <div className="border-t border-gray-100 pt-8 mt-8">
+      <div className="border-t border-cream pt-8 mt-8">
         <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 rounded w-48 mb-4" />
+          <div className="h-8 bg-[var(--light-gray)] rounded w-48 mb-4" />
           <div className="space-y-4">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-gray-100 rounded-lg p-4">
-                <div className="h-4 bg-gray-200 rounded w-32 mb-2" />
-                <div className="h-3 bg-gray-200 rounded w-full mb-2" />
-                <div className="h-3 bg-gray-200 rounded w-3/4" />
+              <div key={i} className="bg-cream rounded-lg p-4">
+                <div className="h-4 bg-[var(--light-gray)] rounded w-32 mb-2" />
+                <div className="h-3 bg-[var(--light-gray)] rounded w-full mb-2" />
+                <div className="h-3 bg-[var(--light-gray)] rounded w-3/4" />
               </div>
             ))}
           </div>
@@ -97,17 +97,17 @@ export default function ReviewSection({ productId, productName }: ReviewSectionP
   }
 
   return (
-    <div className="border-t border-gray-100 pt-8 mt-8">
+    <div className="border-t border-cream pt-8 mt-8">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
-          <h2 className="font-display text-2xl text-charcoal">
+          <h2 className="font-display text-2xl text-navy">
             Customer Reviews
           </h2>
           {totalReviews > 0 && (
             <div className="flex items-center gap-2 mt-2">
               <StarRating rating={Math.round(averageRating)} size="md" />
-              <span className="text-charcoal font-medium">{averageRating}</span>
+              <span className="text-navy font-medium">{averageRating}</span>
               <span className="text-soft-gray">
                 ({totalReviews} {totalReviews === 1 ? 'review' : 'reviews'})
               </span>
@@ -125,7 +125,7 @@ export default function ReviewSection({ productId, productName }: ReviewSectionP
       {/* Review Form */}
       {showForm && (
         <div className="mb-8 p-6 bg-cream rounded-lg">
-          <h3 className="font-display text-xl text-charcoal mb-4">
+          <h3 className="font-display text-xl text-navy mb-4">
             Share Your Thoughts
           </h3>
           <ReviewForm
@@ -146,7 +146,7 @@ export default function ReviewSection({ productId, productName }: ReviewSectionP
           {reviews.map((review) => (
             <article
               key={review.id}
-              className="bg-white p-6 rounded-lg border border-gray-100"
+              className="bg-white p-6 rounded-lg border border-cream"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
@@ -155,7 +155,7 @@ export default function ReviewSection({ productId, productName }: ReviewSectionP
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-medium text-charcoal">
+                      <span className="font-medium text-navy">
                         {review.author_name}
                       </span>
                       {review.is_verified && (
@@ -173,7 +173,7 @@ export default function ReviewSection({ productId, productName }: ReviewSectionP
               </div>
 
               {review.title && (
-                <h4 className="font-medium text-charcoal mt-4">
+                <h4 className="font-medium text-navy mt-4">
                   {review.title}
                 </h4>
               )}

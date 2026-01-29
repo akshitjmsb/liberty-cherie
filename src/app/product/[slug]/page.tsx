@@ -129,7 +129,7 @@ export default async function ProductPage({ params }: Props) {
             <span className="category-tag">{product.category}</span>
 
             {/* Name */}
-            <h1 className="font-display text-3xl lg:text-4xl text-charcoal mt-4">
+            <h1 className="font-display text-3xl lg:text-4xl text-navy mt-4">
               {product.name}
             </h1>
 
@@ -149,8 +149,8 @@ export default async function ProductPage({ params }: Props) {
                   In Stock
                 </span>
               ) : (
-                <span className="inline-flex items-center gap-2 text-red-500 font-medium">
-                  <span className="w-2 h-2 bg-red-500 rounded-full" />
+                <span className="inline-flex items-center gap-2 text-[var(--error)] font-medium">
+                  <span className="w-2 h-2 bg-[var(--error)] rounded-full" />
                   Out of Stock
                 </span>
               )}
@@ -158,14 +158,14 @@ export default async function ProductPage({ params }: Props) {
 
             {/* Description */}
             <div className="mt-6">
-              <h2 className="font-medium text-charcoal mb-2">Description</h2>
+              <h2 className="font-medium text-navy mb-2">Description</h2>
               <p className="text-soft-gray leading-relaxed">{product.description}</p>
             </div>
 
             {/* Tags */}
             {product.tags && product.tags.length > 0 && (
               <div className="mt-6">
-                <h2 className="font-medium text-charcoal mb-2">Tags</h2>
+                <h2 className="font-medium text-navy mb-2">Tags</h2>
                 <div className="flex flex-wrap gap-2">
                   {product.tags.map((tag) => (
                     <span

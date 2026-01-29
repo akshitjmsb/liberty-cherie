@@ -112,7 +112,7 @@ function CustomOrderContent() {
             <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-secondary/10 flex items-center justify-center">
               <CheckCircle className="w-10 h-10 text-secondary" />
             </div>
-            <h1 className="font-display text-3xl text-charcoal mb-4">
+            <h1 className="font-display text-3xl text-navy mb-4">
               Request Submitted!
             </h1>
             <p className="text-soft-gray mb-8">
@@ -133,7 +133,7 @@ function CustomOrderContent() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-cream via-white to-primary-light/20 py-16">
         <div className="container text-center">
-          <h1 className="font-display text-4xl text-charcoal mb-4">
+          <h1 className="font-display text-4xl text-navy mb-4">
             Custom Order Request
           </h1>
           <p className="text-soft-gray max-w-2xl mx-auto">
@@ -150,7 +150,7 @@ function CustomOrderContent() {
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Order Type Selection */}
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">
+                <h2 className="font-display text-xl text-navy mb-4">
                   What would you like to create?
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -160,7 +160,7 @@ function CustomOrderContent() {
                       className={`relative flex flex-col p-4 rounded-xl border-2 cursor-pointer transition-all ${
                         form.request_type === type.value
                           ? 'border-primary bg-primary/5'
-                          : 'border-gray-200 hover:border-primary/50'
+                          : 'border-cream hover:border-primary/50'
                       }`}
                     >
                       <input
@@ -178,7 +178,7 @@ function CustomOrderContent() {
                             : 'text-soft-gray'
                         }`}
                       />
-                      <span className="font-medium text-charcoal">{type.label}</span>
+                      <span className="font-medium text-navy">{type.label}</span>
                       <span className="text-sm text-soft-gray">{type.description}</span>
                     </label>
                   ))}
@@ -187,7 +187,7 @@ function CustomOrderContent() {
 
               {/* Contact Information */}
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">
+                <h2 className="font-display text-xl text-navy mb-4">
                   Contact Information
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -237,7 +237,7 @@ function CustomOrderContent() {
 
               {/* Project Details */}
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">
+                <h2 className="font-display text-xl text-navy mb-4">
                   Project Details
                 </h2>
                 <div className="space-y-4">
@@ -326,7 +326,7 @@ function CustomOrderContent() {
 
               {/* Error */}
               {error && (
-                <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-600">
+                <div className="p-4 bg-[rgba(198,75,75,0.1)] border border-[var(--error)] rounded-lg text-[var(--error)]">
                   {error}
                 </div>
               )}
@@ -357,7 +357,7 @@ function CustomOrderContent() {
             <div className="sticky top-24 space-y-6">
               {/* Info Card */}
               <div className="bg-cream rounded-2xl p-6">
-                <h3 className="font-display text-lg text-charcoal mb-4">
+                <h3 className="font-display text-lg text-navy mb-4">
                   How It Works
                 </h3>
                 <ol className="space-y-4">
@@ -366,7 +366,7 @@ function CustomOrderContent() {
                       1
                     </span>
                     <div>
-                      <p className="font-medium text-charcoal">Submit Request</p>
+                      <p className="font-medium text-navy">Submit Request</p>
                       <p className="text-sm text-soft-gray">
                         Tell us about your custom project idea
                       </p>
@@ -377,7 +377,7 @@ function CustomOrderContent() {
                       2
                     </span>
                     <div>
-                      <p className="font-medium text-charcoal">Get a Quote</p>
+                      <p className="font-medium text-navy">Get a Quote</p>
                       <p className="text-sm text-soft-gray">
                         We&apos;ll review and send you a quote within 2-3 days
                       </p>
@@ -388,7 +388,7 @@ function CustomOrderContent() {
                       3
                     </span>
                     <div>
-                      <p className="font-medium text-charcoal">Create Together</p>
+                      <p className="font-medium text-navy">Create Together</p>
                       <p className="text-sm text-soft-gray">
                         We&apos;ll work with you to perfect the design
                       </p>
@@ -399,7 +399,7 @@ function CustomOrderContent() {
                       4
                     </span>
                     <div>
-                      <p className="font-medium text-charcoal">Receive Your Item</p>
+                      <p className="font-medium text-navy">Receive Your Item</p>
                       <p className="text-sm text-soft-gray">
                         Your custom piece is crafted and shipped to you
                       </p>
@@ -409,8 +409,8 @@ function CustomOrderContent() {
               </div>
 
               {/* Contact Card */}
-              <div className="bg-white border border-gray-200 rounded-2xl p-6">
-                <h3 className="font-display text-lg text-charcoal mb-2">
+              <div className="bg-white border border-cream rounded-2xl p-6">
+                <h3 className="font-display text-lg text-navy mb-2">
                   Questions?
                 </h3>
                 <p className="text-soft-gray text-sm mb-4">

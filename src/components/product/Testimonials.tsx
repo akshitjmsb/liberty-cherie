@@ -79,7 +79,7 @@ export default function Testimonials({
                 />
               ))}
             </div>
-            <p className="text-lg md:text-xl text-charcoal leading-relaxed mb-6">
+            <p className="text-lg md:text-xl text-navy leading-relaxed mb-6">
               &ldquo;{featured.text}&rdquo;
             </p>
             <div className="flex items-center gap-4">
@@ -89,7 +89,7 @@ export default function Testimonials({
                 </span>
               </div>
               <div>
-                <p className="font-medium text-charcoal">{featured.name}</p>
+                <p className="font-medium text-navy">{featured.name}</p>
                 <p className="text-soft-gray text-sm">{featured.location}</p>
               </div>
             </div>
@@ -120,7 +120,7 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
-    <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col">
+    <div className="bg-white rounded-xl p-6 shadow-sm border border-cream flex flex-col">
       {/* Rating */}
       <div className="flex gap-0.5 mb-4">
         {[...Array(5)].map((_, i) => (
@@ -129,14 +129,14 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
             className={`w-4 h-4 ${
               i < testimonial.rating
                 ? 'fill-primary text-primary'
-                : 'fill-gray-200 text-gray-200'
+                : 'fill-[var(--light-gray)] text-[var(--light-gray)]'
             }`}
           />
         ))}
       </div>
 
       {/* Quote */}
-      <p className="text-charcoal leading-relaxed flex-1 mb-4">
+      <p className="text-navy leading-relaxed flex-1 mb-4">
         &ldquo;{testimonial.text}&rdquo;
       </p>
 
@@ -146,7 +146,7 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
       )}
 
       {/* Author */}
-      <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+      <div className="flex items-center gap-3 pt-4 border-t border-cream">
         {testimonial.avatar ? (
           <div className="relative w-10 h-10 rounded-full overflow-hidden">
             <Image
@@ -164,7 +164,7 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
           </div>
         )}
         <div>
-          <p className="font-medium text-charcoal text-sm">{testimonial.name}</p>
+          <p className="font-medium text-navy text-sm">{testimonial.name}</p>
           <p className="text-soft-gray text-xs">{testimonial.location}</p>
         </div>
         {testimonial.date && (

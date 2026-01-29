@@ -35,7 +35,7 @@ export default function InterestSelector({
 
   return (
     <div>
-      <label className="block text-sm font-medium text-charcoal mb-2">
+      <label className="block text-sm font-medium text-navy mb-2">
         What interests you? (optional, select up to {maxSelections})
       </label>
       <div className="flex flex-wrap gap-2">
@@ -54,7 +54,7 @@ export default function InterestSelector({
                 ${
                   isSelected
                     ? 'bg-primary text-white'
-                    : 'bg-gray-100 text-charcoal hover:bg-gray-200'
+                    : 'bg-cream text-navy hover:bg-cream'
                 }
                 ${isDisabled && !isSelected ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
               `}

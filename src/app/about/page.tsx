@@ -17,7 +17,7 @@ export default function AboutPage() {
             <span className="inline-block px-4 py-2 bg-primary-light/30 text-primary rounded-full text-sm font-medium mb-6">
               Our Story
             </span>
-            <h1 className="font-display text-4xl lg:text-5xl text-charcoal mb-6">
+            <h1 className="font-display text-4xl lg:text-5xl text-navy mb-6">
               Handcrafted with <span className="text-primary">Love</span> in Quebec
             </h1>
             <p className="text-lg text-soft-gray">
@@ -45,7 +45,7 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <h2 className="font-display text-3xl text-charcoal mb-6">
+              <h2 className="font-display text-3xl text-navy mb-6">
                 The Heart Behind the Craft
               </h2>
               <div className="space-y-4 text-soft-gray">
@@ -80,7 +80,7 @@ export default function AboutPage() {
       {/* Values Section */}
       <section className="py-20 bg-cream">
         <div className="container">
-          <h2 className="font-display text-3xl text-charcoal text-center mb-12">
+          <h2 className="font-display text-3xl text-navy text-center mb-12">
             Our Values
           </h2>
 
@@ -89,7 +89,7 @@ export default function AboutPage() {
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary-light/20 flex items-center justify-center">
                 <Flower2 className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="font-display text-xl text-charcoal mb-3">Quality Materials</h3>
+              <h3 className="font-display text-xl text-navy mb-3">Quality Materials</h3>
               <p className="text-soft-gray">
                 We source only the finest Liberty of London fabrics and premium materials
                 to ensure lasting beauty and durability.
@@ -100,7 +100,7 @@ export default function AboutPage() {
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-secondary-light/30 flex items-center justify-center">
                 <Heart className="w-8 h-8 text-secondary" />
               </div>
-              <h3 className="font-display text-xl text-charcoal mb-3">Made with Love</h3>
+              <h3 className="font-display text-xl text-navy mb-3">Made with Love</h3>
               <p className="text-soft-gray">
                 Every stitch is placed with care, every seam finished with precision.
                 Our pieces are made to be treasured for years to come.
@@ -111,7 +111,7 @@ export default function AboutPage() {
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-accent-light/30 flex items-center justify-center">
                 <Sparkles className="w-8 h-8 text-accent" />
               </div>
-              <h3 className="font-display text-xl text-charcoal mb-3">Unique Designs</h3>
+              <h3 className="font-display text-xl text-navy mb-3">Unique Designs</h3>
               <p className="text-soft-gray">
                 No two pieces are exactly alike. We celebrate individuality and create
                 accessories that reflect your personal style.
@@ -124,7 +124,7 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-20">
         <div className="container text-center">
-          <h2 className="font-display text-3xl text-charcoal mb-6">
+          <h2 className="font-display text-3xl text-navy mb-6">
             Ready to Find Your Perfect Piece?
           </h2>
           <p className="text-soft-gray max-w-xl mx-auto mb-8">

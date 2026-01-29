@@ -1,0 +1,67 @@
+/* ============================================================
+   Typography - Branding Kit Section 04
+   Display: Cormorant Garamond | Body: Montserrat
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-warm-white);
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  padding-bottom: calc(var(--bottom-nav-height) + var(--safe-area-inset-bottom));
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+/* Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Mobile typography adjustments */
+@media (max-width: 640px) {
+  h1 { font-size: 2rem; }    /* 32px vs 48px on desktop */
+  h2 { font-size: 1.5rem; }  /* 24px vs 36px on desktop */
+  h3 { font-size: 1.25rem; } /* 20px vs 24px on desktop */
+}
+
+/* Price Display */
+.price {
+  font-family: var(--font-display);
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.price-strikethrough {
+  text-decoration: line-through;
+  color: var(--color-soft-gray);
+  font-size: 0.9rem;
+}
+
+/* Category Tags */
+.category-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}

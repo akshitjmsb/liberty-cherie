@@ -99,7 +99,7 @@ export default function ReviewForm({
               onClick={() => setRating(star)}
               onMouseEnter={() => setHoverRating(star)}
               onMouseLeave={() => setHoverRating(0)}
-              className="p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+              className="p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded"
               aria-label={`${star} star${star > 1 ? 's' : ''}`}
               role="radio"
               aria-checked={rating === star}
@@ -108,7 +108,7 @@ export default function ReviewForm({
                 className={`w-8 h-8 transition-colors ${
                   star <= (hoverRating || rating)
                     ? 'fill-primary text-primary'
-                    : 'text-gray-300'
+                    : 'text-cream'
                 }`}
               />
             </button>

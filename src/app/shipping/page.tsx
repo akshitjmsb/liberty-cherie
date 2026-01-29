@@ -12,7 +12,7 @@ export default function ShippingPage() {
       <section className="bg-gradient-to-br from-cream via-white to-accent-light/20 py-20">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="font-display text-4xl lg:text-5xl text-charcoal mb-6">
+            <h1 className="font-display text-4xl lg:text-5xl text-navy mb-6">
               Shipping & <span className="text-primary">Returns</span>
             </h1>
             <p className="text-lg text-soft-gray">
@@ -32,7 +32,7 @@ export default function ShippingPage() {
                 <div className="w-12 h-12 rounded-full bg-primary-light/20 flex items-center justify-center">
                   <Truck className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="font-display text-2xl text-charcoal">Shipping Information</h2>
+                <h2 className="font-display text-2xl text-navy">Shipping Information</h2>
               </div>
 
               <div className="space-y-6 text-soft-gray">
@@ -40,7 +40,7 @@ export default function ShippingPage() {
                   <div className="flex items-start gap-4">
                     <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium text-charcoal mb-2">Shipping Destinations</h3>
+                      <h3 className="font-medium text-navy mb-2">Shipping Destinations</h3>
                       <p>
                         We currently ship throughout Canada. For international orders,
                         please contact us directly to discuss shipping options.
@@ -53,7 +53,7 @@ export default function ShippingPage() {
                   <div className="flex items-start gap-4">
                     <Package className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium text-charcoal mb-2">Shipping Rates</h3>
+                      <h3 className="font-medium text-navy mb-2">Shipping Rates</h3>
                       <ul className="space-y-2">
                         <li><strong>Orders over $100 CAD:</strong> FREE shipping within Canada</li>
                         <li><strong>Orders under $100 CAD:</strong> Flat rate $12 CAD</li>
@@ -67,7 +67,7 @@ export default function ShippingPage() {
                   <div className="flex items-start gap-4">
                     <Clock className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium text-charcoal mb-2">Processing & Delivery Times</h3>
+                      <h3 className="font-medium text-navy mb-2">Processing & Delivery Times</h3>
                       <ul className="space-y-2">
                         <li><strong>Processing time:</strong> 2-5 business days</li>
                         <li><strong>Delivery (Quebec):</strong> 3-5 business days</li>
@@ -91,7 +91,7 @@ export default function ShippingPage() {
                 <div className="w-12 h-12 rounded-full bg-secondary-light/30 flex items-center justify-center">
                   <RefreshCw className="w-6 h-6 text-secondary" />
                 </div>
-                <h2 className="font-display text-2xl text-charcoal">Returns & Exchanges</h2>
+                <h2 className="font-display text-2xl text-navy">Returns & Exchanges</h2>
               </div>
 
               <div className="space-y-6 text-soft-gray">
@@ -101,7 +101,7 @@ export default function ShippingPage() {
                 </p>
 
                 <div className="bg-cream rounded-xl p-6">
-                  <h3 className="font-medium text-charcoal mb-3">Return Policy</h3>
+                  <h3 className="font-medium text-navy mb-3">Return Policy</h3>
                   <ul className="space-y-2">
                     <li>Returns accepted within <strong>14 days</strong> of delivery</li>
                     <li>Items must be unused and in original condition</li>
@@ -111,7 +111,7 @@ export default function ShippingPage() {
                 </div>
 
                 <div className="bg-cream rounded-xl p-6">
-                  <h3 className="font-medium text-charcoal mb-3">How to Initiate a Return</h3>
+                  <h3 className="font-medium text-navy mb-3">How to Initiate a Return</h3>
                   <ol className="list-decimal list-inside space-y-2">
                     <li>Email us at contact@libertycherie.ca with your order number</li>
                     <li>Include the reason for your return</li>
@@ -125,7 +125,7 @@ export default function ShippingPage() {
                   <div className="flex items-start gap-4">
                     <AlertCircle className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium text-charcoal mb-2">Non-Returnable Items</h3>
+                      <h3 className="font-medium text-navy mb-2">Non-Returnable Items</h3>
                       <ul className="space-y-1">
                         <li>Custom-made or personalized items</li>
                         <li>Items marked as final sale</li>
@@ -139,7 +139,7 @@ export default function ShippingPage() {
 
             {/* Damaged Items Section */}
             <div>
-              <h2 className="font-display text-2xl text-charcoal mb-6">Damaged or Defective Items</h2>
+              <h2 className="font-display text-2xl text-navy mb-6">Damaged or Defective Items</h2>
               <div className="text-soft-gray space-y-4">
                 <p>
                   If your item arrives damaged or defective, please contact us immediately at

@@ -1,0 +1,17 @@
+/* ============================================================
+   Cards - Branding Kit Section 08
+   Base card: white, 16px radius, shadow-sm, hover lift -4px
+   ============================================================ */
+
+.card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}

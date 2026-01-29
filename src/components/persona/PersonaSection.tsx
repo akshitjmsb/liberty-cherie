@@ -30,7 +30,7 @@ export default function PersonaSection({
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
           <div>
-            <h2 className="font-display text-2xl md:text-3xl text-charcoal">
+            <h2 className="font-display text-2xl md:text-3xl text-navy">
               {title}
             </h2>
             {subtitle && (

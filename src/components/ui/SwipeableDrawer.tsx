@@ -117,7 +117,7 @@ export default function SwipeableDrawer({
       {/* Swipe Handle Indicator */}
       {direction === 'down' && (
         <div className="flex justify-center pt-2 pb-1">
-          <div className="w-12 h-1.5 bg-gray-300 rounded-full" />
+          <div className="w-12 h-1.5 bg-[var(--medium-gray)] rounded-full" />
         </div>
       )}
       {children}

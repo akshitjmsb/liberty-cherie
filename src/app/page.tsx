@@ -151,7 +151,7 @@ export default async function HomePage() {
               <span className="inline-block px-4 py-2 bg-primary-light/30 text-primary rounded-full text-sm font-medium mb-6">
                 Handcrafted in Quebec
               </span>
-              <h1 className="font-display text-4xl lg:text-6xl text-charcoal leading-tight">
+              <h1 className="font-display text-4xl lg:text-6xl text-navy leading-tight">
                 Beautiful <span className="text-primary">Floral</span> Accessories
                 Made with Love
               </h1>
@@ -205,7 +205,7 @@ export default async function HomePage() {
                   <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary-light/20 text-primary mb-4">
                     <feature.icon className="w-6 h-6" />
                   </div>
-                  <h3 className="font-display text-lg text-charcoal mb-2">
+                  <h3 className="font-display text-lg text-navy mb-2">
                     {feature.title}
                   </h3>
                   <p className="text-soft-gray text-sm">{feature.description}</p>
@@ -221,7 +221,7 @@ export default async function HomePage() {
         <div className="container">
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-12">
-              <h2 className="font-display text-3xl lg:text-4xl text-charcoal">
+              <h2 className="font-display text-3xl lg:text-4xl text-navy">
                 Featured Creations
               </h2>
               <p className="mt-4 text-soft-gray max-w-2xl mx-auto">
@@ -254,7 +254,7 @@ export default async function HomePage() {
               <Gift className="w-8 h-8 text-primary" />
             </div>
             <div>
-              <h2 className="font-display text-2xl md:text-3xl text-charcoal">
+              <h2 className="font-display text-2xl md:text-3xl text-navy">
                 Perfect for Gifting
               </h2>
               <p className="text-soft-gray mt-2">
@@ -280,7 +280,7 @@ export default async function HomePage() {
               <Plane className="w-8 h-8 text-primary" />
             </div>
             <div>
-              <h2 className="font-display text-2xl md:text-3xl text-charcoal">
+              <h2 className="font-display text-2xl md:text-3xl text-navy">
                 Travel Essentials
               </h2>
               <p className="text-soft-gray mt-2">
@@ -303,7 +303,7 @@ export default async function HomePage() {
         <div className="container">
           <AnimatedSection animation="zoom-in">
             <div className="bg-gradient-to-br from-cream to-accent-light rounded-2xl p-8 md:p-12 text-center">
-              <h2 className="font-display text-2xl md:text-3xl text-charcoal mb-4">
+              <h2 className="font-display text-2xl md:text-3xl text-navy mb-4">
                 Shop for Your Lifestyle
               </h2>
               <p className="text-soft-gray max-w-2xl mx-auto mb-8">
@@ -328,7 +328,7 @@ export default async function HomePage() {
                   <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                 ))}
               </div>
-              <h2 className="font-display text-3xl lg:text-4xl text-charcoal mb-4">
+              <h2 className="font-display text-3xl lg:text-4xl text-navy mb-4">
                 What Our Customers Say
               </h2>
               <p className="text-soft-gray max-w-2xl mx-auto">
@@ -352,7 +352,7 @@ export default async function HomePage() {
         <div className="container">
           <AnimatedSection animation="fade-up">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="font-display text-3xl lg:text-4xl text-charcoal mb-4">
+              <h2 className="font-display text-3xl lg:text-4xl text-navy mb-4">
                 Stay in the Loop
               </h2>
               <p className="text-soft-gray mb-8">
@@ -391,7 +391,7 @@ export default async function HomePage() {
       {/* Instagram Feed CTA */}
       <section className="py-20">
         <div className="container text-center">
-          <h2 className="font-display text-3xl lg:text-4xl text-charcoal mb-4">
+          <h2 className="font-display text-3xl lg:text-4xl text-navy mb-4">
             Follow Our Journey
           </h2>
           <p className="text-soft-gray mb-8">

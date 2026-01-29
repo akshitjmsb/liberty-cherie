@@ -57,7 +57,7 @@ export default function NewsletterFooter({ className = '' }: NewsletterFooterPro
 
   if (status === 'success') {
     return (
-      <div className={`flex items-center gap-2 text-green-400 ${className}`}>
+      <div className={`flex items-center gap-2 text-[var(--success)] ${className}`}>
         <CheckCircle className="w-5 h-5" />
         <span className="text-sm">{message}</span>
       </div>
@@ -68,7 +68,7 @@ export default function NewsletterFooter({ className = '' }: NewsletterFooterPro
     <form onSubmit={handleSubmit} className={className}>
       <div className="flex">
         <div className="relative flex-1">
-          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--medium-gray)]" />
           <input
             type="email"
             value={email}
@@ -77,7 +77,7 @@ export default function NewsletterFooter({ className = '' }: NewsletterFooterPro
               if (status === 'error') setStatus('idle');
             }}
             placeholder="Your email"
-            className="w-full pl-9 pr-3 py-2 bg-white/10 border border-white/20 rounded-l-lg text-white placeholder-gray-400 text-sm focus:outline-none focus:border-white/40"
+            className="w-full pl-9 pr-3 py-2 bg-white/10 border border-white/20 rounded-l-lg text-white placeholder-[var(--medium-gray)] text-sm focus:outline-none focus:border-white/40"
             disabled={status === 'loading'}
           />
         </div>
@@ -95,7 +95,7 @@ export default function NewsletterFooter({ className = '' }: NewsletterFooterPro
         </button>
       </div>
       {status === 'error' && (
-        <div className="flex items-center gap-1 text-red-400 text-xs mt-1">
+        <div className="flex items-center gap-1 text-[var(--error)] text-xs mt-1">
           <AlertCircle className="w-3 h-3" />
           {message}
         </div>

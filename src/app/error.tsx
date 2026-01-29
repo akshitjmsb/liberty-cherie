@@ -26,7 +26,7 @@ export default function Error({ error, reset }: ErrorProps) {
         </div>
 
         {/* Message */}
-        <h1 className="font-display text-3xl lg:text-4xl text-charcoal mb-4">
+        <h1 className="font-display text-3xl lg:text-4xl text-navy mb-4">
           Something Went Wrong
         </h1>
         <p className="text-soft-gray text-lg mb-8 max-w-md mx-auto">
@@ -37,7 +37,7 @@ export default function Error({ error, reset }: ErrorProps) {
         {/* Error Details (development only) */}
         {process.env.NODE_ENV === 'development' && (
           <div className="mb-8 p-4 bg-cream rounded-lg text-left">
-            <p className="text-sm font-mono text-charcoal break-all">
+            <p className="text-sm font-mono text-navy break-all">
               {error.message}
             </p>
             {error.digest && (

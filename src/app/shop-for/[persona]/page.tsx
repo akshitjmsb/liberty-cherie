@@ -135,7 +135,7 @@ export default async function PersonaPage({ params }: Props) {
       <section className="py-16">
         <div className="container">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="font-display text-2xl text-charcoal">
+            <h2 className="font-display text-2xl text-navy">
               Recommended for You
             </h2>
             <span className="text-soft-gray">
@@ -162,7 +162,7 @@ export default async function PersonaPage({ params }: Props) {
       <section className="py-16 bg-cream">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-display text-2xl md:text-3xl text-charcoal">
+            <h2 className="font-display text-2xl md:text-3xl text-navy">
               Looking for Something Special?
             </h2>
             <p className="text-soft-gray mt-4">

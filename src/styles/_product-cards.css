@@ -1,0 +1,153 @@
+/* ============================================================
+   Product Cards - Branding Kit Section 09
+   3:4 aspect image, badges, wishlist, quick-add, color dots, florals
+   ============================================================ */
+
+.product-card {
+  position: relative;
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Product Image Container - 3:4 aspect ratio */
+.product-image-container {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: var(--color-cream);
+}
+
+.product-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Floral corner decorations */
+.product-card .pc-floral-tl {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 60px;
+  height: 60px;
+  background-image: var(--floral-roses);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.product-card .pc-floral-br {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 50px;
+  height: 50px;
+  background-image: var(--floral-wildflowers);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  pointer-events: none;
+  transform: rotate(180deg);
+  z-index: 1;
+}
+
+/* Product badge */
+.product-card .product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+}
+
+/* Wishlist button */
+.product-card .wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+}
+
+/* Quick-add overlay */
+.product-card .quick-add {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-md);
+  background: linear-gradient(transparent, rgba(26, 39, 68, 0.8));
+  transform: translateY(100%);
+  transition: transform var(--transition-base);
+  z-index: 2;
+}
+
+.product-card:hover .quick-add {
+  transform: translateY(0);
+}
+
+/* Product info */
+.product-card .product-info {
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.product-card .product-category {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.product-card .product-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--color-navy);
+  margin-bottom: var(--space-sm);
+  transition: color var(--transition-fast);
+}
+
+.product-card:hover .product-name {
+  color: var(--color-primary);
+}
+
+/* Color dots */
+.product-card .color-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: var(--space-sm);
+}
+
+.product-card .color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.product-card .color-dot:hover {
+  transform: scale(1.2);
+}
+
+.product-card .color-dot.active {
+  box-shadow: 0 0 0 2px var(--color-primary);
+}

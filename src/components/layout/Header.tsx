@@ -52,7 +52,17 @@ export default function Header() {
         Skip to main content
       </a>
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-cream relative overflow-hidden">
+        {/* Floral corner decorations - hidden on mobile */}
+        <div
+          className="hidden md:block absolute -top-4 -left-4 w-[80px] h-[80px] bg-contain bg-no-repeat opacity-10 -rotate-[15deg] pointer-events-none"
+          style={{ backgroundImage: 'var(--floral-roses)' }}
+        />
+        <div
+          className="hidden md:block absolute -top-4 -right-4 w-[70px] h-[70px] bg-contain bg-no-repeat opacity-10 rotate-[15deg] pointer-events-none"
+          style={{ backgroundImage: 'var(--floral-wildflowers)' }}
+        />
+
         <nav className="container flex items-center justify-between py-4">
           {/* Logo - Text-based as per branding kit */}
           <Link href="/" className="flex flex-col items-start">
@@ -97,7 +107,7 @@ export default function Header() {
               </button>
 
               {shopForOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 animate-fade-in">
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-cream py-2 animate-fade-in">
                   <Link
                     href="/shop-for"
                     className="flex items-center gap-2 px-4 py-2 text-navy hover:bg-cream hover:text-primary transition-colors font-medium"
@@ -106,7 +116,7 @@ export default function Header() {
                     <Users className="w-4 h-4" />
                     All Collections
                   </Link>
-                  <div className="border-t border-gray-100 my-2" />
+                  <div className="border-t border-cream my-2" />
                   {shopForLinks.map((link) => (
                     <Link
                       key={link.name}
@@ -141,9 +151,9 @@ export default function Header() {
               className="p-2 text-navy hover:text-primary transition-colors relative"
               aria-label={`Shopping cart${itemCount > 0 ? `, ${itemCount} item${itemCount !== 1 ? 's' : ''}` : ''}`}
             >
-              <ShoppingBag className="w-5 h-5" />
+              <ShoppingBag className="w-[22px] h-[22px]" />
               {itemCount > 0 && (
-                <span className="cart-badge" aria-hidden="true">{itemCount}</span>
+                <span className="cart-count" aria-hidden="true">{itemCount}</span>
               )}
             </button>
 
@@ -164,7 +174,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 animate-fade-in">
+          <div className="md:hidden bg-white border-t border-cream animate-fade-in">
             <div className="container py-4 space-y-2">
               <Link
                 href="/products"

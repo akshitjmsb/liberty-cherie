@@ -97,7 +97,7 @@ export default function CheckoutPage() {
   if (items.length === 0) {
     return (
       <div className="container py-20 text-center">
-        <h1 className="font-display text-3xl text-charcoal mb-4">Your cart is empty</h1>
+        <h1 className="font-display text-3xl text-navy mb-4">Your cart is empty</h1>
         <p className="text-soft-gray mb-8">Add some beautiful items to your cart first!</p>
         <Link href="/products" className="btn-primary">
           Browse Products
@@ -117,7 +117,7 @@ export default function CheckoutPage() {
           Continue Shopping
         </Link>
 
-        <h1 className="font-display text-3xl text-charcoal mb-8">Checkout</h1>
+        <h1 className="font-display text-3xl text-navy mb-8">Checkout</h1>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Checkout Form */}
@@ -125,7 +125,7 @@ export default function CheckoutPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Contact Information */}
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">Contact Information</h2>
+                <h2 className="font-display text-xl text-navy mb-4">Contact Information</h2>
                 <div className="space-y-4">
                   <div>
                     <label htmlFor="email" className="form-label">
@@ -165,7 +165,7 @@ export default function CheckoutPage() {
 
               {/* Shipping Address */}
               <div>
-                <h2 className="font-display text-xl text-charcoal mb-4">Shipping Address</h2>
+                <h2 className="font-display text-xl text-navy mb-4">Shipping Address</h2>
                 <div className="space-y-4">
                   <div>
                     <label htmlFor="name" className="form-label">
@@ -295,7 +295,7 @@ export default function CheckoutPage() {
 
               {/* Error Message */}
               {error && (
-                <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-600">
+                <div className="p-4 bg-[rgba(198,75,75,0.1)] border border-[var(--error)] rounded-lg text-[var(--error)]">
                   {error}
                 </div>
               )}
@@ -338,7 +338,7 @@ export default function CheckoutPage() {
             >
               <div className="flex items-center gap-3">
                 <ShoppingBag className="w-5 h-5 text-primary" />
-                <span className="font-display text-lg text-charcoal">
+                <span className="font-display text-lg text-navy">
                   Order Summary ({items.length} {items.length === 1 ? 'item' : 'items'})
                 </span>
               </div>
@@ -354,7 +354,7 @@ export default function CheckoutPage() {
 
             {/* Order Summary Content */}
             <div className={`bg-cream rounded-2xl p-6 sticky top-24 ${orderSummaryOpen ? 'block' : 'hidden lg:block'}`}>
-              <h2 className="font-display text-xl text-charcoal mb-6 hidden lg:block">Order Summary</h2>
+              <h2 className="font-display text-xl text-navy mb-6 hidden lg:block">Order Summary</h2>
 
               {/* Items */}
               <div className="space-y-4 mb-6">
@@ -369,11 +369,11 @@ export default function CheckoutPage() {
                           className="object-cover"
                         />
                       ) : (
-                        <div className="w-full h-full bg-gray-200" />
+                        <div className="w-full h-full bg-[var(--light-gray)]" />
                       )}
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-medium text-charcoal">{item.product.name}</h3>
+                      <h3 className="font-medium text-navy">{item.product.name}</h3>
                       <p className="text-soft-gray text-sm">Qty: {item.quantity}</p>
                     </div>
                     <span className="font-medium">
@@ -384,7 +384,7 @@ export default function CheckoutPage() {
               </div>
 
               {/* Totals */}
-              <div className="border-t border-gray-200 pt-4 space-y-2">
+              <div className="border-t border-cream pt-4 space-y-2">
                 <div className="flex justify-between text-soft-gray">
                   <span>Subtotal</span>
                   <span>{formatPrice(getSubtotal())}</span>
@@ -403,7 +403,7 @@ export default function CheckoutPage() {
                     )}
                   </span>
                 </div>
-                <div className="flex justify-between font-display text-xl text-charcoal pt-2 border-t border-gray-200">
+                <div className="flex justify-between font-display text-xl text-navy pt-2 border-t border-cream">
                   <span>Total</span>
                   <span className="text-primary">{formatPrice(getTotal())}</span>
                 </div>

@@ -73,7 +73,7 @@ export default function TrustBadges({
               <badge.icon className="w-5 h-5 text-secondary-dark" />
             </div>
             <div>
-              <p className="font-medium text-charcoal text-sm">{badge.label}</p>
+              <p className="font-medium text-navy text-sm">{badge.label}</p>
               {variant === 'vertical' && (
                 <p className="text-soft-gray text-xs">{badge.description}</p>
               )}
@@ -83,7 +83,7 @@ export default function TrustBadges({
       </div>
 
       {showPaymentIcons && (
-        <div className="flex items-center justify-center gap-3 mt-6 pt-6 border-t border-gray-100">
+        <div className="flex items-center justify-center gap-3 mt-6 pt-6 border-t border-cream">
           <span className="text-soft-gray text-sm mr-2">We accept:</span>
           <PaymentIcon type="visa" />
           <PaymentIcon type="mastercard" />
@@ -101,7 +101,7 @@ interface PaymentIconProps {
 }
 
 function PaymentIcon({ type }: PaymentIconProps) {
-  const iconStyles = 'w-10 h-6 rounded bg-white border border-gray-200 flex items-center justify-center';
+  const iconStyles = 'w-10 h-6 rounded bg-white border border-cream flex items-center justify-center';
 
   const icons: Record<string, React.ReactNode> = {
     visa: (

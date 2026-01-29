@@ -44,7 +44,7 @@ export default function AddToCartButton({ product }: AddToCartButtonProps) {
     return (
       <button
         disabled
-        className="w-full py-4 px-6 bg-gray-200 text-gray-500 rounded-lg font-medium cursor-not-allowed"
+        className="w-full py-4 px-6 bg-[var(--light-gray)] text-soft-gray rounded-lg font-medium cursor-not-allowed"
       >
         Out of Stock
       </button>
@@ -55,8 +55,8 @@ export default function AddToCartButton({ product }: AddToCartButtonProps) {
     <div className="space-y-4">
       {/* Quantity Selector */}
       <div className="flex items-center gap-4">
-        <span className="text-charcoal font-medium">Quantity:</span>
-        <div className="flex items-center border border-gray-200 rounded-lg">
+        <span className="text-navy font-medium">Quantity:</span>
+        <div className="flex items-center border border-cream rounded-lg">
           <button
             onClick={decrementQuantity}
             disabled={quantity <= 1}

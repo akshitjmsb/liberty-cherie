@@ -1,0 +1,157 @@
+/* ============================================================
+   Buttons - Branding Kit Section 05
+   5 variants: primary, secondary, sage, outline, ghost
+   2 sizes: sm, lg (md is the base)
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 14px 32px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+/* Primary Button - Navy background */
+.btn-primary {
+  background: var(--color-navy);
+  color: white;
+  border-color: var(--color-navy);
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.btn-primary:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+/* Secondary Button - Rose Pink background */
+.btn-secondary {
+  background: var(--color-primary);
+  color: white;
+  border: 2px solid var(--color-primary);
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* Sage Button */
+.btn-sage {
+  background: var(--color-secondary);
+  color: white;
+  border: 2px solid var(--color-secondary);
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.btn-sage:hover {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+}
+
+/* Outline Button */
+.btn-outline {
+  background: transparent;
+  color: var(--color-navy);
+  border: 2px solid var(--color-navy);
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.btn-outline:hover {
+  background: var(--color-navy);
+  color: white;
+}
+
+/* Ghost Button */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-navy);
+  border: 2px solid transparent;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.btn-ghost:hover {
+  background: var(--color-cream);
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: 10px 20px;
+  font-size: 10px;
+}
+
+.btn-lg {
+  padding: 18px 42px;
+  font-size: 13px;
+}
+
+/* Button Disabled State */
+.btn:disabled,
+.btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Button press effect */
+.btn-primary:active,
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+}

@@ -87,7 +87,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
       <div className="relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 text-charcoal hover:text-primary transition-colors"
+          className="p-2 text-navy hover:text-primary transition-colors"
           aria-label="Search products"
           aria-expanded={isOpen}
         >
@@ -95,7 +95,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
         </button>
 
         {isOpen && (
-          <div className="absolute right-0 top-full mt-2 w-80 sm:w-96 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden animate-fade-in z-50">
+          <div className="absolute right-0 top-full mt-2 w-80 sm:w-96 bg-white rounded-lg shadow-xl border border-cream overflow-hidden animate-fade-in z-50">
             <form onSubmit={handleSubmit} className="relative">
               <input
                 ref={inputRef}
@@ -103,7 +103,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search products..."
-                className="w-full pl-10 pr-10 py-3 border-b border-gray-100 focus:outline-none"
+                className="w-full pl-10 pr-10 py-3 border-b border-cream focus:outline-none"
                 aria-label="Search products"
               />
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-soft-gray" />
@@ -111,7 +111,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
                 <button
                   type="button"
                   onClick={() => setQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-100 rounded-full"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1 hover:bg-cream rounded-full"
                   aria-label="Clear search"
                 >
                   <X className="w-4 h-4 text-soft-gray" />
@@ -151,7 +151,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
                           )}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="font-medium text-charcoal truncate">
+                          <p className="font-medium text-navy truncate">
                             {product.name}
                           </p>
                           <p className="text-sm text-soft-gray">
@@ -166,7 +166,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
                     <Link
                       href={`/products?search=${encodeURIComponent(query)}`}
                       onClick={handleProductClick}
-                      className="block text-center py-3 text-primary hover:bg-cream transition-colors font-medium border-t border-gray-100"
+                      className="block text-center py-3 text-primary hover:bg-cream transition-colors font-medium border-t border-cream"
                     >
                       View all results
                     </Link>
@@ -218,7 +218,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
       {showDropdown && products.length > 0 && (
         <div
           ref={dropdownRef}
-          className="mt-2 bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden"
+          className="mt-2 bg-white rounded-lg shadow-lg border border-cream overflow-hidden"
         >
           {products.map((product) => (
             <Link
@@ -243,7 +243,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
                 )}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-medium text-charcoal truncate">{product.name}</p>
+                <p className="font-medium text-navy truncate">{product.name}</p>
                 <p className="text-sm text-soft-gray">
                   {categoryLabels[product.category]?.en || product.category}
                 </p>

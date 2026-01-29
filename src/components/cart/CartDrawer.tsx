@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { X, Plus, Minus, ShoppingBag, Trash2 } from 'lucide-react';
+import { X, Plus, Minus, ShoppingBag } from 'lucide-react';
 import { toast } from 'sonner';
 import { useCartStore } from '@/store/cart';
 
@@ -31,7 +31,6 @@ export default function CartDrawer() {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      // Focus the close button when cart opens
       setTimeout(() => closeButtonRef.current?.focus(), 100);
     } else {
       document.body.style.overflow = 'unset';
@@ -89,7 +88,6 @@ export default function CartDrawer() {
   const handleTouchEnd = useCallback(() => {
     if (touchStart !== null && touchCurrent !== null) {
       const swipeDistance = touchCurrent - touchStart;
-      // Close if swiped right more than 100px
       if (swipeDistance > 100) {
         closeCart();
       }
@@ -99,7 +97,6 @@ export default function CartDrawer() {
     setIsDragging(false);
   }, [touchStart, touchCurrent, closeCart]);
 
-  // Calculate swipe offset for visual feedback
   const getSwipeTransform = () => {
     if (!isDragging || touchStart === null || touchCurrent === null) return '';
     const offset = Math.max(0, touchCurrent - touchStart);
@@ -137,7 +134,7 @@ export default function CartDrawer() {
       >
         {/* Swipe indicator - mobile only */}
         <div className="md:hidden flex justify-center pt-2">
-          <div className="w-10 h-1 bg-gray-300 rounded-full" />
+          <div className="w-10 h-1 bg-cream rounded-full" />
         </div>
 
         {/* Header */}
@@ -161,7 +158,7 @@ export default function CartDrawer() {
         <div className="flex-1 overflow-y-auto p-4">
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center">
-              <ShoppingBag className="w-16 h-16 text-gray-200 mb-4" />
+              <ShoppingBag className="w-16 h-16 text-cream mb-4" />
               <p className="text-soft-gray mb-4">Your cart is empty</p>
               <button onClick={closeCart} className="btn-primary">
                 Continue Shopping
@@ -172,10 +169,10 @@ export default function CartDrawer() {
               {items.map((item) => (
                 <div
                   key={item.product.id}
-                  className="flex gap-4 bg-cream rounded-lg p-3"
+                  className="cart-item"
                 >
-                  {/* Product Image */}
-                  <div className="relative w-20 h-20 flex-shrink-0 rounded-md overflow-hidden">
+                  {/* Product Image - kit spec: 100x120 */}
+                  <div className="cart-item-image">
                     {item.product.images?.[0] ? (
                       <Image
                         src={item.product.images[0]}
@@ -184,48 +181,55 @@ export default function CartDrawer() {
                         className="object-cover"
                       />
                     ) : (
-                      <div className="w-full h-full bg-gray-200" />
+                      <div className="w-full h-full bg-cream" />
                     )}
                   </div>
 
                   {/* Product Details */}
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-medium text-charcoal truncate">
+                  <div className="cart-item-details">
+                    <h3 className="cart-item-name truncate">
                       {item.product.name}
                     </h3>
-                    <p className="text-primary font-display">
+                    {item.variant_id && (
+                      <p className="cart-item-variant">
+                        {item.variant_id}
+                      </p>
+                    )}
+                    <p className="cart-item-price">
                       {formatPrice(item.product.price)}
                     </p>
 
-                    {/* Quantity Controls */}
-                    <div className="flex items-center gap-2 mt-2">
-                      <button
-                        onClick={() =>
-                          handleUpdateQuantity(item.product.id, item.product.name, item.quantity - 1)
-                        }
-                        className="p-1 hover:bg-white rounded transition-colors"
-                        aria-label="Decrease quantity"
-                      >
-                        <Minus className="w-4 h-4" />
-                      </button>
-                      <span className="w-8 text-center font-medium">
-                        {item.quantity}
-                      </span>
-                      <button
-                        onClick={() =>
-                          handleUpdateQuantity(item.product.id, item.product.name, item.quantity + 1)
-                        }
-                        className="p-1 hover:bg-white rounded transition-colors"
-                        aria-label="Increase quantity"
-                      >
-                        <Plus className="w-4 h-4" />
-                      </button>
+                    {/* Quantity Selector - bordered, 36px buttons */}
+                    <div className="flex items-center gap-3">
+                      <div className="quantity-selector">
+                        <button
+                          onClick={() =>
+                            handleUpdateQuantity(item.product.id, item.product.name, item.quantity - 1)
+                          }
+                          aria-label="Decrease quantity"
+                        >
+                          <Minus className="w-3.5 h-3.5" />
+                        </button>
+                        <span className="quantity-value">
+                          {item.quantity}
+                        </span>
+                        <button
+                          onClick={() =>
+                            handleUpdateQuantity(item.product.id, item.product.name, item.quantity + 1)
+                          }
+                          aria-label="Increase quantity"
+                        >
+                          <Plus className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+
+                      {/* Remove link - kit spec: text "Remove" instead of trash icon */}
                       <button
                         onClick={() => handleRemoveItem(item.product.id, item.product.name)}
-                        className="ml-auto p-1 text-red-400 hover:text-red-600 transition-colors"
+                        className="cart-item-remove"
                         aria-label="Remove item"
                       >
-                        <Trash2 className="w-4 h-4" />
+                        Remove
                       </button>
                     </div>
                   </div>
@@ -235,10 +239,13 @@ export default function CartDrawer() {
           )}
         </div>
 
-        {/* Footer - Cart Summary */}
+        {/* Footer - Cart Summary with florals */}
         {items.length > 0 && (
-          <div className="border-t p-4 bg-cream">
-            <div className="space-y-2 text-sm">
+          <div className="border-t p-4 cart-summary">
+            <div className="cart-summary-floral-tl" />
+            <div className="cart-summary-floral-br" />
+
+            <div className="space-y-2 text-sm relative z-10">
               <div className="flex justify-between">
                 <span className="text-soft-gray">Subtotal</span>
                 <span>{formatPrice(getSubtotal())}</span>
@@ -262,7 +269,7 @@ export default function CartDrawer() {
                   Free shipping on orders over $100
                 </p>
               )}
-              <div className="flex justify-between font-display text-lg pt-2 border-t border-gray-200">
+              <div className="flex justify-between font-display text-lg pt-2 border-t border-cream">
                 <span>Total</span>
                 <span className="text-primary">{formatPrice(getTotal())}</span>
               </div>
@@ -271,14 +278,14 @@ export default function CartDrawer() {
             <Link
               href="/checkout"
               onClick={closeCart}
-              className="btn-primary w-full mt-4"
+              className="btn-primary w-full mt-4 relative z-10"
             >
               Proceed to Checkout
             </Link>
 
             <button
               onClick={closeCart}
-              className="w-full text-center mt-2 text-soft-gray hover:text-charcoal transition-colors text-sm"
+              className="w-full text-center mt-2 text-soft-gray hover:text-navy transition-colors text-sm relative z-10"
             >
               Continue Shopping
             </button>
