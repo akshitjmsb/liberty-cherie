@@ -8,6 +8,7 @@ import PersonaSection from '@/components/persona/PersonaSection';
 import NewsletterForm from '@/components/newsletter/NewsletterForm';
 import Testimonials, { TestimonialStats } from '@/components/product/Testimonials';
 import AnimatedSection from '@/components/ui/AnimatedSection';
+import HeroSection from '@/components/layout/HeroSection';
 
 // Revalidate every 5 minutes
 export const revalidate = 300;
@@ -144,52 +145,7 @@ export default async function HomePage() {
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-cream via-white to-accent-light py-20 lg:py-32">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="inline-block px-4 py-2 bg-primary-light/30 text-primary rounded-full text-sm font-medium mb-6">
-                Handcrafted in Quebec
-              </span>
-              <h1 className="font-display text-4xl lg:text-6xl text-navy leading-tight">
-                Beautiful <span className="text-primary">Floral</span> Accessories
-                Made with Love
-              </h1>
-              <p className="mt-6 text-lg text-soft-gray max-w-lg">
-                Discover our collection of handcrafted bags, pouches, and
-                accessories featuring stunning Liberty fabrics. Each piece tells a
-                story of artisanal craftsmanship.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link href="/products" className="btn-primary">
-                  Shop Collection
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link href="/custom-order" className="btn-secondary">
-                  Custom Orders
-                </Link>
-              </div>
-            </div>
-
-            {/* Hero Image */}
-            <div className="relative">
-              <div className="aspect-square relative rounded-3xl overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-light/20 to-secondary-light/20" />
-                <Image
-                  src="/images/hero-products.jpg"
-                  alt="Liberty Chérie handcrafted floral bags and accessories"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-accent-light rounded-full opacity-60 animate-float" />
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary-light rounded-full opacity-40" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Features Section */}
       <section className="py-16 bg-white">

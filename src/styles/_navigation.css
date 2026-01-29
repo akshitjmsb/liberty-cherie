@@ -35,6 +35,15 @@
   width: 100%;
 }
 
+/* Active link state - current page */
+.nav-link-active {
+  color: var(--color-primary);
+}
+
+.nav-link-active::after {
+  width: 100%;
+}
+
 /* Cart Badge */
 .cart-badge {
   position: absolute;

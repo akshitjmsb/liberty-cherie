@@ -91,7 +91,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
           aria-label="Search products"
           aria-expanded={isOpen}
         >
-          <Search className="w-5 h-5" />
+          <Search className="w-[22px] h-[22px]" />
         </button>
 
         {isOpen && (

@@ -1,11 +1,15 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { Menu, X, ShoppingBag, ChevronDown, Users } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { Menu, X, ShoppingBag, ChevronDown, Users, Heart } from 'lucide-react';
 import { useCartStore } from '@/store/cart';
+import { useWishlistStore } from '@/store/wishlist';
 import CartDrawer from '@/components/cart/CartDrawer';
 import SearchBar from '@/components/search/SearchBar';
+import AnnouncementBar from '@/components/layout/AnnouncementBar';
+import Logo from '@/components/layout/Logo';
 
 const navigation = [
   { name: 'Shop', href: '/products' },
@@ -27,9 +31,19 @@ const shopForLinks = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [shopForOpen, setShopForOpen] = useState(false);
+  const [headerHidden, setHeaderHidden] = useState(false);
   const shopForRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
+  const pathname = usePathname();
+
   const { openCart, getItemCount } = useCartStore();
-  const itemCount = getItemCount();
+  const rawWishlistCount = useWishlistStore().getItemCount();
+  const rawItemCount = getItemCount();
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const itemCount = mounted ? rawItemCount : 0;
+  const wishlistCount = mounted ? rawWishlistCount : 0;
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -42,6 +56,36 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Smart scroll: hide on scroll-down, show on scroll-up
+  const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY < 50) {
+      setHeaderHidden(false);
+    } else if (currentScrollY > lastScrollY.current) {
+      setHeaderHidden(true);
+    } else {
+      setHeaderHidden(false);
+    }
+    lastScrollY.current = currentScrollY;
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+
+  // Active link helpers
+  const isNavActive = (href: string) => {
+    if (href === '/products') return pathname === '/products';
+    if (href.includes('?category=')) {
+      const cat = href.split('category=')[1];
+      return pathname === '/products' && typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('category') === cat;
+    }
+    return pathname === href || pathname.startsWith(href + '/');
+  };
+
+  const isShopForActive = pathname.startsWith('/shop-for');
+
   return (
     <>
       {/* Skip to main content link for accessibility */}
@@ -52,125 +96,134 @@ export default function Header() {
         Skip to main content
       </a>
 
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-cream relative overflow-hidden">
-        {/* Floral corner decorations - hidden on mobile */}
-        <div
-          className="hidden md:block absolute -top-4 -left-4 w-[80px] h-[80px] bg-contain bg-no-repeat opacity-10 -rotate-[15deg] pointer-events-none"
-          style={{ backgroundImage: 'var(--floral-roses)' }}
-        />
-        <div
-          className="hidden md:block absolute -top-4 -right-4 w-[70px] h-[70px] bg-contain bg-no-repeat opacity-10 rotate-[15deg] pointer-events-none"
-          style={{ backgroundImage: 'var(--floral-wildflowers)' }}
-        />
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-cream transition-transform duration-300 ${
+          headerHidden ? '-translate-y-full' : 'translate-y-0'
+        }`}
+      >
+        {/* Announcement Bar — inside fixed header */}
+        <AnnouncementBar />
 
-        <nav className="container flex items-center justify-between py-4">
-          {/* Logo - Text-based as per branding kit */}
-          <Link href="/" className="flex flex-col items-start">
-            {/* Mobile: Compact logo */}
-            <span className="sm:hidden font-display text-xl tracking-[4px] text-navy">
-              LIBERTY
-            </span>
-            <span className="sm:hidden font-display text-sm italic text-primary -mt-1">
-              chérie
-            </span>
-            {/* Desktop: Full logo */}
-            <span className="hidden sm:block font-display text-[28px] tracking-[6px] text-navy">
-              LIBERTY
-            </span>
-            <span className="hidden sm:block font-display text-base italic text-primary tracking-[1px] -mt-1">
-              chérie
-            </span>
-          </Link>
+        {/* Nav area with floral decorations */}
+        <div className="relative">
+          {/* Floral corner decorations - hidden on mobile */}
+          <div
+            className="hidden md:block absolute -top-4 -left-4 w-[80px] h-[80px] bg-contain bg-no-repeat opacity-10 -rotate-[15deg] pointer-events-none"
+            style={{ backgroundImage: 'var(--floral-roses)' }}
+          />
+          <div
+            className="hidden md:block absolute -top-4 -right-4 w-[70px] h-[70px] bg-contain bg-no-repeat opacity-10 rotate-[15deg] pointer-events-none"
+            style={{ backgroundImage: 'var(--floral-wildflowers)' }}
+          />
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navigation.slice(0, 1).map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="nav-link"
-              >
-                {item.name}
-              </Link>
-            ))}
+          <nav className="container flex items-center justify-between py-4">
+            {/* Logo */}
+            <Link href="/" className="flex items-center" aria-label="Liberty Chérie - Home">
+              <Logo size="compact" className="sm:hidden" />
+              <Logo size="full" className="hidden sm:block" />
+            </Link>
 
-            {/* Shop For Dropdown */}
-            <div className="relative" ref={shopForRef}>
-              <button
-                onClick={() => setShopForOpen(!shopForOpen)}
-                className="nav-link flex items-center gap-1"
-                aria-expanded={shopForOpen}
-                aria-haspopup="true"
-              >
-                Shop For
-                <ChevronDown className={`w-4 h-4 transition-transform ${shopForOpen ? 'rotate-180' : ''}`} />
-              </button>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              {navigation.slice(0, 1).map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`nav-link ${isNavActive(item.href) ? 'nav-link-active' : ''}`}
+                >
+                  {item.name}
+                </Link>
+              ))}
 
-              {shopForOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-cream py-2 animate-fade-in">
-                  <Link
-                    href="/shop-for"
-                    className="flex items-center gap-2 px-4 py-2 text-navy hover:bg-cream hover:text-primary transition-colors font-medium"
-                    onClick={() => setShopForOpen(false)}
-                  >
-                    <Users className="w-4 h-4" />
-                    All Collections
-                  </Link>
-                  <div className="border-t border-cream my-2" />
-                  {shopForLinks.map((link) => (
+              {/* Shop For Dropdown */}
+              <div className="relative" ref={shopForRef}>
+                <button
+                  onClick={() => setShopForOpen(!shopForOpen)}
+                  className={`nav-link flex items-center gap-1 ${isShopForActive ? 'nav-link-active' : ''}`}
+                  aria-expanded={shopForOpen}
+                  aria-haspopup="true"
+                >
+                  Shop For
+                  <ChevronDown className={`w-4 h-4 transition-transform ${shopForOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {shopForOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-cream py-2 animate-fade-in">
                     <Link
-                      key={link.name}
-                      href={link.href}
-                      className="block px-4 py-2 text-navy hover:bg-cream hover:text-primary transition-colors"
+                      href="/shop-for"
+                      className="flex items-center gap-2 px-4 py-2 text-navy hover:bg-cream hover:text-primary transition-colors font-medium"
                       onClick={() => setShopForOpen(false)}
                     >
-                      {link.name}
+                      <Users className="w-4 h-4" />
+                      All Collections
                     </Link>
-                  ))}
-                </div>
-              )}
+                    <div className="border-t border-cream my-2" />
+                    {shopForLinks.map((link) => (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        className="block px-4 py-2 text-navy hover:bg-cream hover:text-primary transition-colors"
+                        onClick={() => setShopForOpen(false)}
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {navigation.slice(1).map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`nav-link ${isNavActive(item.href) ? 'nav-link-active' : ''}`}
+                >
+                  {item.name}
+                </Link>
+              ))}
             </div>
 
-            {navigation.slice(1).map((item) => (
+            {/* Right Actions */}
+            <div className="flex items-center gap-4">
+              <SearchBar />
+
               <Link
-                key={item.name}
-                href={item.href}
-                className="nav-link"
+                href="/wishlist"
+                className="p-2 text-navy hover:text-primary transition-colors relative"
+                aria-label={`Wishlist${wishlistCount > 0 ? `, ${wishlistCount} item${wishlistCount !== 1 ? 's' : ''}` : ''}`}
               >
-                {item.name}
+                <Heart className="w-[22px] h-[22px]" />
+                {wishlistCount > 0 && (
+                  <span className="cart-count" aria-hidden="true">{wishlistCount}</span>
+                )}
               </Link>
-            ))}
-          </div>
 
-          {/* Right Actions */}
-          <div className="flex items-center gap-4">
-            <SearchBar />
+              <button
+                onClick={openCart}
+                className="p-2 text-navy hover:text-primary transition-colors relative"
+                aria-label={`Shopping cart${itemCount > 0 ? `, ${itemCount} item${itemCount !== 1 ? 's' : ''}` : ''}`}
+              >
+                <ShoppingBag className="w-[22px] h-[22px]" />
+                {itemCount > 0 && (
+                  <span className="cart-count" aria-hidden="true">{itemCount}</span>
+                )}
+              </button>
 
-            <button
-              onClick={openCart}
-              className="p-2 text-navy hover:text-primary transition-colors relative"
-              aria-label={`Shopping cart${itemCount > 0 ? `, ${itemCount} item${itemCount !== 1 ? 's' : ''}` : ''}`}
-            >
-              <ShoppingBag className="w-[22px] h-[22px]" />
-              {itemCount > 0 && (
-                <span className="cart-count" aria-hidden="true">{itemCount}</span>
-              )}
-            </button>
-
-            {/* Mobile menu button */}
-            <button
-              className="md:hidden p-2 text-navy"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-        </nav>
+              {/* Mobile menu button */}
+              <button
+                className="md:hidden p-2 text-navy"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+              </button>
+            </div>
+          </nav>
+        </div>
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
@@ -233,8 +286,8 @@ export default function Header() {
       {/* Cart Drawer */}
       <CartDrawer />
 
-      {/* Spacer for fixed header */}
-      <div className="h-[72px]" />
+      {/* Spacer for fixed header — adjusts for announcement bar via CSS variable */}
+      <div style={{ height: 'calc(72px + var(--announcement-height, 0px))' }} />
     </>
   );
 }

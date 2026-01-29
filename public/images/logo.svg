@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" width="320" height="96">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,500&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- LIBERTY -->
+  <text x="160" y="34" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="36" font-weight="700" letter-spacing="12" fill="#1A2744">LIBERTY</text>
+
+  <!-- Decorative divider -->
+  <g opacity="0.6">
+    <line x1="80" y1="52" x2="144" y2="52" stroke="#8FA5A4" stroke-width="2" />
+
+    <ellipse cx="160" cy="52" rx="6" ry="2.4" fill="#8FA5A4" />
+    <ellipse cx="160" cy="52" rx="6" ry="2.4" fill="#8FA5A4" transform="rotate(72 160 52)" />
+    <ellipse cx="160" cy="52" rx="6" ry="2.4" fill="#8FA5A4" transform="rotate(144 160 52)" />
+    <ellipse cx="160" cy="52" rx="6" ry="2.4" fill="#8FA5A4" transform="rotate(216 160 52)" />
+    <ellipse cx="160" cy="52" rx="6" ry="2.4" fill="#8FA5A4" transform="rotate(288 160 52)" />
+    <circle cx="160" cy="52" r="2" fill="#8FA5A4" />
+
+    <line x1="176" y1="52" x2="240" y2="52" stroke="#8FA5A4" stroke-width="2" />
+  </g>
+
+  <!-- chérie -->
+  <text x="160" y="80" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="28" font-weight="500" font-style="italic" letter-spacing="2" fill="#D4728C">chérie</text>
+</svg>
