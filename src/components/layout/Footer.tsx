@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { Instagram, Mail, MapPin } from 'lucide-react';
 import NewsletterFooter from '@/components/newsletter/NewsletterFooter';
 import TrustBadges from '@/components/ui/TrustBadges';
@@ -57,20 +56,16 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-4">
-              <Image
-                src="/images/logo-icon.svg"
-                alt="Liberty Chérie"
-                width={40}
-                height={40}
-                className="brightness-0 invert"
-              />
-              <div>
-                <span className="font-display text-xl text-white">Liberty</span>
-                <span className="font-display text-xl text-primary-light ml-1">Chérie</span>
-              </div>
+            <Link href="/" className="flex flex-col items-start mb-4">
+              {/* Text-based logo for dark background - as per branding kit */}
+              <span className="font-display text-[32px] tracking-[8px] text-white">
+                LIBERTY
+              </span>
+              <span className="font-display text-lg italic text-secondary tracking-[2px] -mt-1">
+                chérie
+              </span>
             </Link>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-gray-400 text-sm mb-4 italic font-display">
               Handcrafted bags, pouches, and accessories made with love in Saint-Sauveur, Quebec.
             </p>
             <div className="flex items-center gap-3">
@@ -78,14 +73,14 @@ export default function Footer() {
                 href="https://instagram.com/libertycheriecreation"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-primary-light transition-colors"
+                className="text-gray-400 hover:text-primary transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="mailto:contact@libertycherie.ca"
-                className="text-gray-400 hover:text-primary-light transition-colors"
+                className="text-gray-400 hover:text-primary transition-colors"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
@@ -95,13 +90,13 @@ export default function Footer() {
 
           {/* Shop Links */}
           <div>
-            <h3 className="font-display text-lg text-white mb-4">Shop</h3>
+            <h3 className="font-body text-[11px] font-medium tracking-[2px] uppercase text-secondary mb-6">Shop</h3>
             <ul className="space-y-2">
               {footerLinks.shop.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-primary-light transition-colors text-sm"
+                    className="text-white/70 hover:text-primary transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -112,13 +107,13 @@ export default function Footer() {
 
           {/* Shop For Links */}
           <div>
-            <h3 className="font-display text-lg text-white mb-4">Shop For</h3>
+            <h3 className="font-body text-[11px] font-medium tracking-[2px] uppercase text-secondary mb-6">Shop For</h3>
             <ul className="space-y-2">
               {footerLinks.shopFor.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-primary-light transition-colors text-sm"
+                    className="text-white/70 hover:text-primary transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -129,13 +124,13 @@ export default function Footer() {
 
           {/* Services Links */}
           <div>
-            <h3 className="font-display text-lg text-white mb-4">Services</h3>
+            <h3 className="font-body text-[11px] font-medium tracking-[2px] uppercase text-secondary mb-6">Services</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-primary-light transition-colors text-sm"
+                    className="text-white/70 hover:text-primary transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -145,7 +140,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-primary-light transition-colors text-sm"
+                    className="text-white/70 hover:text-primary transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -156,8 +151,8 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-display text-lg text-white mb-4">Contact</h3>
-            <div className="space-y-3 text-sm text-gray-400">
+            <h3 className="font-body text-[11px] font-medium tracking-[2px] uppercase text-secondary mb-6">Contact</h3>
+            <div className="space-y-3 text-sm text-white/70">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                 <span>Saint-Sauveur, QC<br />J0R 1K0, Canada</span>
@@ -166,7 +161,7 @@ export default function Footer() {
                 <Mail className="w-4 h-4 flex-shrink-0" />
                 <a
                   href="mailto:contact@libertycherie.ca"
-                  className="hover:text-primary-light transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   contact@libertycherie.ca
                 </a>
@@ -185,15 +180,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 pt-6 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-sm">
+        <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-white/40 text-xs">
             © {currentYear} Liberty Chérie Creation. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-sm text-gray-400">
-            <Link href="/privacy" className="hover:text-primary-light transition-colors">
+          <div className="flex items-center gap-6 text-sm text-white/50">
+            <Link href="/privacy" className="hover:text-primary transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-primary-light transition-colors">
+            <Link href="/terms" className="hover:text-primary transition-colors">
               Terms of Service
             </Link>
           </div>

@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Menu, X, ShoppingBag, ChevronDown, Users } from 'lucide-react';
 import { useCartStore } from '@/store/cart';
 import CartDrawer from '@/components/cart/CartDrawer';
@@ -55,35 +54,31 @@ export default function Header() {
 
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
         <nav className="container flex items-center justify-between py-4">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            {/* Mobile: Icon only */}
-            <Image
-              src="/images/logo-icon.svg"
-              alt="Liberty Chérie"
-              width={40}
-              height={40}
-              className="sm:hidden"
-              priority
-            />
-            {/* Desktop: Horizontal logo */}
-            <Image
-              src="/images/logo-horizontal.svg"
-              alt="Liberty Chérie Creation"
-              width={180}
-              height={45}
-              className="hidden sm:block"
-              priority
-            />
+          {/* Logo - Text-based as per branding kit */}
+          <Link href="/" className="flex flex-col items-start">
+            {/* Mobile: Compact logo */}
+            <span className="sm:hidden font-display text-xl tracking-[4px] text-navy">
+              LIBERTY
+            </span>
+            <span className="sm:hidden font-display text-sm italic text-primary -mt-1">
+              chérie
+            </span>
+            {/* Desktop: Full logo */}
+            <span className="hidden sm:block font-display text-[28px] tracking-[6px] text-navy">
+              LIBERTY
+            </span>
+            <span className="hidden sm:block font-display text-base italic text-primary tracking-[1px] -mt-1">
+              chérie
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-8">
             {navigation.slice(0, 1).map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-charcoal hover:text-primary transition-colors font-medium"
+                className="nav-link"
               >
                 {item.name}
               </Link>
@@ -93,7 +88,7 @@ export default function Header() {
             <div className="relative" ref={shopForRef}>
               <button
                 onClick={() => setShopForOpen(!shopForOpen)}
-                className="flex items-center gap-1 text-charcoal hover:text-primary transition-colors font-medium"
+                className="nav-link flex items-center gap-1"
                 aria-expanded={shopForOpen}
                 aria-haspopup="true"
               >
@@ -105,7 +100,7 @@ export default function Header() {
                 <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 animate-fade-in">
                   <Link
                     href="/shop-for"
-                    className="flex items-center gap-2 px-4 py-2 text-charcoal hover:bg-cream hover:text-primary transition-colors font-medium"
+                    className="flex items-center gap-2 px-4 py-2 text-navy hover:bg-cream hover:text-primary transition-colors font-medium"
                     onClick={() => setShopForOpen(false)}
                   >
                     <Users className="w-4 h-4" />
@@ -116,7 +111,7 @@ export default function Header() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className="block px-4 py-2 text-charcoal hover:bg-cream hover:text-primary transition-colors"
+                      className="block px-4 py-2 text-navy hover:bg-cream hover:text-primary transition-colors"
                       onClick={() => setShopForOpen(false)}
                     >
                       {link.name}
@@ -130,7 +125,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-charcoal hover:text-primary transition-colors font-medium"
+                className="nav-link"
               >
                 {item.name}
               </Link>
@@ -143,7 +138,7 @@ export default function Header() {
 
             <button
               onClick={openCart}
-              className="p-2 text-charcoal hover:text-primary transition-colors relative"
+              className="p-2 text-navy hover:text-primary transition-colors relative"
               aria-label={`Shopping cart${itemCount > 0 ? `, ${itemCount} item${itemCount !== 1 ? 's' : ''}` : ''}`}
             >
               <ShoppingBag className="w-5 h-5" />
@@ -154,7 +149,7 @@ export default function Header() {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 text-charcoal"
+              className="md:hidden p-2 text-navy"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -173,7 +168,7 @@ export default function Header() {
             <div className="container py-4 space-y-2">
               <Link
                 href="/products"
-                className="block py-2 text-charcoal hover:text-primary transition-colors font-medium"
+                className="block py-2 text-navy hover:text-primary transition-colors font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Shop All
@@ -183,7 +178,7 @@ export default function Header() {
               <div className="py-2">
                 <Link
                   href="/shop-for"
-                  className="flex items-center gap-2 text-charcoal hover:text-primary transition-colors font-medium"
+                  className="flex items-center gap-2 text-navy hover:text-primary transition-colors font-medium"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Users className="w-4 h-4" />
@@ -214,7 +209,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block py-2 text-charcoal hover:text-primary transition-colors font-medium"
+                  className="block py-2 text-navy hover:text-primary transition-colors font-medium"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}

@@ -24,14 +24,52 @@
   --color-warm-white: #FAF6F1;
   --color-charcoal: var(--color-navy); /* Consolidated with navy */
   --color-soft-gray: #6B7280;
+  --off-white: #FAFAFA;
+  --light-gray: #F0F0F0;
+  --medium-gray: #CCCCCC;
+  --dark-gray: #666666;
+
+  /* State Colors */
+  --success: #4A6741;
+  --error: #C64B4B;
+  --warning: #D4728C;
+  --info: #8FA5A4;
 
   /* Typography */
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Montserrat', system-ui, sans-serif;
 
-  /* Spacing */
+  /* Spacing Scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+
+  /* Component Spacing */
   --nav-height: 80px;
   --bottom-nav-height: 64px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(26, 39, 68, 0.08);
+  --shadow-md: 0 4px 16px rgba(26, 39, 68, 0.1);
+  --shadow-lg: 0 8px 32px rgba(26, 39, 68, 0.12);
+  --shadow-xl: 0 16px 48px rgba(26, 39, 68, 0.15);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
 
   /* Safe area insets (fallback to 0 for devices without notch) */
   --safe-area-inset-top: env(safe-area-inset-top, 0px);
@@ -326,43 +364,151 @@ h1, h2, h3, h4, h5, h6 {
   );
 }
 
-/* Button Styles */
-.btn-primary {
-  background-color: var(--color-primary);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+/* Button Styles - From Branding Kit */
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--space-sm);
+  padding: 14px 32px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+/* Primary Button - Navy background */
+.btn-primary {
+  background: var(--color-navy);
+  color: white;
+  border-color: var(--color-navy);
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-dark);
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(212, 114, 140, 0.3);
 }
 
+/* Secondary Button - Rose Pink background */
 .btn-secondary {
-  background-color: transparent;
-  color: var(--color-primary);
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 500;
+  background: var(--color-primary);
+  color: white;
   border: 2px solid var(--color-primary);
-  transition: all 0.3s ease;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all var(--transition-base);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--space-sm);
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-primary);
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* Sage Button */
+.btn-sage {
+  background: var(--color-secondary);
   color: white;
+  border: 2px solid var(--color-secondary);
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.btn-sage:hover {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+}
+
+/* Outline Button */
+.btn-outline {
+  background: transparent;
+  color: var(--color-navy);
+  border: 2px solid var(--color-navy);
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.btn-outline:hover {
+  background: var(--color-navy);
+  color: white;
+}
+
+/* Ghost Button */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-navy);
+  border: 2px solid transparent;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.btn-ghost:hover {
+  background: var(--color-cream);
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: 10px 20px;
+  font-size: 10px;
+}
+
+.btn-lg {
+  padding: 18px 42px;
+  font-size: 13px;
+}
+
+/* Button Disabled State */
+.btn:disabled,
+.btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Card Styles */
@@ -411,8 +557,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-input:focus {
   outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(212, 133, 138, 0.1);
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(143, 165, 164, 0.2);
 }
 
 .form-input::placeholder {
@@ -615,4 +761,114 @@ textarea,
   .container {
     padding: 0 16px;
   }
+}
+
+/* ============ Navigation Link Hover Animation ============ */
+.nav-link {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-primary);
+  transition: width var(--transition-base);
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ============ Badges & Tags - From Branding Kit ============ */
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+}
+
+.badge-primary {
+  background: var(--color-navy);
+  color: white;
+}
+
+.badge-secondary {
+  background: var(--color-secondary);
+  color: white;
+}
+
+.badge-accent {
+  background: var(--color-primary);
+  color: white;
+}
+
+.badge-outline {
+  background: transparent;
+  border: 1px solid var(--color-navy);
+  color: var(--color-navy);
+}
+
+/* ============ Alerts - From Branding Kit ============ */
+.alert {
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.alert-success {
+  background: rgba(74, 103, 65, 0.1);
+  color: var(--success);
+  border-left: 4px solid var(--success);
+}
+
+.alert-error {
+  background: rgba(198, 75, 75, 0.1);
+  color: var(--error);
+  border-left: 4px solid var(--error);
+}
+
+.alert-warning {
+  background: rgba(212, 114, 140, 0.1);
+  color: var(--warning);
+  border-left: 4px solid var(--warning);
+}
+
+.alert-info {
+  background: rgba(143, 165, 164, 0.1);
+  color: var(--info);
+  border-left: 4px solid var(--info);
+}
+
+/* ============ Form Error State ============ */
+.form-input-error {
+  border-color: var(--error);
+}
+
+.form-error {
+  font-size: 12px;
+  color: var(--error);
+  margin-top: var(--space-xs);
 }
