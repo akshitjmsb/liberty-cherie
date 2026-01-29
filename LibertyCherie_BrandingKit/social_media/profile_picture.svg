@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <!-- Realistic Rose - Large -->
+    <g id="pp-rose">
+      <ellipse cx="0" cy="3" rx="14" ry="10" fill="#b54d68"/>
+      <ellipse cx="0" cy="2" rx="13" ry="9" fill="#c25a75"/>
+      <ellipse cx="-4" cy="0" rx="11" ry="8" fill="#d4728c" transform="rotate(-20)"/>
+      <ellipse cx="4" cy="0" rx="11" ry="8" fill="#cf6a84" transform="rotate(20)"/>
+      <ellipse cx="-5" cy="-3" rx="10" ry="7" fill="#d97a92" transform="rotate(-40)"/>
+      <ellipse cx="5" cy="-3" rx="10" ry="7" fill="#d4728c" transform="rotate(40)"/>
+      <ellipse cx="-2" cy="-5" rx="8" ry="6" fill="#db8299"/>
+      <ellipse cx="2" cy="-5" rx="8" ry="6" fill="#e08aa0" transform="rotate(10)"/>
+      <ellipse cx="0" cy="-7" rx="6" ry="5" fill="#e596aa"/>
+      <path d="M-3,-8 Q0,-12 3,-8 Q2,-6 0,-8 Q-2,-6 -3,-8" fill="#eba2b4"/>
+      <ellipse cx="0" cy="-9" rx="4" ry="3" fill="#f0b0c0"/>
+      <path d="M0,-10 Q2,-11 1,-12 Q-1,-11 0,-10" fill="#c25a75" opacity="0.8"/>
+      <circle cx="0" cy="-10" r="1.5" fill="#b54d68"/>
+      <ellipse cx="4" cy="-3" rx="2" ry="3" fill="#f5c4d0" opacity="0.3"/>
+    </g>
+
+    <!-- Realistic Wildflower -->
+    <g id="pp-wildflower">
+      <path d="M0,-14 Q-6,-10 -8,-5 Q-6,0 0,2 Q6,0 8,-5 Q6,-10 0,-14" fill="#f5e6d3" stroke="#e0d0c0" stroke-width="0.5"/>
+      <path d="M0,-14 Q-6,-10 -8,-5 Q-6,0 0,2 Q6,0 8,-5 Q6,-10 0,-14" fill="#f0e0d0" transform="rotate(72)"/>
+      <path d="M0,-14 Q-6,-10 -8,-5 Q-6,0 0,2 Q6,0 8,-5 Q6,-10 0,-14" fill="#f5e6d3" stroke="#e0d0c0" stroke-width="0.5" transform="rotate(144)"/>
+      <path d="M0,-14 Q-6,-10 -8,-5 Q-6,0 0,2 Q6,0 8,-5 Q6,-10 0,-14" fill="#f0e0d0" transform="rotate(216)"/>
+      <path d="M0,-14 Q-6,-10 -8,-5 Q-6,0 0,2 Q6,0 8,-5 Q6,-10 0,-14" fill="#f5e6d3" stroke="#e0d0c0" stroke-width="0.5" transform="rotate(288)"/>
+      <path d="M0,-12 L0,-3" stroke="#dbc8b8" stroke-width="0.3" opacity="0.5"/>
+      <path d="M0,-12 L0,-3" stroke="#dbc8b8" stroke-width="0.3" opacity="0.5" transform="rotate(72)"/>
+      <path d="M0,-12 L0,-3" stroke="#dbc8b8" stroke-width="0.3" opacity="0.5" transform="rotate(144)"/>
+      <path d="M0,-12 L0,-3" stroke="#dbc8b8" stroke-width="0.3" opacity="0.5" transform="rotate(216)"/>
+      <path d="M0,-12 L0,-3" stroke="#dbc8b8" stroke-width="0.3" opacity="0.5" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="4" fill="#f4d03f"/>
+      <circle cx="0" cy="0" r="3" fill="#e6c84d"/>
+      <line x1="0" y1="0" x2="0" y2="-3" stroke="#8b7355" stroke-width="0.6"/>
+      <circle cx="0" cy="-3" r="0.6" fill="#c9a227"/>
+      <line x1="0" y1="0" x2="2.5" y2="-1.5" stroke="#8b7355" stroke-width="0.6"/>
+      <circle cx="2.5" cy="-1.5" r="0.6" fill="#c9a227"/>
+      <line x1="0" y1="0" x2="-2.5" y2="-1.5" stroke="#8b7355" stroke-width="0.6"/>
+      <circle cx="-2.5" cy="-1.5" r="0.6" fill="#c9a227"/>
+      <line x1="0" y1="0" x2="1.5" y2="2" stroke="#8b7355" stroke-width="0.6"/>
+      <circle cx="1.5" cy="2" r="0.6" fill="#c9a227"/>
+      <line x1="0" y1="0" x2="-1.5" y2="2" stroke="#8b7355" stroke-width="0.6"/>
+      <circle cx="-1.5" cy="2" r="0.6" fill="#c9a227"/>
+    </g>
+
+    <!-- Realistic Leaf -->
+    <g id="pp-leaf">
+      <path d="M0,-18 Q10,-12 10,-3 Q8,4 0,15 Q-8,4 -10,-3 Q-10,-12 0,-18" fill="#4a5d3a" stroke="#3a4d2a" stroke-width="0.6"/>
+      <path d="M0,-18 Q10,-12 10,-3 Q8,4 0,15 Q-8,4 -10,-3 Q-10,-12 0,-18" fill="#5a6d4a" opacity="0.4"/>
+      <path d="M0,-15 L0,12" stroke="#3a4d2a" stroke-width="1" fill="none"/>
+      <path d="M0,-11 Q4,-9 7,-5" stroke="#3a4d2a" stroke-width="0.4" fill="none"/>
+      <path d="M0,-11 Q-4,-9 -7,-5" stroke="#3a4d2a" stroke-width="0.4" fill="none"/>
+      <path d="M0,-5 Q4,-3 7,1" stroke="#3a4d2a" stroke-width="0.4" fill="none"/>
+      <path d="M0,-5 Q-4,-3 -7,1" stroke="#3a4d2a" stroke-width="0.4" fill="none"/>
+      <path d="M0,3 Q3,5 5,9" stroke="#3a4d2a" stroke-width="0.4" fill="none"/>
+      <path d="M0,3 Q-3,5 -5,9" stroke="#3a4d2a" stroke-width="0.4" fill="none"/>
+      <path d="M-2,-12 Q-1,-6 -2,0" stroke="#6b7d5a" stroke-width="1" fill="none" opacity="0.3"/>
+    </g>
+
+    <!-- Realistic Rosebud -->
+    <g id="pp-bud">
+      <path d="M0,10 Q-5,5 -4,-3 Q0,-7 4,-3 Q5,5 0,10" fill="#4a5d3a" stroke="#3a4d2a" stroke-width="0.5"/>
+      <path d="M-2,8 Q-6,4 -5,-2 Q-2,-4 0,0" fill="#5a6d4a" opacity="0.7"/>
+      <path d="M2,8 Q6,4 5,-2 Q2,-4 0,0" fill="#4a5d3a" opacity="0.8"/>
+      <ellipse cx="0" cy="-2" rx="3.5" ry="5" fill="#d4728c"/>
+      <path d="M-2,-5 Q0,-9 2,-5" fill="#db8299"/>
+      <ellipse cx="0" cy="-4.5" rx="1.8" ry="2.5" fill="#e596aa"/>
+      <rect x="-1" y="9" width="2" height="10" fill="#4a5d3a"/>
+      <rect x="-0.6" y="9" width="0.8" height="10" fill="#5a6d4a" opacity="0.4"/>
+    </g>
+
+    <!-- Realistic Daisy -->
+    <g id="pp-daisy">
+      <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#ffffff" stroke="#f0f0f0" stroke-width="0.3"/>
+      <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#ffffff" stroke="#f0f0f0" stroke-width="0.3" transform="rotate(30)"/>
+      <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#ffffff" stroke="#f0f0f0" stroke-width="0.3" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#ffffff" stroke="#f0f0f0" stroke-width="0.3" transform="rotate(90)"/>
+      <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#ffffff" stroke="#f0f0f0" stroke-width="0.3" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#ffffff" stroke="#f0f0f0" stroke-width="0.3" transform="rotate(150)"/>
+      <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#ffffff" stroke="#f0f0f0" stroke-width="0.3" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#ffffff" stroke="#f0f0f0" stroke-width="0.3" transform="rotate(210)"/>
+      <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#ffffff" stroke="#f0f0f0" stroke-width="0.3" transform="rotate(240)"/>
+      <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#ffffff" stroke="#f0f0f0" stroke-width="0.3" transform="rotate(270)"/>
+      <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#ffffff" stroke="#f0f0f0" stroke-width="0.3" transform="rotate(300)"/>
+      <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#ffffff" stroke="#f0f0f0" stroke-width="0.3" transform="rotate(330)"/>
+      <circle cx="0" cy="0" r="4" fill="#f4d03f"/>
+      <circle cx="0" cy="0" r="3" fill="#e6b800"/>
+      <circle cx="0.8" cy="-0.8" r="0.5" fill="#c9a227"/>
+      <circle cx="-0.8" cy="0.8" r="0.5" fill="#c9a227"/>
+      <circle cx="1.2" cy="1.2" r="0.4" fill="#c9a227"/>
+      <circle cx="-1.2" cy="-0.5" r="0.4" fill="#c9a227"/>
+      <circle cx="0" cy="1.5" r="0.4" fill="#c9a227"/>
+    </g>
+
+    <!-- Small Red Rose -->
+    <g id="pp-red-rose">
+      <ellipse cx="0" cy="2" rx="10" ry="7" fill="#a03040"/>
+      <ellipse cx="0" cy="1" rx="9" ry="6.5" fill="#b84050"/>
+      <ellipse cx="-3" cy="-1" rx="8" ry="5.5" fill="#c64b4b" transform="rotate(-15)"/>
+      <ellipse cx="3" cy="-1" rx="8" ry="5.5" fill="#c04545" transform="rotate(15)"/>
+      <ellipse cx="-2" cy="-3" rx="6" ry="4.5" fill="#d05555"/>
+      <ellipse cx="2" cy="-3" rx="6" ry="4.5" fill="#d85858"/>
+      <ellipse cx="0" cy="-5" rx="4.5" ry="3.5" fill="#e06565"/>
+      <path d="M-2,-6 Q0,-9 2,-6 Q1,-5 0,-6 Q-1,-5 -2,-6" fill="#e87575"/>
+      <ellipse cx="0" cy="-6.5" rx="2.5" ry="2" fill="#f08585"/>
+      <circle cx="0" cy="-7" r="1" fill="#a03040"/>
+    </g>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="195" fill="#1a2744"/>
+
+  <!-- Elegant curving vines around the border -->
+  <path d="M60,80 Q35,140 45,200 Q35,260 60,320 Q85,365 130,380" stroke="#4a5d3a" stroke-width="2.5" fill="none"/>
+  <path d="M90,55 Q55,100 65,160 Q75,220 55,280 Q50,330 90,370" stroke="#4a5d3a" stroke-width="2" fill="none" opacity="0.7"/>
+  <path d="M340,80 Q365,140 355,200 Q365,260 340,320 Q315,365 270,380" stroke="#4a5d3a" stroke-width="2.5" fill="none"/>
+  <path d="M310,55 Q345,100 335,160 Q325,220 345,280 Q350,330 310,370" stroke="#4a5d3a" stroke-width="2" fill="none" opacity="0.7"/>
+  <path d="M120,35 Q160,20 200,25 Q240,20 280,35" stroke="#4a5d3a" stroke-width="2" fill="none"/>
+  <path d="M130,365 Q170,385 200,380 Q230,385 270,365" stroke="#4a5d3a" stroke-width="2" fill="none"/>
+
+  <!-- Top floral arrangement -->
+  <g transform="translate(115, 50) scale(0.8)">
+    <use href="#pp-rose"/>
+  </g>
+  <g transform="translate(165, 38) scale(0.6)">
+    <use href="#pp-wildflower"/>
+  </g>
+  <g transform="translate(200, 32) scale(0.85)">
+    <use href="#pp-red-rose"/>
+  </g>
+  <g transform="translate(235, 38) scale(0.6)">
+    <use href="#pp-wildflower"/>
+  </g>
+  <g transform="translate(285, 50) scale(0.8)">
+    <use href="#pp-rose"/>
+  </g>
+  <g transform="translate(140, 58) rotate(-30) scale(0.5)">
+    <use href="#pp-leaf"/>
+  </g>
+  <g transform="translate(260, 58) rotate(30) scale(0.5)"/>
+
+  <!-- Left side arrangement -->
+  <g transform="translate(65, 95) scale(0.85)">
+    <use href="#pp-rose"/>
+  </g>
+  <g transform="translate(45, 145) scale(0.6)">
+    <use href="#pp-wildflower"/>
+  </g>
+  <g transform="translate(70, 125) rotate(-40) scale(0.5)">
+    <use href="#pp-leaf"/>
+  </g>
+  <g transform="translate(40, 195) scale(0.55)">
+    <use href="#pp-daisy"/>
+  </g>
+  <g transform="translate(55, 240) rotate(-20) scale(0.45)">
+    <use href="#pp-leaf"/>
+  </g>
+  <g transform="translate(45, 280) scale(0.65)">
+    <use href="#pp-bud"/>
+  </g>
+  <g transform="translate(65, 320) scale(0.75)">
+    <use href="#pp-red-rose"/>
+  </g>
+  <g transform="translate(100, 355) scale(0.55)">
+    <use href="#pp-wildflower"/>
+  </g>
+
+  <!-- Right side arrangement -->
+  <g transform="translate(335, 95) scale(0.85)">
+    <use href="#pp-red-rose"/>
+  </g>
+  <g transform="translate(355, 145) scale(0.6)">
+    <use href="#pp-wildflower"/>
+  </g>
+  <g transform="translate(330, 125) rotate(40) scale(0.5)">
+    <use href="#pp-leaf"/>
+  </g>
+  <g transform="translate(360, 195) scale(0.55)">
+    <use href="#pp-daisy"/>
+  </g>
+  <g transform="translate(345, 240) rotate(20) scale(0.45)">
+    <use href="#pp-leaf"/>
+  </g>
+  <g transform="translate(355, 280) scale(0.65)">
+    <use href="#pp-bud"/>
+  </g>
+  <g transform="translate(335, 320) scale(0.75)">
+    <use href="#pp-rose"/>
+  </g>
+  <g transform="translate(300, 355) scale(0.55)">
+    <use href="#pp-wildflower"/>
+  </g>
+
+  <!-- Bottom touches -->
+  <g transform="translate(160, 365) scale(0.5)">
+    <use href="#pp-bud"/>
+  </g>
+  <g transform="translate(200, 372) scale(0.45)">
+    <use href="#pp-daisy"/>
+  </g>
+  <g transform="translate(240, 365) scale(0.5)">
+    <use href="#pp-bud"/>
+  </g>
+
+  <!-- Center label -->
+  <rect x="85" y="130" width="230" height="140" rx="10" fill="#8fa5a4"/>
+  <rect x="95" y="140" width="210" height="120" rx="8" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.4"/>
+
+  <!-- Brand name -->
+  <text x="200" y="195" font-family="Georgia, serif" font-size="36" font-weight="400" fill="#ffffff" text-anchor="middle" letter-spacing="3">LIBERTY</text>
+  <text x="200" y="235" font-family="Georgia, serif" font-size="24" font-style="italic" fill="#ffffff" text-anchor="middle">chérie</text>
+</svg>

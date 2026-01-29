@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 200">
+  <defs>
+    <!-- Mini rose -->
+    <g id="bcb-rose">
+      <ellipse cx="0" cy="0" rx="6" ry="5" fill="currentColor"/>
+      <ellipse cx="-4" cy="-3" rx="4" ry="3" fill="currentColor" opacity="0.85"/>
+      <ellipse cx="4" cy="-3" rx="4" ry="3" fill="currentColor" opacity="0.85"/>
+      <ellipse cx="0" cy="-5" rx="3" ry="2" fill="currentColor" opacity="0.9"/>
+    </g>
+    <!-- Mini 5-petal flower -->
+    <g id="bcb-flower">
+      <ellipse cx="0" cy="-3.5" rx="2" ry="3.5" fill="currentColor"/>
+      <ellipse cx="3.3" cy="-1.1" rx="2" ry="3.5" fill="currentColor" transform="rotate(72)"/>
+      <ellipse cx="2" cy="2.8" rx="2" ry="3.5" fill="currentColor" transform="rotate(144)"/>
+      <ellipse cx="-2" cy="2.8" rx="2" ry="3.5" fill="currentColor" transform="rotate(216)"/>
+      <ellipse cx="-3.3" cy="-1.1" rx="2" ry="3.5" fill="currentColor" transform="rotate(288)"/>
+      <circle cx="0" cy="0" r="1.8" fill="#1a2744" opacity="0.15"/>
+    </g>
+    <!-- Mini leaf -->
+    <g id="bcb-leaf">
+      <path d="M0,-7 Q4,-3.5 0,7 Q-4,-3.5 0,-7" fill="currentColor"/>
+    </g>
+    <!-- Mini bud -->
+    <g id="bcb-bud">
+      <ellipse cx="0" cy="0" rx="2.5" ry="4" fill="currentColor"/>
+      <path d="M-2.5,2 Q0,-1 2.5,2" fill="#5a6b4a" opacity="0.4"/>
+    </g>
+  </defs>
+
+  <!-- Standard business card back 3.5" x 2" -->
+  <!-- Background -->
+  <rect width="350" height="200" fill="#f5e6d3"/>
+
+  <!-- Delicate floral arrangement - top right corner -->
+  <path d="M280,5 Q310,15 330,8 Q345,12 350,25" stroke="#5a6b4a" stroke-width="0.8" fill="none" opacity="0.5"/>
+  <path d="M295,20 Q320,35 340,28" stroke="#5a6b4a" stroke-width="0.6" fill="none" opacity="0.4"/>
+
+  <g transform="translate(290, 15)">
+    <use href="#bcb-rose" style="color: #d4728c" transform="scale(0.9)"/>
+  </g>
+  <g transform="translate(318, 22)">
+    <use href="#bcb-flower" style="color: #c64b4b" transform="scale(0.65)"/>
+  </g>
+  <g transform="translate(340, 12)">
+    <use href="#bcb-rose" style="color: #8fa5a4" transform="scale(0.7)"/>
+  </g>
+  <g transform="translate(305, 35)">
+    <use href="#bcb-bud" style="color: #b36b7a" transform="scale(0.6)"/>
+  </g>
+  <g transform="translate(328, 40) rotate(25)">
+    <use href="#bcb-leaf" style="color: #5a6b4a" transform="scale(0.5)"/>
+  </g>
+  <g transform="translate(270, 25) rotate(-15)">
+    <use href="#bcb-leaf" style="color: #5a6b4a" transform="scale(0.45)"/>
+  </g>
+
+  <!-- Contact info -->
+  <text x="25" y="50" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#1a2744">[Your Name]</text>
+  <text x="25" y="70" font-family="Arial, sans-serif" font-size="10" fill="#5a6b4a">Founder &amp; Creative Director</text>
+
+  <line x1="25" y1="85" x2="150" y2="85" stroke="#8fa5a4" stroke-width="1"/>
+
+  <text x="25" y="110" font-family="Arial, sans-serif" font-size="9" fill="#1a2744">hello@libertycherie.com</text>
+  <text x="25" y="125" font-family="Arial, sans-serif" font-size="9" fill="#1a2744">www.libertycherie.com</text>
+  <text x="25" y="140" font-family="Arial, sans-serif" font-size="9" fill="#1a2744">+1 (555) 123-4567</text>
+
+  <!-- Social handles -->
+  <text x="25" y="165" font-family="Arial, sans-serif" font-size="8" fill="#8fa5a4">@libertycherie</text>
+
+  <!-- Small logo mark bottom right -->
+  <rect x="280" y="140" width="50" height="40" rx="4" fill="#1a2744"/>
+  <text x="305" y="162" font-family="Georgia, serif" font-size="10" fill="#ffffff" text-anchor="middle">LC</text>
+  <text x="305" y="173" font-family="Georgia, serif" font-size="6" font-style="italic" fill="#8fa5a4" text-anchor="middle">chérie</text>
+
+  <!-- Subtle floral accent - bottom left corner -->
+  <path d="M0,175 Q15,165 30,172 Q50,178 60,168" stroke="#5a6b4a" stroke-width="0.6" fill="none" opacity="0.4"/>
+  <g transform="translate(15, 178)">
+    <use href="#bcb-flower" style="color: #d4728c" transform="scale(0.5)"/>
+  </g>
+  <g transform="translate(40, 172) rotate(-10)">
+    <use href="#bcb-leaf" style="color: #5a6b4a" transform="scale(0.35)"/>
+  </g>
+  <g transform="translate(55, 180)">
+    <use href="#bcb-bud" style="color: #b36b7a" transform="scale(0.45)"/>
+  </g>
+</svg>

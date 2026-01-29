@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 792">
+  <!-- US Letter size: 8.5" x 11" at 72dpi -->
+
+  <!-- Header band -->
+  <rect x="0" y="0" width="612" height="120" fill="#1a2744"/>
+
+  <!-- Floral header decoration -->
+  <g transform="translate(0, 15)">
+    <circle cx="30" cy="50" r="12" fill="#d4728c"/>
+    <circle cx="70" cy="70" r="8" fill="#c64b4b"/>
+    <circle cx="110" cy="45" r="10" fill="#f5e6d3"/>
+    <ellipse cx="150" cy="60" rx="5" ry="10" fill="#5a6b4a"/>
+    <circle cx="190" cy="50" r="11" fill="#b36b7a"/>
+    <circle cx="230" cy="72" r="7" fill="#d4728c"/>
+  </g>
+  <g transform="translate(350, 15)">
+    <circle cx="30" cy="70" r="8" fill="#d4728c"/>
+    <circle cx="70" cy="50" r="11" fill="#c64b4b"/>
+    <ellipse cx="110" cy="65" rx="5" ry="10" fill="#5a6b4a"/>
+    <circle cx="150" cy="48" r="10" fill="#f5e6d3"/>
+    <circle cx="190" cy="68" r="8" fill="#b36b7a"/>
+    <circle cx="230" cy="50" r="12" fill="#d4728c"/>
+  </g>
+
+  <!-- Logo centered -->
+  <rect x="206" y="35" width="200" height="70" rx="6" fill="#8fa5a4"/>
+  <rect x="213" y="42" width="186" height="56" rx="4" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.4"/>
+  <text x="306" y="72" font-family="Georgia, serif" font-size="22" font-weight="400" fill="#ffffff" text-anchor="middle" letter-spacing="3">LIBERTY</text>
+  <text x="306" y="92" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#ffffff" text-anchor="middle">chérie</text>
+
+  <!-- Content area guide (subtle) -->
+  <rect x="72" y="150" width="468" height="520" fill="none" stroke="#f0f0f0" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+  <!-- Placeholder text -->
+  <text x="72" y="180" font-family="Georgia, serif" font-size="12" fill="#cccccc">[Date]</text>
+  <text x="72" y="220" font-family="Georgia, serif" font-size="12" fill="#cccccc">[Recipient Name]</text>
+  <text x="72" y="236" font-family="Georgia, serif" font-size="12" fill="#cccccc">[Address Line 1]</text>
+  <text x="72" y="252" font-family="Georgia, serif" font-size="12" fill="#cccccc">[City, State ZIP]</text>
+
+  <text x="72" y="300" font-family="Georgia, serif" font-size="12" fill="#cccccc">Dear [Name],</text>
+  <text x="72" y="340" font-family="Georgia, serif" font-size="12" fill="#cccccc">[Your letter content goes here...]</text>
+
+  <!-- Footer -->
+  <line x1="72" y1="720" x2="540" y2="720" stroke="#8fa5a4" stroke-width="1"/>
+
+  <text x="72" y="745" font-family="Arial, sans-serif" font-size="8" fill="#5a6b4a">www.libertycherie.com</text>
+  <text x="200" y="745" font-family="Arial, sans-serif" font-size="8" fill="#5a6b4a">hello@libertycherie.com</text>
+  <text x="350" y="745" font-family="Arial, sans-serif" font-size="8" fill="#5a6b4a">@libertycherie</text>
+  <text x="480" y="745" font-family="Arial, sans-serif" font-size="8" fill="#5a6b4a">+1 (555) 123-4567</text>
+
+  <!-- Small floral accent footer -->
+  <circle cx="540" y="760" r="6" fill="#d4728c" opacity="0.5"/>
+  <circle cx="555" cy="770" r="4" fill="#c64b4b" opacity="0.5"/>
+  <circle cx="570" cy="758" r="5" fill="#f5e6d3" opacity="0.5"/>
+</svg>
