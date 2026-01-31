@@ -26,7 +26,6 @@ export default function ProductCard({ product }: ProductCardProps) {
     e.preventDefault();
     e.stopPropagation();
     addItem(product);
-    openCart();
     toast.success(`${localized(product, 'name', locale)} ${t.products.addedToCart}`, {
       description: t.products.clickToViewCart,
       action: {
@@ -76,12 +75,12 @@ export default function ProductCard({ product }: ProductCardProps) {
               )}
               <Image
                 src={product.images[0]}
-                alt={product.name}
+                alt={localized(product, 'name', locale)}
                 fill
                 className={`object-cover transition-all duration-500 ${
                   imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
                 }`}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 640px) 50vw, (max-width: 1200px) 50vw, 33vw"
                 onLoad={() => setImageLoaded(true)}
               />
             </>
@@ -110,7 +109,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <div className="quick-add">
               <button
                 onClick={handleAddToCart}
-                className="w-full py-3 bg-navy text-white text-[11px] font-medium tracking-[2px] uppercase rounded-sm hover:bg-secondary transition-colors flex items-center justify-center gap-2"
+                className="w-full py-3 bg-navy text-white text-[10px] tracking-[1px] sm:text-[11px] sm:tracking-[2px] font-medium uppercase rounded-sm hover:bg-secondary transition-colors flex items-center justify-center gap-2"
               >
                 <ShoppingBag className="w-4 h-4" />
                 {t.products.quickAdd}

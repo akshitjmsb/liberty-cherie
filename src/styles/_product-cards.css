@@ -151,3 +151,13 @@
 .product-card .color-dot.active {
   box-shadow: 0 0 0 2px var(--color-primary);
 }
+
+/* Mobile: tighter text for 2-column grid (~156-163px card width) */
+@media (max-width: 639px) {
+  .product-card .product-name {
+    font-size: 16px;
+  }
+  .product-card .product-info {
+    padding: var(--space-sm);
+  }
+}

@@ -47,6 +47,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
+@media (max-width: 639px) {
+  .price {
+    font-size: 1rem;
+  }
+}
+
 .price-strikethrough {
   text-decoration: line-through;
   color: var(--color-soft-gray);

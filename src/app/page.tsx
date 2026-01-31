@@ -1,9 +1,12 @@
 import { getFeaturedProducts, getProducts } from '@/lib/products';
 import { getProductsByPersona } from '@/lib/personas';
+import FeaturedProductsSchema from '@/components/product/FeaturedProductsSchema';
 import HomePageContent from './HomePageContent';
 
 // Revalidate every 5 minutes
 export const revalidate = 300;
+
+const MOCK_TIMESTAMP = '2025-01-01T00:00:00.000Z';
 
 // Mock featured products for initial development
 const mockFeaturedProducts = [
@@ -21,8 +24,8 @@ const mockFeaturedProducts = [
     tags: ['floral', 'daisy'],
     in_stock: true,
     featured: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: MOCK_TIMESTAMP,
+    updated_at: MOCK_TIMESTAMP,
   },
   {
     id: '2',
@@ -38,8 +41,8 @@ const mockFeaturedProducts = [
     tags: ['rose', 'tote'],
     in_stock: true,
     featured: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: MOCK_TIMESTAMP,
+    updated_at: MOCK_TIMESTAMP,
   },
   {
     id: '3',
@@ -55,8 +58,8 @@ const mockFeaturedProducts = [
     tags: ['frida-kahlo', 'clutch'],
     in_stock: true,
     featured: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: MOCK_TIMESTAMP,
+    updated_at: MOCK_TIMESTAMP,
   },
   {
     id: '4',
@@ -72,8 +75,8 @@ const mockFeaturedProducts = [
     tags: ['crossbody', 'travel'],
     in_stock: true,
     featured: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: MOCK_TIMESTAMP,
+    updated_at: MOCK_TIMESTAMP,
   },
 ];
 
@@ -112,10 +115,13 @@ export default async function HomePage() {
   }
 
   return (
-    <HomePageContent
-      featuredProducts={featuredProducts}
-      giftProducts={giftProducts}
-      travelProducts={travelProducts}
-    />
+    <>
+      <FeaturedProductsSchema products={featuredProducts} />
+      <HomePageContent
+        featuredProducts={featuredProducts}
+        giftProducts={giftProducts}
+        travelProducts={travelProducts}
+      />
+    </>
   );
 }

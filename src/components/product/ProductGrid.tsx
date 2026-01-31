@@ -13,7 +13,7 @@ export default function ProductGrid({ products, loading }: ProductGridProps) {
   const { t } = useTranslation();
   if (loading) {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
         {[...Array(8)].map((_, i) => (
           <div key={i} className="card">
             <div className="aspect-[3/4] skeleton" />
@@ -41,7 +41,7 @@ export default function ProductGrid({ products, loading }: ProductGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
       {products.map((product, index) => (
         <div
           key={product.id}

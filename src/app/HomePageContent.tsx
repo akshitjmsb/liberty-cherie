@@ -82,11 +82,11 @@ export default function HomePageContent({
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-20 bg-cream">
+      <section id="featured" aria-labelledby="featured-heading" className="py-20 bg-cream">
         <div className="container">
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-12">
-              <h2 className="font-display text-3xl lg:text-4xl text-navy">
+              <h2 id="featured-heading" className="font-display text-3xl lg:text-4xl text-navy">
                 {t.home.featuredTitle}
               </h2>
               <p className="mt-4 text-soft-gray max-w-2xl mx-auto">
