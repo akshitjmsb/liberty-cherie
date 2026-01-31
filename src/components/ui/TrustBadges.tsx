@@ -1,4 +1,7 @@
+'use client';
+
 import { Shield, Lock, Truck, CreditCard } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface TrustBadgesProps {
   variant?: 'horizontal' | 'vertical' | 'compact';
@@ -11,27 +14,13 @@ export default function TrustBadges({
   showPaymentIcons = true,
   className = '',
 }: TrustBadgesProps) {
+  const { t } = useTranslation();
+
   const badges = [
-    {
-      icon: Shield,
-      label: 'Secure Checkout',
-      description: '256-bit SSL encryption',
-    },
-    {
-      icon: Lock,
-      label: 'Privacy Protected',
-      description: 'Your data is safe',
-    },
-    {
-      icon: Truck,
-      label: 'Free Shipping',
-      description: 'On orders over $100',
-    },
-    {
-      icon: CreditCard,
-      label: 'Easy Payments',
-      description: 'All major cards accepted',
-    },
+    { icon: Shield, label: t.trust.secureCheckout, description: t.trust.secureCheckoutDesc },
+    { icon: Lock, label: t.trust.privacyProtected, description: t.trust.privacyProtectedDesc },
+    { icon: Truck, label: t.trust.freeShipping, description: t.trust.freeShippingDesc },
+    { icon: CreditCard, label: t.trust.easyPayments, description: t.trust.easyPaymentsDesc },
   ];
 
   if (variant === 'compact') {
@@ -39,7 +28,7 @@ export default function TrustBadges({
       <div className={`flex items-center gap-4 ${className}`}>
         <div className="flex items-center gap-1.5 text-soft-gray text-sm">
           <Shield className="w-4 h-4" />
-          <span>Secure Checkout</span>
+          <span>{t.trust.secureCheckout}</span>
         </div>
         {showPaymentIcons && (
           <div className="flex items-center gap-2">
@@ -84,7 +73,7 @@ export default function TrustBadges({
 
       {showPaymentIcons && (
         <div className="flex items-center justify-center gap-3 mt-6 pt-6 border-t border-cream">
-          <span className="text-soft-gray text-sm mr-2">We accept:</span>
+          <span className="text-soft-gray text-sm mr-2">{t.trust.weAccept}</span>
           <PaymentIcon type="visa" />
           <PaymentIcon type="mastercard" />
           <PaymentIcon type="amex" />

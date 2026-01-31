@@ -6,8 +6,10 @@ import Link from 'next/link';
 import { X, Plus, Minus, ShoppingBag } from 'lucide-react';
 import { toast } from 'sonner';
 import { useCartStore } from '@/store/cart';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function CartDrawer() {
+  const { t, locale } = useTranslation();
   // Swipe gesture state
   const drawerRef = useRef<HTMLDivElement>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -52,7 +54,7 @@ export default function CartDrawer() {
   }, [isOpen, closeCart]);
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-CA', {
+    return new Intl.NumberFormat(locale === 'fr' ? 'fr-CA' : 'en-CA', {
       style: 'currency',
       currency: 'CAD',
     }).format(price);
@@ -60,7 +62,7 @@ export default function CartDrawer() {
 
   const handleRemoveItem = (productId: string, productName: string) => {
     removeItem(productId);
-    toast.success(`${productName} removed from cart`);
+    toast.success(`${productName} ${t.cart.removedFromCart}`);
   };
 
   const handleUpdateQuantity = (productId: string, productName: string, newQuantity: number) => {
@@ -121,7 +123,7 @@ export default function CartDrawer() {
         ref={drawerRef}
         role="dialog"
         aria-modal="true"
-        aria-label="Shopping cart"
+        aria-label={t.cart.shoppingCart}
         className="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl animate-slide-in flex flex-col"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
@@ -141,14 +143,14 @@ export default function CartDrawer() {
         <div className="flex items-center justify-between p-4 border-b">
           <div className="flex items-center gap-2">
             <ShoppingBag className="w-5 h-5 text-primary" />
-            <h2 className="font-display text-xl">Your Cart</h2>
-            <span className="text-soft-gray">({items.length} items)</span>
+            <h2 className="font-display text-xl">{t.cart.yourCart}</h2>
+            <span className="text-soft-gray">({items.length} {t.cart.items})</span>
           </div>
           <button
             ref={closeButtonRef}
             onClick={closeCart}
             className="p-2 hover:bg-cream rounded-full transition-colors touch-target"
-            aria-label="Close cart"
+            aria-label={t.cart.closeCart}
           >
             <X className="w-5 h-5" />
           </button>
@@ -159,9 +161,9 @@ export default function CartDrawer() {
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center">
               <ShoppingBag className="w-16 h-16 text-cream mb-4" />
-              <p className="text-soft-gray mb-4">Your cart is empty</p>
+              <p className="text-soft-gray mb-4">{t.cart.emptyCart}</p>
               <button onClick={closeCart} className="btn-primary">
-                Continue Shopping
+                {t.cart.continueShopping}
               </button>
             </div>
           ) : (
@@ -206,7 +208,7 @@ export default function CartDrawer() {
                           onClick={() =>
                             handleUpdateQuantity(item.product.id, item.product.name, item.quantity - 1)
                           }
-                          aria-label="Decrease quantity"
+                          aria-label={t.cart.decreaseQuantity}
                         >
                           <Minus className="w-3.5 h-3.5" />
                         </button>
@@ -217,7 +219,7 @@ export default function CartDrawer() {
                           onClick={() =>
                             handleUpdateQuantity(item.product.id, item.product.name, item.quantity + 1)
                           }
-                          aria-label="Increase quantity"
+                          aria-label={t.cart.increaseQuantity}
                         >
                           <Plus className="w-3.5 h-3.5" />
                         </button>
@@ -227,9 +229,9 @@ export default function CartDrawer() {
                       <button
                         onClick={() => handleRemoveItem(item.product.id, item.product.name)}
                         className="cart-item-remove"
-                        aria-label="Remove item"
+                        aria-label={t.cart.removeItem}
                       >
-                        Remove
+                        {t.cart.remove}
                       </button>
                     </div>
                   </div>
@@ -247,18 +249,18 @@ export default function CartDrawer() {
 
             <div className="space-y-2 text-sm relative z-10">
               <div className="flex justify-between">
-                <span className="text-soft-gray">Subtotal</span>
+                <span className="text-soft-gray">{t.cart.subtotal}</span>
                 <span>{formatPrice(getSubtotal())}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-soft-gray">Tax (QC GST+QST)</span>
+                <span className="text-soft-gray">{t.cart.tax}</span>
                 <span>{formatPrice(getTax())}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-soft-gray">Shipping</span>
+                <span className="text-soft-gray">{t.cart.shipping}</span>
                 <span>
                   {getShipping() === 0 ? (
-                    <span className="text-secondary">Free</span>
+                    <span className="text-secondary">{t.cart.free}</span>
                   ) : (
                     formatPrice(getShipping())
                   )}
@@ -266,11 +268,11 @@ export default function CartDrawer() {
               </div>
               {getShipping() > 0 && (
                 <p className="text-xs text-soft-gray">
-                  Free shipping on orders over $100
+                  {t.cart.freeShippingNote}
                 </p>
               )}
               <div className="flex justify-between font-display text-lg pt-2 border-t border-cream">
-                <span>Total</span>
+                <span>{t.cart.total}</span>
                 <span className="text-primary">{formatPrice(getTotal())}</span>
               </div>
             </div>
@@ -280,14 +282,14 @@ export default function CartDrawer() {
               onClick={closeCart}
               className="btn-primary w-full mt-4 relative z-10"
             >
-              Proceed to Checkout
+              {t.cart.proceedToCheckout}
             </Link>
 
             <button
               onClick={closeCart}
               className="w-full text-center mt-2 text-soft-gray hover:text-navy transition-colors text-sm relative z-10"
             >
-              Continue Shopping
+              {t.cart.continueShopping}
             </button>
           </div>
         )}

@@ -4,6 +4,7 @@ import { Heart } from 'lucide-react';
 import { toast } from 'sonner';
 import { Product } from '@/types';
 import { useWishlistStore } from '@/store/wishlist';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface WishlistButtonProps {
   product: Product;
@@ -18,6 +19,7 @@ export default function WishlistButton({
   variant = 'icon',
   className = '',
 }: WishlistButtonProps) {
+  const { t } = useTranslation();
   const { toggleItem, isInWishlist } = useWishlistStore();
   const isWishlisted = isInWishlist(product.id);
 
@@ -33,14 +35,14 @@ export default function WishlistButton({
     toggleItem(product);
 
     if (isWishlisted) {
-      toast.success('Removed from wishlist', {
+      toast.success(t.wishlist.removedFromWishlist, {
         description: product.name,
       });
     } else {
-      toast.success('Added to wishlist', {
+      toast.success(t.wishlist.addedToWishlist, {
         description: product.name,
         action: {
-          label: 'View Wishlist',
+          label: t.wishlist.viewWishlist,
           onClick: () => {
             window.location.href = '/wishlist';
           },
@@ -54,7 +56,7 @@ export default function WishlistButton({
       <button
         onClick={handleToggle}
         className={`btn-secondary flex items-center gap-2 ${className}`}
-        aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+        aria-label={isWishlisted ? t.wishlist.removeFromWishlistAria : t.wishlist.addToWishlistAria}
         aria-pressed={isWishlisted}
       >
         <Heart
@@ -62,7 +64,7 @@ export default function WishlistButton({
             isWishlisted ? 'fill-primary text-primary' : ''
           }`}
         />
-        <span>{isWishlisted ? 'In Wishlist' : 'Add to Wishlist'}</span>
+        <span>{isWishlisted ? t.wishlist.inWishlist : t.wishlist.addToWishlist}</span>
       </button>
     );
   }
@@ -73,7 +75,7 @@ export default function WishlistButton({
       className={`p-2 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-colors touch-target ${
         isWishlisted ? 'bg-primary text-white' : ''
       } ${className}`}
-      aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+      aria-label={isWishlisted ? t.wishlist.removeFromWishlistAria : t.wishlist.addToWishlistAria}
       aria-pressed={isWishlisted}
     >
       <Heart

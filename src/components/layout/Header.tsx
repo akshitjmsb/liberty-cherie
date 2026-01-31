@@ -6,29 +6,32 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, ShoppingBag, ChevronDown, Users, Heart } from 'lucide-react';
 import { useCartStore } from '@/store/cart';
 import { useWishlistStore } from '@/store/wishlist';
+import { useTranslation } from '@/hooks/useTranslation';
 import CartDrawer from '@/components/cart/CartDrawer';
 import SearchBar from '@/components/search/SearchBar';
 import AnnouncementBar from '@/components/layout/AnnouncementBar';
 import Logo from '@/components/layout/Logo';
-
-const navigation = [
-  { name: 'Shop', href: '/products' },
-  { name: 'Bags', href: '/products?category=bags' },
-  { name: 'Pouches', href: '/products?category=pouches' },
-  { name: 'Accessories', href: '/products?category=accessories' },
-  { name: 'Custom Orders', href: '/custom-order' },
-];
-
-const shopForLinks = [
-  { name: 'Chic City Commuter', href: '/shop-for/chic-commuter' },
-  { name: 'Busy Quebec Mom', href: '/shop-for/busy-mom' },
-  { name: 'Ethical Minimalist', href: '/shop-for/ethical-minimalist' },
-  { name: 'Gift Ideas', href: '/shop-for/gift-professional' },
-  { name: 'Stylish Traveler', href: '/shop-for/stylish-traveler' },
-  { name: 'Arts & Culture Lover', href: '/shop-for/arts-culture' },
-];
+import LanguageToggle from '@/components/layout/LanguageToggle';
 
 export default function Header() {
+  const { t } = useTranslation();
+
+  const navigation = [
+    { name: t.nav.shop, href: '/products' },
+    { name: t.nav.bags, href: '/products?category=bags' },
+    { name: t.nav.pouches, href: '/products?category=pouches' },
+    { name: t.nav.accessories, href: '/products?category=accessories' },
+    { name: t.nav.customOrders, href: '/custom-order' },
+  ];
+
+  const shopForLinks = [
+    { name: t.shopForPersonas.chicCommuter, href: '/shop-for/chic-commuter' },
+    { name: t.shopForPersonas.busyMom, href: '/shop-for/busy-mom' },
+    { name: t.shopForPersonas.ethicalMinimalist, href: '/shop-for/ethical-minimalist' },
+    { name: t.shopForPersonas.giftIdeas, href: '/shop-for/gift-professional' },
+    { name: t.shopForPersonas.stylishTraveler, href: '/shop-for/stylish-traveler' },
+    { name: t.shopForPersonas.artsCulture, href: '/shop-for/arts-culture' },
+  ];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [shopForOpen, setShopForOpen] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
@@ -93,7 +96,7 @@ export default function Header() {
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:outline-none"
       >
-        Skip to main content
+        {t.nav.skipToContent}
       </a>
 
       <header
@@ -143,7 +146,7 @@ export default function Header() {
                   aria-expanded={shopForOpen}
                   aria-haspopup="true"
                 >
-                  Shop For
+                  {t.nav.shopFor}
                   <ChevronDown className={`w-4 h-4 transition-transform ${shopForOpen ? 'rotate-180' : ''}`} />
                 </button>
 
@@ -155,7 +158,7 @@ export default function Header() {
                       onClick={() => setShopForOpen(false)}
                     >
                       <Users className="w-4 h-4" />
-                      All Collections
+                      {t.nav.allCollections}
                     </Link>
                     <div className="border-t border-cream my-2" />
                     {shopForLinks.map((link) => (
@@ -185,6 +188,9 @@ export default function Header() {
 
             {/* Right Actions */}
             <div className="flex items-center gap-4">
+              <div className="hidden md:block">
+                <LanguageToggle />
+              </div>
               <SearchBar />
 
               <Link
@@ -213,7 +219,7 @@ export default function Header() {
               <button
                 className="md:hidden p-2 text-navy"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="Toggle menu"
+                aria-label={t.aria.toggleMenu}
               >
                 {mobileMenuOpen ? (
                   <X className="w-6 h-6" />
@@ -234,7 +240,7 @@ export default function Header() {
                 className="block py-2 text-navy hover:text-primary transition-colors font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Shop All
+                {t.nav.shopAll}
               </Link>
 
               {/* Mobile Shop For Section */}
@@ -245,7 +251,7 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Users className="w-4 h-4" />
-                  Shop For...
+                  {t.nav.shopForEllipsis}
                 </Link>
                 <div className="ml-6 mt-2 space-y-1">
                   {shopForLinks.slice(0, 4).map((link) => (
@@ -263,7 +269,7 @@ export default function Header() {
                     className="block py-1 text-primary text-sm font-medium"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    View all →
+                    {t.nav.viewAll}
                   </Link>
                 </div>
               </div>
@@ -278,6 +284,10 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
+
+              <div className="pt-4 border-t border-cream">
+                <LanguageToggle variant="mobile-menu" />
+              </div>
             </div>
           </div>
         )}

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Mail, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 import InterestSelector from './InterestSelector';
 import { PersonaSlug } from '@/types';
 
@@ -20,6 +21,7 @@ export default function NewsletterForm({
   compact = false,
   className = '',
 }: NewsletterFormProps) {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [interests, setInterests] = useState<PersonaSlug[]>([]);
@@ -31,7 +33,7 @@ export default function NewsletterForm({
 
     if (!email) {
       setStatus('error');
-      setMessage('Please enter your email address');
+      setMessage(t.newsletter.emailRequired);
       return;
     }
 
@@ -55,17 +57,17 @@ export default function NewsletterForm({
 
       if (response.ok && data.success) {
         setStatus('success');
-        setMessage(data.message || 'Thank you for subscribing!');
+        setMessage(data.message || t.newsletter.subscribeToNewsletter);
         setEmail('');
         setFirstName('');
         setInterests([]);
       } else {
         setStatus('error');
-        setMessage(data.error || 'Something went wrong. Please try again.');
+        setMessage(data.error || t.newsletter.genericError);
       }
     } catch {
       setStatus('error');
-      setMessage('Failed to subscribe. Please try again later.');
+      setMessage(t.newsletter.failedToSubscribe);
     }
   };
 
@@ -80,7 +82,7 @@ export default function NewsletterForm({
           onClick={() => setStatus('idle')}
           className="text-primary hover:text-primary-dark mt-4 text-sm underline"
         >
-          Subscribe another email
+          {t.newsletter.subscribeAnother}
         </button>
       </div>
     );
@@ -96,7 +98,7 @@ export default function NewsletterForm({
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
+              placeholder={t.newsletter.enterEmail}
               className="form-input pl-10"
               disabled={status === 'loading'}
             />
@@ -109,7 +111,7 @@ export default function NewsletterForm({
             {status === 'loading' ? (
               <Loader2 className="w-5 h-5 animate-spin" />
             ) : (
-              'Subscribe'
+              t.newsletter.subscribe
             )}
           </button>
         </div>
@@ -129,14 +131,14 @@ export default function NewsletterForm({
         {/* Name Field */}
         <div>
           <label htmlFor="newsletter-name" className="form-label">
-            First Name (optional)
+            {t.newsletter.firstName}
           </label>
           <input
             id="newsletter-name"
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            placeholder="Your first name"
+            placeholder={t.newsletter.firstNamePlaceholder}
             className="form-input"
             disabled={status === 'loading'}
           />
@@ -145,7 +147,7 @@ export default function NewsletterForm({
         {/* Email Field */}
         <div>
           <label htmlFor="newsletter-email" className="form-label">
-            Email Address <span className="text-[var(--error)]">*</span>
+            {t.newsletter.emailAddress} <span className="text-[var(--error)]">*</span>
           </label>
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-soft-gray" />
@@ -154,7 +156,7 @@ export default function NewsletterForm({
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
+              placeholder={t.newsletter.emailPlaceholder}
               required
               className="form-input pl-10"
               disabled={status === 'loading'}
@@ -188,15 +190,15 @@ export default function NewsletterForm({
           {status === 'loading' ? (
             <span className="inline-flex items-center gap-2">
               <Loader2 className="w-5 h-5 animate-spin" />
-              Subscribing...
+              {t.newsletter.subscribing}
             </span>
           ) : (
-            'Subscribe to Newsletter'
+            t.newsletter.subscribeToNewsletter
           )}
         </button>
 
         <p className="text-xs text-soft-gray text-center">
-          We respect your privacy. Unsubscribe at any time.
+          {t.newsletter.privacyNote}
         </p>
       </div>
     </form>

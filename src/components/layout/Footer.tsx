@@ -4,29 +4,31 @@ import Link from 'next/link';
 import { Instagram, Mail, MapPin } from 'lucide-react';
 import NewsletterFooter from '@/components/newsletter/NewsletterFooter';
 import TrustBadges from '@/components/ui/TrustBadges';
-
-const footerLinks = {
-  shop: [
-    { name: 'All Products', href: '/products' },
-    { name: 'Bags', href: '/products?category=bags' },
-    { name: 'Pouches', href: '/products?category=pouches' },
-    { name: 'Accessories', href: '/products?category=accessories' },
-  ],
-  shopFor: [
-    { name: 'Chic Commuter', href: '/shop-for/chic-commuter' },
-    { name: 'Busy Mom', href: '/shop-for/busy-mom' },
-    { name: 'Gift Ideas', href: '/shop-for/gift-professional' },
-    { name: 'All Collections', href: '/shop-for' },
-  ],
-  info: [
-    { name: 'Custom Orders', href: '/custom-order' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Shipping & Returns', href: '/shipping' },
-  ],
-};
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function Footer() {
+  const { t } = useTranslation();
+
+  const footerLinks = {
+    shop: [
+      { name: t.footer.allProducts, href: '/products' },
+      { name: t.footer.bags, href: '/products?category=bags' },
+      { name: t.footer.pouches, href: '/products?category=pouches' },
+      { name: t.footer.accessories, href: '/products?category=accessories' },
+    ],
+    shopFor: [
+      { name: t.footer.chicCommuter, href: '/shop-for/chic-commuter' },
+      { name: t.footer.busyMom, href: '/shop-for/busy-mom' },
+      { name: t.footer.giftIdeas, href: '/shop-for/gift-professional' },
+      { name: t.footer.allCollections, href: '/shop-for' },
+    ],
+    info: [
+      { name: t.footer.customOrders, href: '/custom-order' },
+      { name: t.footer.aboutUs, href: '/about' },
+      { name: t.footer.contact, href: '/contact' },
+      { name: t.footer.shippingReturns, href: '/shipping' },
+    ],
+  };
   const currentYear = new Date().getFullYear();
 
   return (
@@ -44,9 +46,9 @@ export default function Footer() {
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <h4 className="font-display text-xl text-white">Join Our Newsletter</h4>
+              <h4 className="font-display text-xl text-white">{t.footer.joinNewsletter}</h4>
               <p className="text-white/80 text-sm mt-1">
-                Get updates on new arrivals and exclusive offers
+                {t.footer.newsletterSubtitle}
               </p>
             </div>
             <div className="w-full md:w-auto md:min-w-[320px]">
@@ -70,7 +72,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-white/60 text-sm mb-4 italic font-display">
-              Handcrafted bags, pouches, and accessories made with love in Saint-Sauveur, Quebec.
+              {t.footer.brandTagline}
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -94,7 +96,7 @@ export default function Footer() {
 
           {/* Shop Links */}
           <div>
-            <h4>Shop</h4>
+            <h4>{t.footer.shop}</h4>
             <ul className="space-y-2">
               {footerLinks.shop.map((link) => (
                 <li key={link.name}>
@@ -111,7 +113,7 @@ export default function Footer() {
 
           {/* Shop For Links */}
           <div>
-            <h4>Shop For</h4>
+            <h4>{t.footer.shopFor}</h4>
             <ul className="space-y-2">
               {footerLinks.shopFor.map((link) => (
                 <li key={link.name}>
@@ -128,7 +130,7 @@ export default function Footer() {
 
           {/* Info & Contact */}
           <div>
-            <h4>Info & Contact</h4>
+            <h4>{t.footer.infoContact}</h4>
             <ul className="space-y-2">
               {footerLinks.info.map((link) => (
                 <li key={link.name}>
@@ -171,14 +173,14 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-white/40 text-xs">
-            © {currentYear} Liberty Chérie Creation. All rights reserved.
+            © {currentYear} Liberty Chérie Creation. {t.footer.copyright}
           </p>
           <div className="flex items-center gap-6 text-sm text-white/50">
             <Link href="/privacy" className="hover:text-primary transition-colors">
-              Privacy Policy
+              {t.footer.privacyPolicy}
             </Link>
             <Link href="/terms" className="hover:text-primary transition-colors">
-              Terms of Service
+              {t.footer.termsOfService}
             </Link>
           </div>
         </div>

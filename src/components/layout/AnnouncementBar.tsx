@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const STORAGE_KEY = 'lc-announcement-dismissed';
 
 export default function AnnouncementBar() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -31,11 +33,11 @@ export default function AnnouncementBar() {
       aria-label="Announcement"
     >
       <div className="container flex items-center justify-center h-full relative">
-        <p className="px-8">Free shipping on orders over $75 CAD</p>
+        <p className="px-8">{t.announcement.freeShipping}</p>
         <button
           onClick={dismiss}
           className="absolute right-0 p-2 text-cream/70 hover:text-cream transition-colors"
-          aria-label="Dismiss announcement"
+          aria-label={t.announcement.dismiss}
         >
           <X className="w-4 h-4" />
         </button>

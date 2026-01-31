@@ -2,6 +2,7 @@
 
 import { PersonaSlug } from '@/types';
 import { personaLabels } from '@/lib/personas';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface InterestSelectorProps {
   selected: PersonaSlug[];
@@ -10,21 +11,23 @@ interface InterestSelectorProps {
   maxSelections?: number;
 }
 
-const interestOptions: { slug: PersonaSlug; label: string }[] = [
-  { slug: 'chic-commuter', label: 'Work & Commute' },
-  { slug: 'busy-mom', label: 'Family & Everyday' },
-  { slug: 'gift-professional', label: 'Gifts & Special Occasions' },
-  { slug: 'stylish-traveler', label: 'Travel & Festivals' },
-  { slug: 'arts-culture', label: 'Art & Culture' },
-  { slug: 'sport-wellness', label: 'Sport & Wellness' },
-];
-
 export default function InterestSelector({
   selected,
   onChange,
   disabled = false,
   maxSelections = 3,
 }: InterestSelectorProps) {
+  const { t } = useTranslation();
+
+  const interestOptions: { slug: PersonaSlug; label: string }[] = [
+    { slug: 'chic-commuter', label: t.newsletter.workCommute },
+    { slug: 'busy-mom', label: t.newsletter.familyEveryday },
+    { slug: 'gift-professional', label: t.newsletter.giftsOccasions },
+    { slug: 'stylish-traveler', label: t.newsletter.travelFestivals },
+    { slug: 'arts-culture', label: t.newsletter.artCulture },
+    { slug: 'sport-wellness', label: t.newsletter.sportWellness },
+  ];
+
   const handleToggle = (slug: PersonaSlug) => {
     if (selected.includes(slug)) {
       onChange(selected.filter((s) => s !== slug));
@@ -36,7 +39,7 @@ export default function InterestSelector({
   return (
     <div>
       <label className="block text-sm font-medium text-navy mb-2">
-        What interests you? (optional, select up to {maxSelections})
+        {`${t.newsletter.interests} (${t.newsletter.interestsOptional} ${maxSelections})`}
       </label>
       <div className="flex flex-wrap gap-2">
         {interestOptions.map(({ slug, label }) => {
@@ -68,7 +71,7 @@ export default function InterestSelector({
       </div>
       {selected.length > 0 && (
         <p className="text-xs text-soft-gray mt-2">
-          {selected.length} of {maxSelections} selected
+          {`${selected.length} ${t.newsletter.selected} ${maxSelections}`}
         </p>
       )}
     </div>

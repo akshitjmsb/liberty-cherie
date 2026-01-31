@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useRef, useCallback } from 'react';
 import { ArrowRight, ChevronDown, Star } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const FLORAL_SPEEDS = [-0.03, -0.05, -0.04, -0.06, -0.08];
 
@@ -19,6 +20,8 @@ export default function HeroSection() {
     },
     []
   );
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,14 +80,14 @@ export default function HeroSection() {
           <div>
             {/* Badge */}
             <span className="home-hero-stagger-1 inline-block px-4 py-2 bg-primary-light/30 text-primary rounded-full text-sm font-medium mb-6">
-              Handcrafted in Saint-Sauveur, Quebec
+              {t.hero.badge}
             </span>
 
             {/* Heading */}
             <h1 className="home-hero-stagger-2 font-display text-4xl md:text-5xl lg:text-6xl text-navy leading-tight">
-              Beautiful{' '}
+              {t.hero.headingBeautiful}{' '}
               <span className="relative inline-block">
-                <span className="text-primary">Floral</span>
+                <span className="text-primary">{t.hero.headingFloral}</span>
                 <svg
                   className="home-hero-keyword-underline"
                   viewBox="0 0 120 12"
@@ -101,16 +104,14 @@ export default function HeroSection() {
                   />
                 </svg>
               </span>{' '}
-              Accessories
+              {t.hero.headingAccessories}
               <br />
-              <span className="text-primary-dark">Freedom to Bloom</span>
+              <span className="text-primary-dark">{t.hero.headingTagline}</span>
             </h1>
 
             {/* Paragraph */}
             <p className="home-hero-stagger-3 mt-6 text-lg text-soft-gray max-w-lg">
-              Handcrafted in Saint-Sauveur using Liberty of London fabrics, each
-              piece celebrates slow fashion and the irreplaceable beauty of
-              artisanal craftsmanship.
+              {t.hero.paragraph}
             </p>
 
             {/* Social proof */}
@@ -124,18 +125,18 @@ export default function HeroSection() {
                 ))}
               </div>
               <span className="text-sm text-soft-gray font-medium">
-                Loved by 500+ customers
+                {t.hero.socialProof}
               </span>
             </div>
 
             {/* CTAs */}
             <div className="home-hero-stagger-5 mt-8 flex flex-wrap gap-4">
               <Link href="/products" className="btn-primary">
-                Shop Collection
+                {t.hero.ctaShop}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/custom-order" className="btn-secondary">
-                Custom Orders
+                {t.hero.ctaCustom}
               </Link>
             </div>
           </div>

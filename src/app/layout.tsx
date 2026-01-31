@@ -4,6 +4,7 @@ import { Toaster } from 'sonner';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import BottomNav from '@/components/layout/BottomNav';
+import HtmlLangSync from '@/components/layout/HtmlLangSync';
 import './globals.css';
 
 const montserrat = Montserrat({
@@ -89,8 +90,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${cormorant.variable}`}>
+    <html lang="fr" className={`${montserrat.variable} ${cormorant.variable}`}>
       <body className="antialiased min-h-screen flex flex-col">
+        <HtmlLangSync />
         <Header />
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />

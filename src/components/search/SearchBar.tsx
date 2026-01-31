@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { Search, X, Loader2 } from 'lucide-react';
 import { useProductSearch } from '@/hooks/useProductSearch';
 import { categoryLabels } from '@/lib/products';
+import { useTranslation } from '@/hooks/useTranslation';
+import { localizedLabel } from '@/lib/i18n/localize';
 
 interface SearchBarProps {
   onClose?: () => void;
@@ -14,6 +16,7 @@ interface SearchBarProps {
 }
 
 export default function SearchBar({ onClose, variant = 'header' }: SearchBarProps) {
+  const { t, locale } = useTranslation();
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const { products, loading } = useProductSearch(query);
@@ -74,7 +77,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
   };
 
   const formatPrice = (price: number, currency: string = 'CAD') => {
-    return new Intl.NumberFormat('en-CA', {
+    return new Intl.NumberFormat(locale === 'fr' ? 'fr-CA' : 'en-CA', {
       style: 'currency',
       currency,
     }).format(price);
@@ -88,7 +91,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="p-2 text-navy hover:text-primary transition-colors"
-          aria-label="Search products"
+          aria-label={t.search.searchProducts}
           aria-expanded={isOpen}
         >
           <Search className="w-[22px] h-[22px]" />
@@ -102,9 +105,9 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search products..."
+                placeholder={t.search.placeholder}
                 className="w-full pl-10 pr-10 py-3 border-b border-cream focus:outline-none"
-                aria-label="Search products"
+                aria-label={t.search.searchProducts}
               />
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-soft-gray" />
               {query && (
@@ -112,7 +115,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
                   type="button"
                   onClick={() => setQuery('')}
                   className="absolute right-3 top-1/2 -translate-y-1/2 p-1 hover:bg-cream rounded-full"
-                  aria-label="Clear search"
+                  aria-label={t.search.clearSearch}
                 >
                   <X className="w-4 h-4 text-soft-gray" />
                 </button>
@@ -146,7 +149,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
                             />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center text-soft-gray text-xs">
-                              No image
+                              {t.products.noImage}
                             </div>
                           )}
                         </div>
@@ -155,7 +158,7 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
                             {product.name}
                           </p>
                           <p className="text-sm text-soft-gray">
-                            {categoryLabels[product.category]?.en || product.category}
+                            {localizedLabel(categoryLabels[product.category], locale) || product.category}
                           </p>
                         </div>
                         <span className="text-primary font-medium">
@@ -168,18 +171,18 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
                       onClick={handleProductClick}
                       className="block text-center py-3 text-primary hover:bg-cream transition-colors font-medium border-t border-cream"
                     >
-                      View all results
+                      {t.search.viewAllResults}
                     </Link>
                   </div>
                 ) : (
                   <div className="py-8 text-center text-soft-gray">
-                    <p>No products found for &ldquo;{query}&rdquo;</p>
+                    <p>{t.search.noResults} &ldquo;{query}&rdquo;</p>
                     <Link
                       href="/products"
                       onClick={handleProductClick}
                       className="text-primary hover:underline mt-2 inline-block"
                     >
-                      Browse all products
+                      {t.search.browseAll}
                     </Link>
                   </div>
                 )}
@@ -204,9 +207,9 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
             setIsOpen(true);
           }}
           onFocus={() => setIsOpen(true)}
-          placeholder="Search products..."
+          placeholder={t.search.placeholder}
           className="form-input pl-10 pr-10"
-          aria-label="Search products"
+          aria-label={t.search.searchProducts}
         />
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-soft-gray" />
         {loading && (
@@ -238,14 +241,14 @@ export default function SearchBar({ onClose, variant = 'header' }: SearchBarProp
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-soft-gray text-xs">
-                    No image
+                    {t.products.noImage}
                   </div>
                 )}
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-medium text-navy truncate">{product.name}</p>
                 <p className="text-sm text-soft-gray">
-                  {categoryLabels[product.category]?.en || product.category}
+                  {localizedLabel(categoryLabels[product.category], locale) || product.category}
                 </p>
               </div>
               <span className="text-primary font-medium">

@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Star, User } from 'lucide-react';
 import ReviewForm from './ReviewForm';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface Review {
   id: string;
@@ -21,6 +22,7 @@ interface ReviewSectionProps {
 }
 
 export default function ReviewSection({ productId, productName }: ReviewSectionProps) {
+  const { t, locale } = useTranslation();
   const [reviews, setReviews] = useState<Review[]>([]);
   const [averageRating, setAverageRating] = useState(0);
   const [totalReviews, setTotalReviews] = useState(0);
@@ -54,7 +56,7 @@ export default function ReviewSection({ productId, productName }: ReviewSectionP
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-CA', {
+    return new Date(dateString).toLocaleDateString(locale === 'fr' ? 'fr-CA' : 'en-CA', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -102,14 +104,14 @@ export default function ReviewSection({ productId, productName }: ReviewSectionP
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
           <h2 className="font-display text-2xl text-navy">
-            Customer Reviews
+            {t.reviews.customerReviews}
           </h2>
           {totalReviews > 0 && (
             <div className="flex items-center gap-2 mt-2">
               <StarRating rating={Math.round(averageRating)} size="md" />
               <span className="text-navy font-medium">{averageRating}</span>
               <span className="text-soft-gray">
-                ({totalReviews} {totalReviews === 1 ? 'review' : 'reviews'})
+                ({totalReviews} {totalReviews === 1 ? t.reviews.review : t.reviews.reviews})
               </span>
             </div>
           )}
@@ -118,7 +120,7 @@ export default function ReviewSection({ productId, productName }: ReviewSectionP
           onClick={() => setShowForm(!showForm)}
           className="btn-secondary"
         >
-          {showForm ? 'Cancel' : 'Write a Review'}
+          {showForm ? t.reviews.cancel : t.reviews.writeReview}
         </button>
       </div>
 
@@ -126,7 +128,7 @@ export default function ReviewSection({ productId, productName }: ReviewSectionP
       {showForm && (
         <div className="mb-8 p-6 bg-cream rounded-lg">
           <h3 className="font-display text-xl text-navy mb-4">
-            Share Your Thoughts
+            {t.reviews.shareThoughts}
           </h3>
           <ReviewForm
             productId={productId}
@@ -139,7 +141,7 @@ export default function ReviewSection({ productId, productName }: ReviewSectionP
       {/* Reviews List */}
       {reviews.length === 0 ? (
         <div className="text-center py-8 text-soft-gray">
-          <p>No reviews yet. Be the first to share your experience!</p>
+          <p>{t.reviews.noReviews}</p>
         </div>
       ) : (
         <div className="space-y-6">
@@ -160,7 +162,7 @@ export default function ReviewSection({ productId, productName }: ReviewSectionP
                       </span>
                       {review.is_verified && (
                         <span className="text-xs bg-secondary/20 text-secondary-dark px-2 py-0.5 rounded-full">
-                          Verified Purchase
+                          {t.reviews.verifiedPurchase}
                         </span>
                       )}
                     </div>

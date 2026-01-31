@@ -8,6 +8,8 @@ import { toast } from 'sonner';
 import { Product } from '@/types';
 import { useCartStore } from '@/store/cart';
 import { categoryLabels } from '@/lib/products';
+import { useTranslation } from '@/hooks/useTranslation';
+import { localized, localizedLabel } from '@/lib/i18n/localize';
 import WishlistButton from './WishlistButton';
 
 interface ProductCardProps {
@@ -18,23 +20,24 @@ export default function ProductCard({ product }: ProductCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [selectedColor, setSelectedColor] = useState(product.colors?.[0]?.name);
   const { addItem, openCart } = useCartStore();
+  const { t, locale } = useTranslation();
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     addItem(product);
     openCart();
-    toast.success(`${product.name} added to cart`, {
-      description: 'Click to view your cart',
+    toast.success(`${localized(product, 'name', locale)} ${t.products.addedToCart}`, {
+      description: t.products.clickToViewCart,
       action: {
-        label: 'View Cart',
+        label: t.products.viewCart,
         onClick: () => openCart(),
       },
     });
   };
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-CA', {
+    return new Intl.NumberFormat(locale === 'fr' ? 'fr-CA' : 'en-CA', {
       style: 'currency',
       currency: product.currency || 'CAD',
     }).format(price);
@@ -46,13 +49,13 @@ export default function ProductCard({ product }: ProductCardProps) {
     || (!product.in_stock ? 'soldout' as const : undefined);
 
   const badgeLabel = badgeType === 'new'
-    ? 'New'
+    ? t.products.badgeNew
     : badgeType === 'sale'
       ? product.original_price
         ? `-${Math.round((1 - product.price / product.original_price) * 100)}%`
-        : 'Sale'
+        : t.products.badgeSale
       : badgeType === 'soldout'
-        ? 'Sold Out'
+        ? t.products.badgeSoldOut
         : null;
 
   const isSoldOut = badgeType === 'soldout' || !product.in_stock;
@@ -84,7 +87,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             </>
           ) : (
             <div className="w-full h-full bg-cream flex items-center justify-center">
-              <span className="text-soft-gray">No image</span>
+              <span className="text-soft-gray">{t.products.noImage}</span>
             </div>
           )}
 
@@ -110,7 +113,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                 className="w-full py-3 bg-navy text-white text-[11px] font-medium tracking-[2px] uppercase rounded-sm hover:bg-secondary transition-colors flex items-center justify-center gap-2"
               >
                 <ShoppingBag className="w-4 h-4" />
-                Quick Add
+                {t.products.quickAdd}
               </button>
             </div>
           )}
@@ -120,12 +123,12 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="product-info">
           {/* Category */}
           <div className="product-category">
-            {categoryLabels[product.category]?.en || product.category}
+            {localizedLabel(categoryLabels[product.category], locale) || product.category}
           </div>
 
           {/* Name */}
           <h3 className="product-name line-clamp-1">
-            {product.name}
+            {localized(product, 'name', locale)}
           </h3>
 
           {/* Price */}
@@ -151,7 +154,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                   }}
                   className={`color-dot ${selectedColor === color.name ? 'active' : ''}`}
                   style={{ backgroundColor: color.hex }}
-                  aria-label={`Select ${color.name} color`}
+                  aria-label={t.products.selectColor.replace('{color}', color.name)}
                 />
               ))}
             </div>

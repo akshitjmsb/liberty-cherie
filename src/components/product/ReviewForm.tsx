@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Star } from 'lucide-react';
 import { toast } from 'sonner';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface ReviewFormProps {
   productId: string;
@@ -15,6 +16,7 @@ export default function ReviewForm({
   productName,
   onSubmitted,
 }: ReviewFormProps) {
+  const { t } = useTranslation();
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [authorName, setAuthorName] = useState('');
@@ -26,17 +28,17 @@ export default function ReviewForm({
     e.preventDefault();
 
     if (rating === 0) {
-      toast.error('Please select a rating');
+      toast.error(t.reviews.selectRating);
       return;
     }
 
     if (!authorName.trim()) {
-      toast.error('Please enter your name');
+      toast.error(t.reviews.enterNameError);
       return;
     }
 
     if (!content.trim()) {
-      toast.error('Please write your review');
+      toast.error(t.reviews.writeReviewError);
       return;
     }
 
@@ -61,8 +63,8 @@ export default function ReviewForm({
         throw new Error('Failed to submit review');
       }
 
-      toast.success('Thank you for your review!', {
-        description: 'Your review has been submitted successfully.',
+      toast.success(t.reviews.reviewSuccess, {
+        description: t.reviews.reviewSuccessDesc,
       });
 
       // Reset form
@@ -72,8 +74,8 @@ export default function ReviewForm({
       setContent('');
       onSubmitted();
     } catch {
-      toast.error('Failed to submit review', {
-        description: 'Please try again later.',
+      toast.error(t.reviews.reviewError, {
+        description: t.reviews.reviewErrorDesc,
       });
     } finally {
       setSubmitting(false);
@@ -85,7 +87,7 @@ export default function ReviewForm({
       {/* Rating */}
       <div>
         <label className="form-label">
-          Your Rating <span className="text-primary">*</span>
+          {t.reviews.yourRating} <span className="text-primary">*</span>
         </label>
         <div
           className="flex gap-1 mt-1"
@@ -116,11 +118,11 @@ export default function ReviewForm({
         </div>
         {rating > 0 && (
           <p className="text-sm text-soft-gray mt-1">
-            {rating === 5 && 'Excellent!'}
-            {rating === 4 && 'Very Good'}
-            {rating === 3 && 'Good'}
-            {rating === 2 && 'Fair'}
-            {rating === 1 && 'Poor'}
+            {rating === 5 && t.reviews.ratingExcellent}
+            {rating === 4 && t.reviews.ratingVeryGood}
+            {rating === 3 && t.reviews.ratingGood}
+            {rating === 2 && t.reviews.ratingFair}
+            {rating === 1 && t.reviews.ratingPoor}
           </p>
         )}
       </div>
@@ -128,7 +130,7 @@ export default function ReviewForm({
       {/* Author Name */}
       <div>
         <label htmlFor="authorName" className="form-label">
-          Your Name <span className="text-primary">*</span>
+          {t.reviews.yourName} <span className="text-primary">*</span>
         </label>
         <input
           type="text"
@@ -136,7 +138,7 @@ export default function ReviewForm({
           value={authorName}
           onChange={(e) => setAuthorName(e.target.value)}
           className="form-input"
-          placeholder="Enter your name"
+          placeholder={t.reviews.enterName}
           maxLength={100}
           required
         />
@@ -145,7 +147,7 @@ export default function ReviewForm({
       {/* Review Title */}
       <div>
         <label htmlFor="reviewTitle" className="form-label">
-          Review Title
+          {t.reviews.reviewTitle}
         </label>
         <input
           type="text"
@@ -153,7 +155,7 @@ export default function ReviewForm({
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           className="form-input"
-          placeholder={`My experience with ${productName}`}
+          placeholder={`${t.reviews.reviewTitlePlaceholder} ${productName}`}
           maxLength={200}
         />
       </div>
@@ -161,19 +163,19 @@ export default function ReviewForm({
       {/* Review Content */}
       <div>
         <label htmlFor="reviewContent" className="form-label">
-          Your Review <span className="text-primary">*</span>
+          {t.reviews.yourReview} <span className="text-primary">*</span>
         </label>
         <textarea
           id="reviewContent"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           className="form-input min-h-[120px] resize-y"
-          placeholder="Share your experience with this product..."
+          placeholder={t.reviews.reviewPlaceholder}
           maxLength={2000}
           required
         />
         <p className="text-xs text-soft-gray mt-1">
-          {content.length}/2000 characters
+          {content.length}/2000 {t.reviews.characters}
         </p>
       </div>
 
@@ -183,7 +185,7 @@ export default function ReviewForm({
         disabled={submitting}
         className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {submitting ? 'Submitting...' : 'Submit Review'}
+        {submitting ? t.reviews.submitting : t.reviews.submitReview}
       </button>
     </form>
   );

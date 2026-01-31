@@ -15,6 +15,8 @@ import {
   LucideIcon,
 } from 'lucide-react';
 import { Persona } from '@/types';
+import { useTranslation } from '@/hooks/useTranslation';
+import { localized } from '@/lib/i18n/localize';
 
 interface PersonaCardProps {
   persona: Persona;
@@ -35,6 +37,7 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 export default function PersonaCard({ persona, compact = false }: PersonaCardProps) {
+  const { t, locale } = useTranslation();
   const Icon = iconMap[persona.icon || 'heart'] || Heart;
 
   if (compact) {
@@ -48,7 +51,7 @@ export default function PersonaCard({ persona, compact = false }: PersonaCardPro
         </div>
         <div className="flex-1 min-w-0">
           <p className="font-medium text-navy group-hover:text-primary transition-colors truncate">
-            {persona.name}
+            {localized(persona, 'name', locale)}
           </p>
         </div>
       </Link>
@@ -68,13 +71,13 @@ export default function PersonaCard({ persona, compact = false }: PersonaCardPro
         {/* Content */}
         <div className="p-5">
           <h3 className="font-display text-lg text-navy group-hover:text-primary transition-colors">
-            {persona.name}
+            {localized(persona, 'name', locale)}
           </h3>
           <p className="text-soft-gray text-sm mt-2 line-clamp-3">
-            {persona.description}
+            {localized(persona, 'description', locale)}
           </p>
           <div className="mt-4 flex items-center text-primary font-medium text-sm">
-            <span>Shop now</span>
+            <span>{t.shopFor.shopNow}</span>
             <svg
               className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
               fill="none"

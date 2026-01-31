@@ -16,6 +16,8 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { Persona } from '@/types';
+import { useTranslation } from '@/hooks/useTranslation';
+import { localized } from '@/lib/i18n/localize';
 
 interface PersonaHeroProps {
   persona: Persona;
@@ -35,6 +37,7 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 export default function PersonaHero({ persona }: PersonaHeroProps) {
+  const { t, locale } = useTranslation();
   const Icon = iconMap[persona.icon || 'heart'] || Heart;
 
   return (
@@ -46,7 +49,7 @@ export default function PersonaHero({ persona }: PersonaHeroProps) {
           className="inline-flex items-center gap-2 text-soft-gray hover:text-primary transition-colors mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>All Collections</span>
+          <span>{t.shopFor.allCollections}</span>
         </Link>
 
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
@@ -58,13 +61,13 @@ export default function PersonaHero({ persona }: PersonaHeroProps) {
           {/* Content */}
           <div className="text-center md:text-left flex-1">
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl text-navy">
-              {persona.name}
+              {localized(persona, 'name', locale)}
             </h1>
             <p className="text-xl md:text-2xl text-primary mt-4 font-display">
-              {persona.headline}
+              {localized(persona, 'headline', locale)}
             </p>
             <p className="text-soft-gray mt-4 max-w-2xl text-lg">
-              {persona.description}
+              {localized(persona, 'description', locale)}
             </p>
           </div>
         </div>

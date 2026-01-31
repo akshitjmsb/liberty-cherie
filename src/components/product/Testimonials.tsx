@@ -1,5 +1,8 @@
+'use client';
+
 import { Star, Quote } from 'lucide-react';
 import Image from 'next/image';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface Testimonial {
   id: string;
@@ -12,45 +15,6 @@ interface Testimonial {
   date?: string;
 }
 
-const testimonials: Testimonial[] = [
-  {
-    id: '1',
-    name: 'Sophie Tremblay',
-    location: 'Montreal, QC',
-    rating: 5,
-    text: "I absolutely love my Liberty Chérie tote bag! The craftsmanship is exceptional and the floral pattern is even more beautiful in person. It's become my go-to bag for work and weekends.",
-    product: 'Victoria Rose Tote Bag',
-    date: 'December 2024',
-  },
-  {
-    id: '2',
-    name: 'Marie-Claire Dubois',
-    location: 'Quebec City, QC',
-    rating: 5,
-    text: "The custom jacket transformation service exceeded my expectations. They took my plain denim jacket and turned it into a wearable piece of art. So many compliments!",
-    product: 'Custom Jacket Service',
-    date: 'November 2024',
-  },
-  {
-    id: '3',
-    name: 'Jennifer Wong',
-    location: 'Toronto, ON',
-    rating: 5,
-    text: "Perfect gift for my mother! The pouch is beautifully made and the packaging was so thoughtful. Shipping was fast and the quality is outstanding. Will definitely order again.",
-    product: 'Floral Daisy Pouch',
-    date: 'January 2025',
-  },
-  {
-    id: '4',
-    name: 'Isabelle Martin',
-    location: 'Saint-Sauveur, QC',
-    rating: 5,
-    text: "I've been a loyal customer since they started. Every piece is unique and you can tell it's made with love. The Liberty fabric patterns are always stunning and the quality is impeccable.",
-    product: 'Various Products',
-    date: 'Returning Customer',
-  },
-];
-
 interface TestimonialsProps {
   className?: string;
   limit?: number;
@@ -62,6 +26,27 @@ export default function Testimonials({
   limit = 3,
   variant = 'grid',
 }: TestimonialsProps) {
+  const { t } = useTranslation();
+
+  const testimonials: Testimonial[] = [
+    {
+      id: '1', name: 'Sophie Tremblay', location: 'Montreal, QC',
+      rating: 5, text: t.testimonials.t1Text, product: t.testimonials.t1Product, date: t.testimonials.t1Date,
+    },
+    {
+      id: '2', name: 'Marie-Claire Dubois', location: 'Quebec City, QC',
+      rating: 5, text: t.testimonials.t2Text, product: t.testimonials.t2Product, date: t.testimonials.t2Date,
+    },
+    {
+      id: '3', name: 'Jennifer Wong', location: 'Toronto, ON',
+      rating: 5, text: t.testimonials.t3Text, product: t.testimonials.t3Product, date: t.testimonials.t3Date,
+    },
+    {
+      id: '4', name: 'Isabelle Martin', location: 'Saint-Sauveur, QC',
+      rating: 5, text: t.testimonials.t4Text, product: t.testimonials.t4Product, date: '',
+    },
+  ];
+
   const displayedTestimonials = testimonials.slice(0, limit);
 
   if (variant === 'featured') {
@@ -180,10 +165,12 @@ interface TestimonialStatsProps {
 }
 
 export function TestimonialStats({ className = '' }: TestimonialStatsProps) {
+  const { t } = useTranslation();
+
   const stats = [
-    { value: '500+', label: 'Happy Customers' },
-    { value: '4.9', label: 'Average Rating' },
-    { value: '100%', label: 'Handcrafted' },
+    { value: '500+', label: t.testimonials.happyCustomers },
+    { value: '4.9', label: t.testimonials.averageRating },
+    { value: '100%', label: t.testimonials.handcrafted },
   ];
 
   return (

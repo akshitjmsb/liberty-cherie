@@ -6,22 +6,25 @@ import Link from 'next/link';
 import { Home, ShoppingBag, ShoppingCart, Heart } from 'lucide-react';
 import { useCartStore } from '@/store/cart';
 import { useWishlistStore } from '@/store/wishlist';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface NavItem {
+  key: 'home' | 'shop' | 'cart' | 'wishlist';
   href: string;
   label: string;
   icon: React.ComponentType<{ className?: string }>;
   isButton?: boolean;
 }
 
-const navItems: NavItem[] = [
-  { href: '/', label: 'Home', icon: Home },
-  { href: '/products', label: 'Shop', icon: ShoppingBag },
-  { href: '#cart', label: 'Cart', icon: ShoppingCart, isButton: true },
-  { href: '/wishlist', label: 'Wishlist', icon: Heart },
-];
-
 export default function BottomNav() {
+  const { t } = useTranslation();
+
+  const navItems: NavItem[] = [
+    { key: 'home', href: '/', label: t.bottomNav.home, icon: Home },
+    { key: 'shop', href: '/products', label: t.bottomNav.shop, icon: ShoppingBag },
+    { key: 'cart', href: '#cart', label: t.bottomNav.cart, icon: ShoppingCart, isButton: true },
+    { key: 'wishlist', href: '/wishlist', label: t.bottomNav.wishlist, icon: Heart },
+  ];
   const pathname = usePathname();
   const { openCart, getItemCount } = useCartStore();
   const rawWishlistCount = useWishlistStore().getItemCount();
@@ -45,7 +48,7 @@ export default function BottomNav() {
     <nav
       className="bottom-nav md:hidden"
       role="navigation"
-      aria-label="Mobile navigation"
+      aria-label={t.aria.mobileNav}
     >
       <div className="flex items-center justify-around h-[var(--bottom-nav-height)]">
         {navItems.map((item) => {
@@ -55,10 +58,10 @@ export default function BottomNav() {
           if (item.href === '#cart') {
             return (
               <button
-                key={item.label}
+                key={item.key}
                 onClick={handleCartClick}
                 className="flex flex-col items-center justify-center flex-1 h-full relative touch-target"
-                aria-label={`Open cart${itemCount > 0 ? `, ${itemCount} items` : ''}`}
+                aria-label={`${t.cart.openCart}${itemCount > 0 ? `, ${itemCount} ${t.cart.items}` : ''}`}
               >
                 <div className="relative">
                   <Icon
@@ -85,7 +88,7 @@ export default function BottomNav() {
 
           return (
             <Link
-              key={item.label}
+              key={item.key}
               href={item.href}
               className="flex flex-col items-center justify-center flex-1 h-full touch-target"
               aria-current={active ? 'page' : undefined}
@@ -96,7 +99,7 @@ export default function BottomNav() {
                     active ? 'text-primary' : 'text-navy'
                   }`}
                 />
-                {item.label === 'Wishlist' && wishlistCount > 0 && (
+                {item.key === 'wishlist' && wishlistCount > 0 && (
                   <span className="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
                     {wishlistCount > 99 ? '99+' : wishlistCount}
                   </span>
