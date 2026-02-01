@@ -8,7 +8,7 @@ import { useCartStore } from '@/store/cart';
 
 function SuccessContent() {
   const searchParams = useSearchParams();
-  const sessionId = searchParams.get('session_id');
+  const orderId = searchParams.get('orderId') || searchParams.get('transactionId');
   const { clearCart } = useCartStore();
 
   // Clear cart on successful checkout
@@ -54,10 +54,10 @@ function SuccessContent() {
           </div>
 
           {/* Order Reference */}
-          {sessionId && (
+          {orderId && (
             <div className="bg-white border border-cream rounded-lg p-4 mb-8">
               <p className="text-sm text-soft-gray">Order Reference</p>
-              <p className="font-mono text-navy text-sm truncate">{sessionId}</p>
+              <p className="font-mono text-navy text-sm truncate">{orderId}</p>
             </div>
           )}
 

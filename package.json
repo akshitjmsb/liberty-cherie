@@ -10,7 +10,6 @@
     "db:types": "npx supabase gen types typescript --project-id YOUR_PROJECT_ID > src/types/database.ts"
   },
   "dependencies": {
-    "@stripe/stripe-js": "^4.1.0",
     "@supabase/supabase-js": "^2.45.0",
     "dotenv": "^17.2.3",
     "lucide-react": "^0.460.0",
@@ -19,7 +18,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "sonner": "^2.0.7",
-    "stripe": "^16.12.0",
+    "square": "^44.0.0",
     "zustand": "^5.0.0"
   },
   "devDependencies": {

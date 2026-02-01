@@ -38,7 +38,7 @@ export default function PrivacyPage() {
                 <p className="mb-4">We may collect the following types of information:</p>
                 <ul className="list-disc list-inside space-y-2">
                   <li><strong>Personal Information:</strong> Name, email address, shipping address, phone number</li>
-                  <li><strong>Payment Information:</strong> Processed securely through Stripe; we do not store credit card details</li>
+                  <li><strong>Payment Information:</strong> Processed securely through Square; we do not store credit card details</li>
                   <li><strong>Order Information:</strong> Products purchased, order history, custom order requests</li>
                   <li><strong>Usage Data:</strong> How you interact with our website, pages visited, time spent</li>
                   <li><strong>Device Information:</strong> Browser type, IP address, device type</li>
@@ -61,7 +61,7 @@ export default function PrivacyPage() {
                 <h2 className="font-display text-xl text-navy mb-4">Information Sharing</h2>
                 <p className="mb-4">We may share your information with:</p>
                 <ul className="list-disc list-inside space-y-2">
-                  <li><strong>Payment Processors:</strong> Stripe, for secure payment processing</li>
+                  <li><strong>Payment Processors:</strong> Square, for secure payment processing</li>
                   <li><strong>Shipping Carriers:</strong> Canada Post or other carriers, to deliver your orders</li>
                   <li><strong>Service Providers:</strong> Supabase (database), Vercel (hosting)</li>
                 </ul>
@@ -76,7 +76,7 @@ export default function PrivacyPage() {
                 <p>
                   We implement appropriate security measures to protect your personal information.
                   All payment transactions are encrypted using SSL technology and processed through
-                  Stripe&apos;s secure payment infrastructure. However, no method of transmission over
+                  Square&apos;s secure payment infrastructure. However, no method of transmission over
                   the Internet is 100% secure.
                 </p>
               </div>

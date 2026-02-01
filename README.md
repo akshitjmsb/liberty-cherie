@@ -8,7 +8,7 @@ A beautiful e-commerce Progressive Web App (PWA) for Liberty Chérie Creation - 
 
 - **E-commerce Store** - Browse and purchase handcrafted products
 - **Shopping Cart** - Persistent cart with Zustand state management
-- **Stripe Checkout** - Secure payment processing
+- **Square Checkout** - Secure payment processing
 - **Custom Orders** - Request custom pieces or jacket transformations
 - **PWA Support** - Install as a mobile/desktop app
 - **Responsive Design** - Beautiful on all devices
@@ -21,7 +21,7 @@ A beautiful e-commerce Progressive Web App (PWA) for Liberty Chérie Creation - 
 - **Styling**: Tailwind CSS 4
 - **State Management**: Zustand
 - **Database**: Supabase (PostgreSQL)
-- **Payments**: Stripe
+- **Payments**: Square
 - **Deployment**: Vercel
 - **Icons**: Lucide React
 
@@ -44,7 +44,7 @@ libertycherie/
 │   │   ├── cart/         # Cart drawer
 │   │   ├── layout/       # Header, Footer
 │   │   └── product/      # ProductCard, ProductGrid
-│   ├── lib/              # Utilities (Supabase, Stripe, products)
+│   ├── lib/              # Utilities (Supabase, Square, products)
 │   ├── store/            # Zustand stores
 │   └── types/            # TypeScript types
 ├── scripts/              # Utility scripts
@@ -59,7 +59,7 @@ libertycherie/
 - Node.js 18+
 - npm or yarn
 - Supabase account
-- Stripe account
+- Square developer account
 
 ### 1. Clone & Install
 
@@ -74,11 +74,11 @@ npm install
 2. Go to SQL Editor and run the contents of `supabase/schema.sql`
 3. Copy your project URL and keys from Settings > API
 
-### 3. Set Up Stripe
+### 3. Set Up Square
 
-1. Create an account at [stripe.com](https://stripe.com)
-2. Get your API keys from Developers > API keys
-3. Set up a webhook endpoint for `checkout.session.completed`
+1. Create a developer account at [squareup.com/developers](https://squareup.com/developers)
+2. Create an application and get your access token, application ID, and location ID
+3. Set up a webhook subscription for `payment.completed`
 
 ### 4. Configure Environment Variables
 
@@ -94,9 +94,11 @@ NEXT_PUBLIC_SUPABASE_URL=your-project-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
-STRIPE_SECRET_KEY=sk_test_...
-STRIPE_WEBHOOK_SECRET=whsec_...
+SQUARE_ACCESS_TOKEN=your-square-access-token
+SQUARE_APPLICATION_ID=your-square-application-id
+SQUARE_LOCATION_ID=your-square-location-id
+SQUARE_ENVIRONMENT=sandbox
+SQUARE_WEBHOOK_SIGNATURE_KEY=your-webhook-signature-key
 
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
@@ -130,9 +132,9 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ### Post-Deployment
 
-1. **Update Stripe Webhook**: Add your production URL
-   - Endpoint: `https://yourdomain.com/api/webhooks/stripe`
-   - Events: `checkout.session.completed`, `payment_intent.succeeded`
+1. **Update Square Webhook**: Add your production URL
+   - Endpoint: `https://yourdomain.com/api/webhooks/square`
+   - Events: `payment.completed`
 
 2. **Update NEXT_PUBLIC_APP_URL**: Set to your production domain
 

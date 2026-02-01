@@ -51,7 +51,7 @@ export default function TermsPage() {
                 <ul className="list-disc list-inside space-y-2">
                   <li>All prices are displayed in Canadian Dollars (CAD)</li>
                   <li>Prices include applicable taxes where required</li>
-                  <li>Payment is processed securely through Stripe</li>
+                  <li>Payment is processed securely through Square</li>
                   <li>We reserve the right to modify prices without prior notice</li>
                   <li>Orders are not confirmed until payment is successfully processed</li>
                 </ul>

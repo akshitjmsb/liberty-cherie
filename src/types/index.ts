@@ -68,7 +68,8 @@ export interface Order {
   shipping: number;
   total: number;
   status: OrderStatus;
-  stripe_payment_intent_id?: string;
+  square_payment_id?: string;
+  square_order_id?: string;
   tracking_number?: string;
   created_at: string;
   updated_at: string;

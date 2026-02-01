@@ -6,7 +6,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Lock, CreditCard, ChevronDown, ChevronUp, ShoppingBag } from 'lucide-react';
 import { useCartStore } from '@/store/cart';
-import { getStripe } from '@/lib/stripe';
 
 interface ShippingForm {
   email: string;
@@ -55,7 +54,6 @@ export default function CheckoutPage() {
     setError(null);
 
     try {
-      // Create Stripe Checkout session
       const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -77,17 +75,8 @@ export default function CheckoutPage() {
         throw new Error(data.error || 'Failed to create checkout session');
       }
 
-      // Redirect to Stripe Checkout
-      const stripe = await getStripe();
-      if (stripe) {
-        const { error: stripeError } = await stripe.redirectToCheckout({
-          sessionId: data.sessionId,
-        });
-
-        if (stripeError) {
-          throw new Error(stripeError.message);
-        }
-      }
+      // Redirect to Square Checkout
+      window.location.href = data.checkoutUrl;
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
       setLoading(false);
@@ -314,7 +303,7 @@ export default function CheckoutPage() {
                 ) : (
                   <span className="flex items-center gap-2">
                     <CreditCard className="w-5 h-5" />
-                    Pay with Stripe
+                    Pay with Square
                   </span>
                 )}
               </button>
@@ -322,7 +311,7 @@ export default function CheckoutPage() {
               {/* Security Note */}
               <p className="flex items-center justify-center gap-2 text-sm text-soft-gray">
                 <Lock className="w-4 h-4" />
-                Secure checkout powered by Stripe
+                Secure checkout powered by Square
               </p>
             </form>
           </div>

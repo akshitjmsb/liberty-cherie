@@ -10,7 +10,7 @@ Handcrafted bags & accessories e-commerce site for a Quebec-based artisan busine
 - **Tailwind CSS 4**
 - **Zustand** (state management with persistence)
 - **Supabase** (database & auth)
-- **Stripe** (payments & webhooks)
+- **Square** (payments & webhooks)
 - **PWA** with service worker
 
 ## Commands
@@ -53,7 +53,7 @@ src/
 │   ├── _animations.css     # @keyframes, .animate-* utilities, stagger
 │   ├── _layout.css         # .container, .overlay, .skeleton, scrollbar
 │   └── _accessibility.css  # Focus indicators, .sr-only, reduced-motion
-├── lib/           # Utilities (supabase, stripe, products, personas)
+├── lib/           # Utilities (supabase, square, products, personas)
 ├── store/         # Zustand stores (cart.ts, wishlist.ts)
 ├── types/         # TypeScript types
 └── hooks/         # Custom React hooks
@@ -101,13 +101,13 @@ Zustand store at `src/store/cart.ts` with localStorage persistence.
 
 Copy `.env.local.example` to `.env.local` and configure:
 - Supabase: URL, anon key, service role key
-- Stripe: publishable key, secret key, webhook secret
+- Square: access token, application ID, location ID, environment, webhook signature key
 - App URL and admin email
 
 ## API Routes
 
-- `POST /api/checkout` - Create Stripe checkout session
-- `POST /api/webhooks/stripe` - Handle Stripe webhooks
+- `POST /api/checkout` - Create Square checkout payment link
+- `POST /api/webhooks/square` - Handle Square webhooks
 - `POST /api/contact` - Contact form submission
 - `POST /api/custom-order` - Custom order requests
 - `POST /api/newsletter/subscribe` - Newsletter signup
