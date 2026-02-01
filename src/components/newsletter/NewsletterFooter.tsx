@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Mail, CheckCircle, AlertCircle, Loader2, Send } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface NewsletterFooterProps {
   className?: string;
@@ -10,6 +11,7 @@ interface NewsletterFooterProps {
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
 
 export default function NewsletterFooter({ className = '' }: NewsletterFooterProps) {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<FormStatus>('idle');
   const [message, setMessage] = useState('');
@@ -19,7 +21,7 @@ export default function NewsletterFooter({ className = '' }: NewsletterFooterPro
 
     if (!email) {
       setStatus('error');
-      setMessage('Please enter your email');
+      setMessage(t.newsletter.emailRequired);
       return;
     }
 
@@ -41,17 +43,17 @@ export default function NewsletterFooter({ className = '' }: NewsletterFooterPro
 
       if (response.ok && data.success) {
         setStatus('success');
-        setMessage('Subscribed!');
+        setMessage(t.footer.newsletterSubscribed);
         setEmail('');
         // Reset after 3 seconds
         setTimeout(() => setStatus('idle'), 3000);
       } else {
         setStatus('error');
-        setMessage(data.error || 'Failed to subscribe');
+        setMessage(data.error || t.newsletter.failedToSubscribe);
       }
     } catch {
       setStatus('error');
-      setMessage('Connection error');
+      setMessage(t.newsletter.connectionError);
     }
   };
 
@@ -76,7 +78,7 @@ export default function NewsletterFooter({ className = '' }: NewsletterFooterPro
               setEmail(e.target.value);
               if (status === 'error') setStatus('idle');
             }}
-            placeholder="Your email"
+            placeholder={t.newsletter.yourEmail}
             className="w-full pl-9 pr-3 py-2 bg-white/10 border border-white/20 rounded-l-lg text-white placeholder-[var(--medium-gray)] text-sm focus:outline-none focus:border-white/40"
             disabled={status === 'loading'}
           />
@@ -85,7 +87,7 @@ export default function NewsletterFooter({ className = '' }: NewsletterFooterPro
           type="submit"
           disabled={status === 'loading'}
           className="px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-r-lg transition-colors disabled:opacity-50"
-          aria-label="Subscribe"
+          aria-label={t.newsletter.subscribe}
         >
           {status === 'loading' ? (
             <Loader2 className="w-4 h-4 animate-spin" />

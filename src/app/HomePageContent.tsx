@@ -4,7 +4,6 @@ import { useMemo } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Flower2, Sparkles, Heart, Truck, Gift, Plane, Star } from 'lucide-react';
 import ProductGrid from '@/components/product/ProductGrid';
-import PersonaSection from '@/components/persona/PersonaSection';
 import NewsletterForm from '@/components/newsletter/NewsletterForm';
 import Testimonials, { TestimonialStats } from '@/components/product/Testimonials';
 import AnimatedSection from '@/components/ui/AnimatedSection';
@@ -111,54 +110,66 @@ export default function HomePageContent({
       </section>
 
       {/* Perfect for Gifting Section */}
-      <section className="bg-white">
-        <div className="container py-16">
-          <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <Gift className="w-8 h-8 text-primary" />
-            </div>
-            <div>
+      <section className="py-20 bg-white">
+        <div className="container">
+          <AnimatedSection animation="fade-up">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+                <Gift className="w-8 h-8 text-primary" />
+              </div>
               <h2 className="font-display text-2xl md:text-3xl text-navy">
                 {t.home.giftTitle}
               </h2>
-              <p className="text-soft-gray mt-2">
+              <p className="text-soft-gray mt-2 max-w-2xl mx-auto">
                 {t.home.giftDesc}
               </p>
             </div>
-          </div>
-          <PersonaSection
-            title=""
-            products={giftProducts}
-            personaSlug="gift-professional"
-            ctaText={t.home.shopGiftIdeas}
-            className="!py-0"
-          />
+          </AnimatedSection>
+
+          <AnimatedSection animation="fade-up" delay={200}>
+            <ProductGrid products={giftProducts} />
+          </AnimatedSection>
+
+          <AnimatedSection animation="fade-up" delay={400}>
+            <div className="text-center mt-12">
+              <Link href="/shop-for/gift-professional" className="btn-secondary">
+                {t.home.shopGiftIdeas}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Travel Essentials Section */}
-      <section className="bg-cream">
-        <div className="container py-16">
-          <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <Plane className="w-8 h-8 text-primary" />
-            </div>
-            <div>
+      <section className="py-20 bg-cream">
+        <div className="container">
+          <AnimatedSection animation="fade-up">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+                <Plane className="w-8 h-8 text-primary" />
+              </div>
               <h2 className="font-display text-2xl md:text-3xl text-navy">
                 {t.home.travelTitle}
               </h2>
-              <p className="text-soft-gray mt-2">
+              <p className="text-soft-gray mt-2 max-w-2xl mx-auto">
                 {t.home.travelDesc}
               </p>
             </div>
-          </div>
-          <PersonaSection
-            title=""
-            products={travelProducts}
-            personaSlug="stylish-traveler"
-            ctaText={t.home.shopTravelAccessories}
-            className="!py-0"
-          />
+          </AnimatedSection>
+
+          <AnimatedSection animation="fade-up" delay={200}>
+            <ProductGrid products={travelProducts} />
+          </AnimatedSection>
+
+          <AnimatedSection animation="fade-up" delay={400}>
+            <div className="text-center mt-12">
+              <Link href="/shop-for/stylish-traveler" className="btn-secondary">
+                {t.home.shopTravelAccessories}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

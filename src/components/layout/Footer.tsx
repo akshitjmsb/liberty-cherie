@@ -1,13 +1,26 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Instagram, Mail, MapPin } from 'lucide-react';
-import NewsletterFooter from '@/components/newsletter/NewsletterFooter';
+import { Instagram, Mail, MapPin, ChevronUp } from 'lucide-react';
 import TrustBadges from '@/components/ui/TrustBadges';
 import { useTranslation } from '@/hooks/useTranslation';
 
 export default function Footer() {
   const { t } = useTranslation();
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const footerLinks = {
     shop: [
@@ -34,35 +47,18 @@ export default function Footer() {
   return (
     <footer className="footer">
       {/* Floral decorations */}
-      <div className="ft-f1" />
-      <div className="ft-f2" />
-      <div className="ft-f3" />
-      <div className="ft-f4" />
-      <div className="ft-f5" />
-      <div className="ft-f6" />
-
-      {/* Newsletter Section */}
-      <div className="bg-primary py-8 relative z-10">
-        <div className="container">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-center md:text-left">
-              <h4 className="font-display text-xl text-white">{t.footer.joinNewsletter}</h4>
-              <p className="text-white/80 text-sm mt-1">
-                {t.footer.newsletterSubtitle}
-              </p>
-            </div>
-            <div className="w-full md:w-auto md:min-w-[320px]">
-              <NewsletterFooter />
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="ft-f1" aria-hidden="true" />
+      <div className="ft-f2" aria-hidden="true" />
+      <div className="ft-f3" aria-hidden="true" />
+      <div className="ft-f4" aria-hidden="true" />
+      <div className="ft-f5" aria-hidden="true" />
+      <div className="ft-f6" aria-hidden="true" />
 
       {/* Main Footer */}
-      <div className="container py-16 relative z-10">
+      <div className="container py-12 md:py-16 relative z-10">
         <div className="footer-grid">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
+          <div>
             <Link href="/" className="footer-logo">
               <span className="font-display text-[32px] tracking-[8px] text-white">
                 LIBERTY
@@ -95,7 +91,7 @@ export default function Footer() {
           </div>
 
           {/* Shop Links */}
-          <div>
+          <nav aria-label={t.footer.shop}>
             <h4>{t.footer.shop}</h4>
             <ul className="space-y-2">
               {footerLinks.shop.map((link) => (
@@ -109,10 +105,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Shop For Links */}
-          <div>
+          <nav aria-label={t.footer.shopFor}>
             <h4>{t.footer.shopFor}</h4>
             <ul className="space-y-2">
               {footerLinks.shopFor.map((link) => (
@@ -126,10 +122,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Info & Contact */}
-          <div>
+          <nav aria-label={t.footer.infoContact}>
             <h4>{t.footer.infoContact}</h4>
             <ul className="space-y-2">
               {footerLinks.info.map((link) => (
@@ -143,7 +139,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="mt-4 space-y-3 text-sm text-white/70">
+            <address className="mt-4 space-y-3 text-sm text-white/70 not-italic">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                 <span>Saint-Sauveur, QC<br />J0R 1K0, Canada</span>
@@ -157,8 +153,8 @@ export default function Footer() {
                   contact@libertycherie.ca
                 </a>
               </div>
-            </div>
-          </div>
+            </address>
+          </nav>
         </div>
 
         {/* Trust Badges */}
@@ -166,7 +162,8 @@ export default function Footer() {
           <TrustBadges
             variant="compact"
             showPaymentIcons={true}
-            className="justify-center text-white/60 [&_svg]:text-white/60 [&_.text-soft-gray]:text-white/60"
+            theme="dark"
+            className="justify-center"
           />
         </div>
 
@@ -185,6 +182,15 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Back to top button */}
+      <button
+        className={`back-to-top ${showBackToTop ? 'visible' : ''}`}
+        onClick={scrollToTop}
+        aria-label={t.footer.backToTop}
+      >
+        <ChevronUp className="w-5 h-5" />
+      </button>
     </footer>
   );
 }

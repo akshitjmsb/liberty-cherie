@@ -3,11 +3,11 @@ import { getActivePersonas } from '@/lib/personas';
 import ShopForContent from './ShopForContent';
 
 export const metadata: Metadata = {
-  title: 'Shop For | Liberty Chérie Creation',
+  title: 'Collections | Liberty Chérie Creation',
   description:
     'Find the perfect handcrafted accessories for your lifestyle. Shop our curated collections designed for city commuters, busy moms, gift-givers, travelers, and more.',
   openGraph: {
-    title: 'Shop For | Liberty Chérie Creation',
+    title: 'Collections | Liberty Chérie Creation',
     description:
       'Find the perfect handcrafted accessories for your lifestyle. Shop our curated collections designed for city commuters, busy moms, gift-givers, travelers, and more.',
   },

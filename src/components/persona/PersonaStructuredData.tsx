@@ -51,7 +51,7 @@ export default function PersonaStructuredData({
         {
           '@type': 'ListItem',
           position: 2,
-          name: 'Shop For',
+          name: 'Collections',
           item: `${baseUrl}/shop-for`,
         },
         {

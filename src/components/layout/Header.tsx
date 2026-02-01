@@ -100,7 +100,7 @@ export default function Header() {
       </a>
 
       <header
-        className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-cream transition-transform duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-transform duration-300 ${
           headerHidden ? '-translate-y-full' : 'translate-y-0'
         }`}
       >
@@ -233,7 +233,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-cream animate-fade-in">
+          <div className="md:hidden bg-white border-t border-white/50 animate-fade-in">
             <div className="container py-4 space-y-2">
               <Link
                 href="/products"

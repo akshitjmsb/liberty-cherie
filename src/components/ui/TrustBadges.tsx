@@ -6,12 +6,14 @@ import { useTranslation } from '@/hooks/useTranslation';
 interface TrustBadgesProps {
   variant?: 'horizontal' | 'vertical' | 'compact';
   showPaymentIcons?: boolean;
+  theme?: 'light' | 'dark';
   className?: string;
 }
 
 export default function TrustBadges({
   variant = 'horizontal',
   showPaymentIcons = true,
+  theme = 'light',
   className = '',
 }: TrustBadgesProps) {
   const { t } = useTranslation();
@@ -24,18 +26,19 @@ export default function TrustBadges({
   ];
 
   if (variant === 'compact') {
+    const textColor = theme === 'dark' ? 'text-white/60' : 'text-soft-gray';
     return (
       <div className={`flex items-center gap-4 ${className}`}>
-        <div className="flex items-center gap-1.5 text-soft-gray text-sm">
+        <div className={`flex items-center gap-1.5 ${textColor} text-sm`}>
           <Shield className="w-4 h-4" />
           <span>{t.trust.secureCheckout}</span>
         </div>
         {showPaymentIcons && (
           <div className="flex items-center gap-2">
-            <PaymentIcon type="visa" />
-            <PaymentIcon type="mastercard" />
-            <PaymentIcon type="amex" />
-            <PaymentIcon type="applepay" />
+            <PaymentIcon type="visa" theme={theme} />
+            <PaymentIcon type="mastercard" theme={theme} />
+            <PaymentIcon type="amex" theme={theme} />
+            <PaymentIcon type="applepay" theme={theme} />
           </div>
         )}
       </div>
@@ -87,10 +90,13 @@ export default function TrustBadges({
 
 interface PaymentIconProps {
   type: 'visa' | 'mastercard' | 'amex' | 'applepay' | 'googlepay';
+  theme?: 'light' | 'dark';
 }
 
-function PaymentIcon({ type }: PaymentIconProps) {
-  const iconStyles = 'w-10 h-6 rounded bg-white border border-cream flex items-center justify-center';
+function PaymentIcon({ type, theme = 'light' }: PaymentIconProps) {
+  const iconStyles = theme === 'dark'
+    ? 'w-10 h-6 rounded bg-white/10 border border-white/20 flex items-center justify-center'
+    : 'w-10 h-6 rounded bg-white border border-cream flex items-center justify-center';
 
   const icons: Record<string, React.ReactNode> = {
     visa: (
